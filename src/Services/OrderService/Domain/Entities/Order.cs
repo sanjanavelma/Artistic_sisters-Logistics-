@@ -1,0 +1,17 @@
+using System;
+using System.Collections.Generic;
+using OrderService.Domain.Enums;
+
+namespace OrderService.Domain.Entities;
+
+public class Order
+{
+    public Guid Id { get; set; }
+    public Guid CustomerId { get; set; }
+    public OrderType Type { get; set; }
+    public OrderStatus Status { get; set; }
+    public decimal TotalAmount { get; set; }
+    public PaymentMode PaymentMode { get; set; }
+    public DateTime PlacedAt { get; set; } = DateTime.UtcNow;
+    public List<OrderItem> Items { get; set; } = new();
+}

@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using OrderService.Application.Commands.PlaceOrder;
 using OrderService.Application.Commands.PlaceCommission;
+using OrderService.Application.Commands.UpdateOrderStatus;
 using OrderService.Application.Queries.GetCustomerOrders;
 using OrderService.Application.Queries.GetAllOrders;
 using OrderService.Application.Queries.GetOrderById;
@@ -52,4 +53,18 @@ public class OrdersController : ControllerBase
         if (result == null) return NotFound(new { message = "Order not found" });
         return Ok(result);
     }
+
+    [HttpPatch("{id}/status")]
+    public async Task<IActionResult> UpdateStatus(Guid id, [FromBody] UpdateOrderStatusRequest req)
+    {
+        var cmd = new UpdateOrderStatusCommand { OrderId = id, Status = req.Status };
+        var result = await _mediator.Send(cmd);
+        if (!result.Success) return BadRequest(result);
+        return Ok(result);
+    }
+}
+
+public class UpdateOrderStatusRequest
+{
+    public OrderService.Domain.Enums.OrderStatus Status { get; set; }
 }

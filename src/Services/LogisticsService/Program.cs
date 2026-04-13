@@ -36,6 +36,8 @@ builder.Services.AddMassTransit(x =>
     x.AddConsumer<AssignAgentConsumer>();
     x.AddConsumer<CompensateAssignmentConsumer>();
     x.AddConsumer<DeliveryAgentRegisteredConsumer>();
+    // Listens for Admin status overrides and syncs the Logistics DB
+    x.AddConsumer<AdminStatusOverrideConsumer>();
 
     x.UsingRabbitMq((ctx, cfg) =>
     {
@@ -49,6 +51,7 @@ builder.Services.AddMassTransit(x =>
         cfg.ConfigureEndpoints(ctx);
     });
 });
+
 
 // ── 5. HANGFIRE SETUP ─────────────────────────────────────────────────────────
 // Hangfire stores job data in HangfireDB SQL Server

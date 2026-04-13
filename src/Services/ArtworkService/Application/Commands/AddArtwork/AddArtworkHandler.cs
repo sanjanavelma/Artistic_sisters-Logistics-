@@ -14,12 +14,17 @@ public class AddArtworkHandler
     public async Task<AddArtworkResult> Handle(
         AddArtworkCommand request, CancellationToken ct)
     {
+        var finalArtworkCode = string.IsNullOrWhiteSpace(request.ArtworkCode)
+            ? $"ART-{Guid.NewGuid().ToString().Substring(0, 8).ToUpper()}"
+            : request.ArtworkCode;
+
         var exists = await _db.Artworks
-            .AnyAsync(a => a.ArtworkCode == request.ArtworkCode, ct);
+            .AnyAsync(a => a.ArtworkCode == finalArtworkCode, ct);
         if (exists)
             return new AddArtworkResult
             { Success = false,
-              Message = $"Artwork code {request.ArtworkCode} already exists" };
+              Message = $"Artwork code {finalArtworkCode} already exists" };
+
         var artwork = new Artwork
         {
             Id = Guid.NewGuid(),
@@ -29,7 +34,7 @@ public class AddArtworkHandler
             ArtworkType = request.ArtworkType,
             Medium = request.Medium,
             Dimensions = request.Dimensions,
-            ArtworkCode = request.ArtworkCode,
+            ArtworkCode = finalArtworkCode,
             ImageUrl = request.ImageUrl,
             AvailableQuantity = request.AvailableQuantity,
             IsCustomizable = request.IsCustomizable,

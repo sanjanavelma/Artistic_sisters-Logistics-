@@ -130,7 +130,10 @@ public class AssignAgentHandler
             request.OrderId,
             agent.Id,
             vehicle.Id,
-            request.SLAHours);
+            request.SLAHours,
+            request.CustomerName,
+            request.CustomerEmail,
+            request.CustomerAddress);
 
         // Mark agent as busy — they can't take another order
         agent.AssignToOrder(request.OrderId);
@@ -148,14 +151,16 @@ public class AssignAgentHandler
 
         // ── STEP 6: Publish SUCCESS event ─────────────────────────────────────
         // Saga Orchestrator receives this and confirms dispatch
-        // Notification Service sends dealer the agent details
+        // Notification Service sends customer tracking info + agent assignment email
         await _publisher.Publish(new AgentAssignedEvent
         {
             OrderId = request.OrderId,
             AssignmentId = assignment.Id,
             AgentName = agent.Name,
+            AgentEmail = agent.Email,
             AgentPhone = agent.Phone,
             VehicleNumber = vehicle.RegistrationNumber,
+            CustomerAddress = request.CustomerAddress,
             SLADeadline = assignment.SLADeadline
         });
 

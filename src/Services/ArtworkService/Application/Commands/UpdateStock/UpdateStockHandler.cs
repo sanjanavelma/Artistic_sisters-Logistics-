@@ -17,7 +17,6 @@ public class UpdateStockHandler : IRequestHandler<UpdateStockCommand, UpdateStoc
         
         // Fix 1: Assignment instead of +=
         art.AvailableQuantity = request.Quantity;
-        art.IsActive = art.AvailableQuantity > 0;
         art.UpdatedAt = DateTime.UtcNow;
         await _db.SaveChangesAsync(ct);
         

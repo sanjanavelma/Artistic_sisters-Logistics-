@@ -25,6 +25,7 @@ public record ArtworkDto
     public int AvailableQuantity { get; init; }
     public bool IsCustomizable { get; init; }
     public bool IsAvailable { get; init; }
+    public bool IsComingSoon { get; init; }
     public int EstimatedCompletionDays { get; init; }
 }
 public class GetAllArtworksHandler
@@ -56,7 +57,8 @@ public class GetAllArtworksHandler
                 ImageUrl = a.ImageUrl,
                 AvailableQuantity = a.AvailableQuantity,
                 IsCustomizable = a.IsCustomizable,
-                IsAvailable = a.AvailableQuantity > 0,
+                IsAvailable = a.AvailableQuantity > 0 && !a.IsComingSoon,
+                IsComingSoon = a.IsComingSoon,
                 EstimatedCompletionDays = a.EstimatedCompletionDays
             }).ToListAsync(ct);
         await _cache.SetAsync(cacheKey, artworks,

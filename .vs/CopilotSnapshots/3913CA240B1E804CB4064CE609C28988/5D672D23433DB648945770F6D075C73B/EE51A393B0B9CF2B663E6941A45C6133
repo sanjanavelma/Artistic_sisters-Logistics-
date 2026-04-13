@@ -1,0 +1,29 @@
+﻿using ArtworkService.Domain.Entities;
+using ArtworkService.Infrastructure.Persistence;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+
+namespace ArtworkService.Application.Commands.AddArtwork;
+
+public class AddArtworkHandler : IRequestHandler<AddArtworkCommand, AddArtworkResult>
+{
+    private readonly ArtworkDbContext _db;
+    public AddArtworkHandler(ArtworkDbContext db) { _db = db; }
+    public async Task<AddArtworkResult> Handle(AddArtworkCommand request, CancellationToken ct)
+    {
+        var art = new Artwork
+        {
+            Id = Guid.NewGuid(),
+            Title = request.Title,
+            Description = request.Description,
+            Artist = request.Artist,
+            Price = request.Price,
+            Stock = request.Stock,
+            IsAvailable = request.Stock > 0,
+            CreatedAt = DateTime.UtcNow
+        };
+        _db.Artworks.Add(art);
+        await _db.SaveChangesAsync(ct);
+        return new AddArtworkResult { Success = true, ArtworkId = art.Id };
+    }
+}

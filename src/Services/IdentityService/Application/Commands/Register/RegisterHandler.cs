@@ -56,7 +56,8 @@ public class RegisterHandler : IRequestHandler<RegisterCommand, RegisterResult>
             Success = true,
             Message = "Registration successful",
             CustomerId = customer.Id,
-            Token = token
+            Token = token,
+            Email = customer.Email
         };
     }
     private string GenerateToken(Customer customer)

@@ -1,0 +1,18 @@
+﻿using MediatR;
+
+namespace ArtworkService.Application.Commands.AddArtwork;
+
+public record AddArtworkCommand : IRequest<AddArtworkResult>
+{
+    public string Title { get; init; } = string.Empty;
+    public string Description { get; init; } = string.Empty;
+    public string Artist { get; init; } = string.Empty;
+    public decimal Price { get; init; }
+    public int Stock { get; init; }
+}
+public record AddArtworkResult
+{
+    public bool Success { get; init; }
+    public string Message { get; init; } = string.Empty;
+    public Guid? ArtworkId { get; init; }
+}

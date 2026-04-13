@@ -1,0 +1,38 @@
+﻿using MassTransit;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using OrderService.Infrastructure.Persistence;
+using StackExchange.Redis;
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<OrderDbContext>(opt =>
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("OrderDB")));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Program>());
+builder.Services.AddMassTransit(x => {
+    x.UsingRabbitMq((ctx, cfg) => {
+        cfg.Host(builder.Configuration["RabbitMQ:Host"], h => {
+            h.Username(builder.Configuration["RabbitMQ:User"]!);
+            h.Password(builder.Configuration["RabbitMQ:Password"]!);
+        });
+    });
+});
+builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
+    ConnectionMultiplexer.Connect(builder.Configuration["Redis:ConnectionString"]));
+builder.Services.AddScoped<OrderCache>();
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<OrderDbContext>();
+    db.Database.Migrate();
+}
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+app.UseAuthorization();
+app.MapControllers();
+app.Run();

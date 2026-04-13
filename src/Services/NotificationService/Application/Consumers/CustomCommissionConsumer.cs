@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using NotificationService.Domain.Entities;
 using NotificationService.Infrastructure.Email;
 using NotificationService.Infrastructure.Persistence;
+using NotificationService.Application.EmailTemplates;
 
 namespace NotificationService.Application.Consumers;
 
@@ -33,24 +34,28 @@ public class CustomCommissionConsumer : IConsumer<CustomCommissionPlacedEvent>
 
         // ── Email to YOU (the artist) ─────────────────────────────────────
         var artistSubject = $"New Commission Request from {evt.CustomerName}!";
-        var artistBody = $@"
+        var artistContent = $@"
             <h2>New Custom Commission Request!</h2>
             <p><strong>Customer:</strong> {evt.CustomerName}</p>
             <p><strong>Email:</strong> {evt.CustomerEmail}</p>
             <hr/>
             <h3>Commission Details:</h3>
-            <p><strong>Artwork Type:</strong> {evt.ArtworkType}</p>
-            <p><strong>Medium:</strong> {evt.Medium}</p>
-            <p><strong>Size:</strong> {evt.Size}</p>
-            <p><strong>Budget:</strong> Rs.{evt.BudgetMin} - Rs.{evt.BudgetMax}</p>
-            <p><strong>Special Instructions:</strong> {evt.SpecialInstructions}</p>
-            <p><strong>Reference Photo:</strong> <a href='{evt.ReferencePhotoUrl}'>View Photo</a></p>
-            <hr/>
+            <div class='info-box'>
+                <p><strong>Artwork Type:</strong> {evt.ArtworkType}</p>
+                <p><strong>Medium:</strong> {evt.Medium}</p>
+                <p><strong>Size:</strong> {evt.Size}</p>
+                <p><strong>Budget:</strong> Rs.{evt.BudgetMin} - Rs.{evt.BudgetMax}</p>
+                <p><strong>Special Instructions:</strong> {evt.SpecialInstructions}</p>
+                <p><strong>Reference Photo:</strong> <a href='{evt.ReferencePhotoUrl}'>View Photo</a></p>
+            </div>
             <p>Order ID: {evt.OrderId}</p>
             <p>Placed At: {evt.PlacedAt:dd-MM-yyyy HH:mm}</p>
             <br/>
             <p>Login to your admin panel to review and quote.</p>
+            <a href='http://localhost:4200/admin' class='btn'>Go to Dashboard</a>
         ";
+
+        var artistBody = EmailTemplateBuilder.Build("New Commission Request", artistContent);
 
         // Send email to artist
         await _emailSender.SendEmailAsync(
@@ -61,19 +66,23 @@ public class CustomCommissionConsumer : IConsumer<CustomCommissionPlacedEvent>
 
         // ── Confirmation email to customer ────────────────────────────────
         var customerSubject = "Commission Request Received!";
-        var customerBody = $@"
+        var customerContent = $@"
             <h2>Thank you, {evt.CustomerName}!</h2>
             <p>Your custom commission request has been received.</p>
-            <h3>Your Request:</h3>
-            <p><strong>Type:</strong> {evt.ArtworkType}</p>
-            <p><strong>Medium:</strong> {evt.Medium}</p>
-            <p><strong>Size:</strong> {evt.Size}</p>
-            <p><strong>Budget:</strong> Rs.{evt.BudgetMin} - Rs.{evt.BudgetMax}</p>
+            <h3>Your Request Summary:</h3>
+            <div class='info-box'>
+                <p><strong>Type:</strong> {evt.ArtworkType}</p>
+                <p><strong>Medium:</strong> {evt.Medium}</p>
+                <p><strong>Size:</strong> {evt.Size}</p>
+                <p><strong>Budget:</strong> Rs.{evt.BudgetMin} - Rs.{evt.BudgetMax}</p>
+            </div>
             <br/>
-            <p>We will review your request and get back to you within 24 hours with a price quote.</p>
+            <p>We will review your request and get back to you within 24 hours with a custom artwork price quote.</p>
             <br/>
-            <p>— Artistic Sisters Team</p>
+            <p>— The Artistic Sisters Team</p>
         ";
+
+        var customerBody = EmailTemplateBuilder.Build("Commission Confirmation", customerContent);
 
         await _emailSender.SendEmailAsync(
             evt.CustomerEmail,

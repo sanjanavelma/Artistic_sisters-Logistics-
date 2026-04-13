@@ -5,6 +5,9 @@ namespace OrderService.Application.Commands.PlaceOrder;
 public record PlaceOrderCommand : IRequest<PlaceOrderResult>
 {
     public Guid CustomerId { get; init; }
+    public string CustomerName { get; init; } = string.Empty;
+    public string CustomerEmail { get; init; } = string.Empty;
+    public string ShippingAddress { get; init; } = string.Empty;
     public OrderType Type { get; init; }
     public PaymentMode PaymentMode { get; init; }
     public List<PlaceOrderItem> Items { get; init; } = new();

@@ -61,6 +61,9 @@ namespace ArtworkService.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsComingSoon")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsCustomizable")
                         .HasColumnType("bit");
 

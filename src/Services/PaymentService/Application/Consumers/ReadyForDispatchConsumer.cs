@@ -58,13 +58,31 @@ public class ReadyForDispatchConsumer : IConsumer<ReadyForDispatchEvent>
             Id = Guid.NewGuid(),
             OrderId = evt.OrderId,
             CustomerId = evt.CustomerId,
+            CustomerName = evt.CustomerName,
+            CustomerEmail = evt.CustomerEmail,
+            CustomerAddress = evt.CustomerAddress,
             State = SagaState.Started,
             StartedAt = DateTime.UtcNow
         };
 
+        // If it's an online payment, it MUST be confirmed already via the Gateway webhook
+        if (payment.PaymentMode != "COD" && payment.Status != PaymentStatus.Confirmed)
+        {
+            _logger.LogError("Cannot dispatch online order {OrderId} because payment is not Confirmed. Status: {Status}", evt.OrderId, payment.Status);
+            saga.State = SagaState.Failed;
+            saga.FailureReason = "Payment not successful via Gateway";
+            _db.DispatchSagas.Add(saga);
+            await _db.SaveChangesAsync();
+            return;
+        }
+
         // Lock payment — confirmed for this order
-        payment.Status = PaymentStatus.Confirmed;
         payment.ConfirmedAt = DateTime.UtcNow;
+        if (payment.PaymentMode == "COD")
+        {
+            // For COD, we can keep the status as Pending mathematically, but the saga allows it to pass.
+        }
+
         saga.PaymentLocked = true;
         saga.State = SagaState.PaymentLocked;
 
@@ -75,7 +93,10 @@ public class ReadyForDispatchConsumer : IConsumer<ReadyForDispatchEvent>
         await _publisher.Publish(new AssignAgentCommand
         {
             OrderId = evt.OrderId,
-            SLAHours = evt.SLAHours
+            SLAHours = evt.SLAHours,
+            CustomerName = saga.CustomerName,
+            CustomerEmail = saga.CustomerEmail,
+            CustomerAddress = saga.CustomerAddress
         });
 
         _logger.LogInformation(

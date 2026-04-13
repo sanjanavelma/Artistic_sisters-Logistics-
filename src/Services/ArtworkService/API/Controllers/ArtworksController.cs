@@ -48,4 +48,30 @@ public class ArtworksController : ControllerBase
         if (!result.Success) return BadRequest(result);
         return Ok(result);
     }
+
+    [HttpDelete("{id}")]
+    [Authorize(Roles = "Artist,Admin")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        var cmd = new ArtworkService.Application.Commands.DeleteArtwork.DeleteArtworkCommand { ArtworkId = id };
+        var result = await _mediator.Send(cmd);
+        if (!result.Success) return NotFound(result);
+        return Ok(result);
+    }
+
+    [HttpPatch("{id}/coming-soon")]
+    [Authorize(Roles = "Artist,Admin")]
+    public async Task<IActionResult> ToggleComingSoon(Guid id, [FromBody] ComingSoonRequest request)
+    {
+        var cmd = new ArtworkService.Application.Commands.ToggleComingSoon.ToggleComingSoonCommand
+        {
+            ArtworkId = id,
+            IsComingSoon = request.IsComingSoon
+        };
+        var result = await _mediator.Send(cmd);
+        if (!result.Success) return NotFound(result);
+        return Ok(result);
+    }
 }
+
+public record ComingSoonRequest(bool IsComingSoon);

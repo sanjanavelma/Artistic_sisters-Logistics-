@@ -1,0 +1,22 @@
+﻿using System.Text.Json;
+using ArtworkService.Domain.Entities;
+using StackExchange.Redis;
+
+namespace ArtworkService.Infrastructure.Cache;
+
+public class ArtworkCache
+{
+    private readonly IDatabase _db;
+    public ArtworkCache(IConnectionMultiplexer mux) { _db = mux.GetDatabase(); }
+    private static string Key(Guid id) => $"artwork:{id}";
+    public async Task SetAsync(Artwork art)
+    {
+        await _db.StringSetAsync(Key(art.Id), JsonSerializer.Serialize(art));
+    }
+    public async Task<Artwork?> GetAsync(Guid id)
+    {
+        var val = await _db.StringGetAsync(Key(id));
+        if (val.IsNullOrEmpty) return null;
+        return JsonSerializer.Deserialize<Artwork>(val!);
+    }
+}

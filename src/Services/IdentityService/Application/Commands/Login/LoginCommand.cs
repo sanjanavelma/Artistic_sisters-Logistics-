@@ -14,5 +14,6 @@ public record LoginResult
     public string? Token { get; init; }
     public string? Role { get; init; }
     public string? Name { get; init; }
+    public string? Email { get; init; }
     public Guid? CustomerId { get; init; }
 }

@@ -40,7 +40,11 @@ public class PlaceOrderHandler : IRequestHandler<PlaceOrderCommand, PlaceOrderRe
         var evt = new OrderPlacedEvent
         {
             OrderId = order.Id, CustomerId = order.CustomerId,
+            CustomerName = request.CustomerName,
+            CustomerEmail = request.CustomerEmail,
+            ShippingAddress = request.ShippingAddress,
             OrderType = request.Type.ToString(), TotalAmount = order.TotalAmount,
+            PaymentMode = order.PaymentMode.ToString(),
             PlacedAt = order.PlacedAt,
             Items = order.Items.Select(i => new OrderItemDto
             {

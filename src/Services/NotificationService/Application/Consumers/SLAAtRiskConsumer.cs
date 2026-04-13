@@ -29,7 +29,7 @@ public class SLAAtRiskConsumer : IConsumer<SLAAtRiskEvent>
         {
             Id = Guid.NewGuid(),
             EventType = nameof(SLAAtRiskEvent),
-            RecipientEmail = "customer@example.com", // Mocked
+            RecipientEmail = "", // Mocked
             Subject = $"Delivery Delay Alert — Order {evt.OrderId}",
             IsSuccess = true,
             SentAt = DateTime.UtcNow

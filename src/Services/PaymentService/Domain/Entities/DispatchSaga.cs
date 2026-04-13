@@ -13,6 +13,9 @@ public class DispatchSaga
 
     // Which customer — needed for notifications
     public Guid CustomerId { get; set; }
+    public string CustomerName { get; set; } = string.Empty;
+    public string CustomerEmail { get; set; } = string.Empty;
+    public string CustomerAddress { get; set; } = string.Empty;
 
     // Current state of the Saga
     public SagaState State { get; set; } = SagaState.Started;

@@ -1,0 +1,14 @@
+# Node
+node_modules/
+dist/
+artistic-sisters-angular/.angular/
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+
+# OS
+.DS_Store
+Thumbs.db

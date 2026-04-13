@@ -47,6 +47,8 @@ public class AgentAssignedConsumer : IConsumer<AgentAssignedEvent>
         {
             OrderId = evt.OrderId,
             CustomerId = saga.CustomerId,
+            CustomerName = saga.CustomerName,
+            CustomerEmail = saga.CustomerEmail,
             AgentName = evt.AgentName,
             AgentPhone = evt.AgentPhone,
             VehicleNumber = evt.VehicleNumber,

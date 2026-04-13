@@ -1,0 +1,28 @@
+﻿using ArtworkService.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+
+namespace ArtworkService.Infrastructure.Persistence;
+
+public class ArtworkDbContext : DbContext
+{
+    public ArtworkDbContext(DbContextOptions<ArtworkDbContext> options)
+        : base(options) { }
+
+    public DbSet<Artwork> Artworks => Set<Artwork>();
+    public DbSet<NotifyMeSubscription> NotifyMeSubscriptions => Set<NotifyMeSubscription>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Artwork>(entity =>
+        {
+            entity.HasKey(a => a.Id);
+            entity.Property(a => a.Title).HasMaxLength(300).IsRequired();
+            entity.Property(a => a.Price).HasColumnType("decimal(18,2)");
+        });
+        modelBuilder.Entity<NotifyMeSubscription>(entity =>
+        {
+            entity.HasKey(n => n.Id);
+            entity.HasIndex(n => new { n.ArtworkId, n.Email }).IsUnique();
+        });
+    }
+}

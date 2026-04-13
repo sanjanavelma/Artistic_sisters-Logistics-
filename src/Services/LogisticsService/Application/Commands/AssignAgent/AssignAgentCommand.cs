@@ -16,6 +16,11 @@ public record AssignAgentCommand : IRequest<AssignAgentResult>
 
     // How many hours the delivery must complete in
     public int SLAHours { get; init; } = 24;
+
+    // Output target for notifications
+    public string CustomerName { get; init; } = string.Empty;
+    public string CustomerEmail { get; init; } = string.Empty;
+    public string CustomerAddress { get; init; } = string.Empty;
 }
 
 public record AssignAgentResult

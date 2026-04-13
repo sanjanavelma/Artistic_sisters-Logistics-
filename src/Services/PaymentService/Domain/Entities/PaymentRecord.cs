@@ -22,6 +22,12 @@ public class PaymentRecord
     // COD or Online
     public string PaymentMode { get; set; } = string.Empty;
 
+    // Razorpay Order ID
+    public string? ProviderOrderId { get; set; }
+
+    // Razorpay Payment ID (after success)
+    public string? ProviderPaymentId { get; set; }
+
     // When payment record was created
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 

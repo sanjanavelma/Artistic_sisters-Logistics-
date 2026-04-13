@@ -48,6 +48,7 @@ public class LoginHandler : IRequestHandler<LoginCommand, LoginResult>
             Token = new JwtSecurityTokenHandler().WriteToken(token),
             Role = customer.Role,
             Name = customer.Name,
+            Email = customer.Email,
             CustomerId = customer.Id
         };
     }

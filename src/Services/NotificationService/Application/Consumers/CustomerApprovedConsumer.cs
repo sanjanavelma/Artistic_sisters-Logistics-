@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using NotificationService.Domain.Entities;
 using NotificationService.Infrastructure.Email;
 using NotificationService.Infrastructure.Persistence;
+using NotificationService.Application.EmailTemplates;
 
 namespace NotificationService.Application.Consumers;
 
@@ -28,16 +29,18 @@ public class CustomerApprovedConsumer : IConsumer<CustomerApprovedEvent>
         var evt = context.Message;
 
         var subject = "Account Approved — Welcome to Artistic Sisters!";
-        var body = $@"
+        var content = $@"
             <h2>Congratulations, {evt.Name}!</h2>
             <p>Your account has been <strong>approved</strong>.</p>
-            <p>You can now log in and start placing orders.</p>
-            <br/>
+            <p>You can now log in, browse our exclusive artwork collections, and start placing orders.</p>
+            <a href='http://localhost:4200/login' class='btn'>Login Now</a>
+            <br/><br/>
             <p><strong>Approved At:</strong> {evt.ApprovedAt:dd-MM-yyyy HH:mm}</p>
             <br/>
-            <p>Visit our portal to get started.</p>
-            <p>— Artistic Sisters Team</p>
+            <p>— The Artistic Sisters Team</p>
         ";
+
+        var body = EmailTemplateBuilder.Build("Account Approved", content);
 
         await _emailSender.SendEmailAsync(evt.Email, evt.Name, subject, body);
 

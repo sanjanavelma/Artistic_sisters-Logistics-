@@ -23,8 +23,12 @@ public class OutboxProcessor
                 switch (item.Type)
                 {
                     case "OrderPlacedEvent":
-                        var op = JsonSerializer.Deserialize<dynamic>(item.Payload);
-                        await _publisher.Publish(op);
+                        var op = JsonSerializer.Deserialize<Artistic_Sisters.Shared.Events.Order.OrderPlacedEvent>(item.Payload);
+                        if (op != null) await _publisher.Publish(op);
+                        break;
+                    case "CustomCommissionPlacedEvent":
+                        var cc = JsonSerializer.Deserialize<Artistic_Sisters.Shared.Events.Order.CustomCommissionPlacedEvent>(item.Payload);
+                        if (cc != null) await _publisher.Publish(cc);
                         break;
                     default:
                         break;

@@ -34,8 +34,20 @@ namespace PaymentService.Migrations
                     b.Property<DateTime?>("CompletedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CustomerAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CustomerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FailureReason")
                         .HasColumnType("nvarchar(max)");
@@ -83,6 +95,12 @@ namespace PaymentService.Migrations
 
                     b.Property<string>("PaymentMode")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProviderOrderId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProviderPaymentId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Status")

@@ -42,7 +42,7 @@ public class OrderPlacedConsumer : IConsumer<OrderPlacedEvent>
             CustomerId = evt.CustomerId,
             Amount = evt.TotalAmount,
             Status = PaymentStatus.Pending,
-            PaymentMode = "Online",
+            PaymentMode = evt.PaymentMode,
             CreatedAt = DateTime.UtcNow
         };
 

@@ -32,7 +32,10 @@ public class AssignAgentConsumer : IConsumer<Artistic_Sisters.Shared.Events.Paym
             new AssignAgentCommand
             {
                 OrderId = context.Message.OrderId,
-                SLAHours = context.Message.SLAHours
+                SLAHours = context.Message.SLAHours,
+                CustomerName = context.Message.CustomerName,
+                CustomerEmail = context.Message.CustomerEmail,
+                CustomerAddress = context.Message.CustomerAddress
             });
     }
 }

@@ -1,0 +1,11 @@
+﻿using System;
+
+namespace ArtworkService.Domain.Entities;
+
+public class NotifyMeSubscription
+{
+    public Guid Id { get; set; }
+    public Guid ArtworkId { get; set; }
+    public string Email { get; set; } = string.Empty;
+    public DateTime SubscribedAt { get; set; } = DateTime.UtcNow;
+}

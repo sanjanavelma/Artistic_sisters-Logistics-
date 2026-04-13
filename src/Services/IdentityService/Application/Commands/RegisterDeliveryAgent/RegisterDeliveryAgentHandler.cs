@@ -52,16 +52,9 @@ public class RegisterDeliveryAgentHandler
         _db.Customers.Add(agent);
         await _db.SaveChangesAsync(ct);
 
-        // Publish event so Notification service can send welcome email
-        await _publisher.Publish(new CustomerRegisteredEvent
-        {
-            CustomerId = agent.Id,
-            Name = agent.Name,
-            Email = agent.Email,
-            RegisteredAt = agent.RegisteredAt
-        });
-
-        // Publish event so Logistics service can create an Agent record
+        // Publish dedicated agent event so Notification service can send the correct welcome onboard email
+        // and Logistics service can create the internal Agent record.
+        // We SKIP the generic CustomerRegisteredEvent to avoid double-emailing agents.
         await _publisher.Publish(new DeliveryAgentRegisteredEvent
         {
             AgentId = agent.Id,

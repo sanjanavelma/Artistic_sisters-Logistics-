@@ -1,0 +1,125 @@
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RouterLink, Router } from '@angular/router';
+import { AuthService } from '../../../core/services/auth.service';
+
+const authStyles = `
+  .auth-page { display:grid; grid-template-columns:1fr 1fr; min-height:100vh; padding-top:70px; }
+  .auth-left {
+    background:linear-gradient(160deg,#f7ede8,#f0e8f4);
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    padding:48px; gap:32px;
+  }
+  .auth-brand { text-align:center; }
+  .brand-logo { width:72px; height:72px; border-radius:50%; overflow:hidden; margin:0 auto 16px; border:3px solid var(--pink-light); }
+  .brand-logo img { width:100%; height:100%; object-fit:cover; }
+  .auth-brand h2 { margin-bottom:8px; }
+  .auth-brand p  { color:var(--text-muted); font-size:0.93rem; line-height:1.7; max-width:280px; }
+  .auth-art-preview { width:100%; max-width:340px; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-lg); }
+  .auth-art-preview img { width:100%; aspect-ratio:3/4; object-fit:cover; display:block; }
+
+  .auth-right { display:flex; align-items:center; justify-content:center; padding:48px 24px; background:var(--white); }
+  .auth-card { width:100%; max-width:420px; }
+  .auth-card h2 { margin-bottom:6px; }
+  .auth-sub { color:var(--text-muted); font-size:0.9rem; margin-bottom:28px; }
+  .auth-submit { width:100%; justify-content:center; padding:13px !important; font-size:1rem !important; margin-top:4px; }
+  .auth-submit:disabled { opacity:0.7; cursor:not-allowed; }
+
+  .input-eye { position:relative; }
+  .input-eye .form-control { padding-right:44px; }
+  .eye-btn { position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; font-size:1rem; }
+
+  .auth-divider { display:flex; align-items:center; gap:12px; margin:24px 0; }
+  .auth-divider::before,.auth-divider::after { content:''; flex:1; height:1px; background:var(--border); }
+  .auth-divider span { font-size:0.82rem; color:var(--text-muted); }
+
+  .auth-switch { text-align:center; font-size:0.88rem; color:var(--text-muted); }
+  .auth-switch a { color:var(--pink); font-weight:500; }
+  .auth-switch a:hover { text-decoration:underline; }
+
+  .btn-spinner { width:16px; height:16px; border:2px solid rgba(255,255,255,0.4); border-top-color:#fff; border-radius:50%; animation:spin .7s linear infinite; display:inline-block; }
+
+  @media(max-width:768px){ .auth-page{grid-template-columns:1fr;} .auth-left{display:none;} }
+`;
+
+@Component({
+  selector: 'app-login',
+  imports: [FormsModule, CommonModule, RouterLink],
+  template: `
+    <div class="auth-page">
+      <div class="auth-left">
+        <div class="auth-brand">
+          <div class="brand-logo">
+            <img src="https://i.postimg.cc/NjcqPR8B/logo-artistic-sisters.jpg" alt="Logo" />
+          </div>
+          <h2>Welcome back</h2>
+          <p>Sign in to explore our gallery, place orders and track your artwork.</p>
+        </div>
+        <div class="auth-art-preview">
+          <img src="https://i.postimg.cc/P5gN6Dgz/mithal-portrait.jpg" alt="Artwork preview" />
+        </div>
+      </div>
+
+      <div class="auth-right">
+        <div class="auth-card">
+          <h2>Sign In</h2>
+          <p class="auth-sub">Enter your credentials to continue</p>
+
+          @if (error) { <div class="alert alert-error">{{ error }}</div> }
+
+          <form (ngSubmit)="submit()" #f="ngForm">
+            <div class="form-group">
+              <label>Email Address</label>
+              <input class="form-control" type="email" [(ngModel)]="email" name="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <div class="input-eye">
+                <input class="form-control" [type]="showPw ? 'text' : 'password'" [(ngModel)]="password" name="password" placeholder="Your password" required />
+                <button type="button" class="eye-btn" (click)="showPw=!showPw">{{ showPw ? '🙈' : '👁️' }}</button>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary auth-submit" [disabled]="loading">
+              @if (loading) { <span class="btn-spinner"></span> } @else { Sign In }
+            </button>
+          </form>
+
+          <div class="auth-divider"><span>or</span></div>
+
+          <p class="auth-switch">
+            New here?
+            <a routerLink="/auth/register">Create an account</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  `,
+  styles: [`${authStyles}`]
+})
+export class LoginComponent {
+  email = ''; password = ''; loading = false; error = ''; showPw = false;
+  constructor(private auth: AuthService, private router: Router) {}
+
+  submit() {
+    if (!this.email || !this.password) { this.error = 'Please fill all fields'; return; }
+    this.loading = true; this.error = '';
+    this.auth.login({ email: this.email, password: this.password }).subscribe({
+      next: res => {
+        this.loading = false;
+        if (res.success) {
+          if (res.role === 'Artist') this.router.navigate(['/artist']);
+          else if (res.role === 'DeliveryAgent') this.router.navigate(['/delivery/dashboard']);
+          else if (res.role === 'Admin') this.router.navigate(['/admin/dashboard']);
+          else this.router.navigate(['/portfolio']);
+        }
+        else this.error = res.message;
+      },
+      error: (err) => { 
+        this.loading = false; 
+        this.error = err.error?.message || 'Server error. Is the backend running?'; 
+      }
+    });
+  }
+}
+

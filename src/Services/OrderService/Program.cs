@@ -1,6 +1,7 @@
 using MassTransit;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using OrderService.Application.Consumers;
 using OrderService.Infrastructure.Persistence;
 using StackExchange.Redis;
 
@@ -9,11 +10,15 @@ builder.Services.AddDbContext<OrderDbContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("OrderDB")));
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Program>());
 builder.Services.AddMassTransit(x => {
+    // Receives agent status updates published by LogisticsService
+    x.AddConsumer<DeliveryStatusSyncConsumer>();
+
     x.UsingRabbitMq((ctx, cfg) => {
         cfg.Host(builder.Configuration["RabbitMQ:Host"], h => {
             h.Username(builder.Configuration["RabbitMQ:User"]!);
-            h.Password(builder.Configuration["RabbitMQ:Password"]!);
+                h.Password(builder.Configuration["RabbitMQ:Password"]!);
         });
+        cfg.ConfigureEndpoints(ctx);
     });
 });
 builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>

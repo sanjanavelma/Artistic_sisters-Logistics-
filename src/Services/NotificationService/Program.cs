@@ -20,6 +20,7 @@ builder.Services.AddMassTransit(x =>
     // Identity events
     x.AddConsumer<CustomerRegisteredConsumer>();
     x.AddConsumer<CustomerApprovedConsumer>();
+    x.AddConsumer<DeliveryAgentRegisteredConsumer>();
 
     // Order events
     x.AddConsumer<OrderPlacedConsumer>();
@@ -30,7 +31,11 @@ builder.Services.AddMassTransit(x =>
     x.AddConsumer<DispatchConfirmedConsumer>();
 
     // Logistics events
+    x.AddConsumer<AgentAssignedConsumer>();
     x.AddConsumer<SLAAtRiskConsumer>();
+
+    // Status sync — emails Customer + Agent + Admin on every status change
+    x.AddConsumer<OrderStatusChangedConsumer>();
 
     x.UsingRabbitMq((ctx, cfg) =>
     {

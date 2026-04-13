@@ -1,0 +1,127 @@
+<div class="page-header">
+  <div class="container text-center">
+    <h1 class="fade-up">Custom Commission</h1>
+    <div class="divider"></div>
+    <p class="page-sub fade-up-2">Request a bespoke artwork from our artists</p>
+  </div>
+</div>
+
+<section class="commission-section fade-up">
+  <div class="container">
+    
+    <!-- Success Message View -->
+    <div *ngIf="isSuccess" class="auth-card success-message">
+      <i class="fa fa-check-circle success-icon"></i>
+      <h2>Order Successful!</h2>
+      <p class="text-muted" style="margin-top:16px; font-size:1.1rem; line-height: 1.6;">
+        Your custom commission request has been received.<br>
+        Our artist will contact you through email shortly for further details and to discuss the process.
+      </p>
+      <button class="btn btn-outline" style="margin-top:32px;" onclick="window.location.reload()">Submit Another Request</button>
+    </div>
+
+    <!-- Form View -->
+    <div *ngIf="!isSuccess" class="auth-card">
+      <h3 style="margin-bottom: 32px; text-align: center;">Commission Details</h3>
+      
+      <div *ngIf="errorMessage" class="alert alert-error" style="background:#fde8e8; color:#c81e1e; padding:16px; border-radius:8px; margin-bottom:24px;">
+        {{ errorMessage }}
+      </div>
+
+      <form [formGroup]="commissionForm" (ngSubmit)="onSubmit()">
+        
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" formControlName="customerName" class="form-control" placeholder="Enter your name">
+            <span class="text-danger" *ngIf="commissionForm.get('customerName')?.touched && commissionForm.get('customerName')?.invalid">
+              Name is required
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" formControlName="customerEmail" class="form-control" placeholder="Enter your email">
+            <span class="text-danger" *ngIf="commissionForm.get('customerEmail')?.touched && commissionForm.get('customerEmail')?.invalid">
+              Valid email is required
+            </span>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Artwork Type *</label>
+            <select formControlName="artworkType" class="form-control">
+              <option value="" disabled>Select Type</option>
+              <option *ngFor="let type of artworkTypes" [value]="type">{{ type }}</option>
+            </select>
+            <span class="text-danger" *ngIf="commissionForm.get('artworkType')?.touched && commissionForm.get('artworkType')?.invalid">
+              Artwork type is required
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Medium *</label>
+            <select formControlName="medium" class="form-control">
+              <option value="" disabled>Select Medium</option>
+              <option *ngFor="let med of mediums" [value]="med">{{ med }}</option>
+            </select>
+            <span class="text-danger" *ngIf="commissionForm.get('medium')?.touched && commissionForm.get('medium')?.invalid">
+              Medium is required
+            </span>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Size Requirements *</label>
+            <select formControlName="size" class="form-control">
+              <option value="" disabled>Select Size</option>
+              <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
+            </select>
+            <span class="text-danger" *ngIf="commissionForm.get('size')?.touched && commissionForm.get('size')?.invalid">
+              Size is required
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Reference Photo URL</label>
+            <input type="url" formControlName="referencePhotoUrl" class="form-control" placeholder="Link to reference image (optional)">
+            <span class="text-danger" *ngIf="commissionForm.get('referencePhotoUrl')?.touched && commissionForm.get('referencePhotoUrl')?.invalid">
+              Must be a valid URL (e.g. https://...)
+            </span>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Minimum Budget ($) *</label>
+            <input type="number" formControlName="budgetMin" class="form-control" min="1" placeholder="e.g. 50">
+            <span class="text-danger" *ngIf="commissionForm.get('budgetMin')?.touched && commissionForm.get('budgetMin')?.invalid">
+              Valid positive number required
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Maximum Budget ($) *</label>
+            <input type="number" formControlName="budgetMax" class="form-control" min="1" placeholder="e.g. 150">
+            <span class="text-danger" *ngIf="commissionForm.get('budgetMax')?.touched && commissionForm.get('budgetMax')?.invalid">
+              Valid positive number required
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Special Instructions & Details</label>
+          <textarea formControlName="specialInstructions" class="form-control" rows="5" placeholder="Describe your vision, colors, mood, specific details, etc..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-submit" [disabled]="isSubmitting">
+          <span *ngIf="!isSubmitting">Submit Request</span>
+          <span *ngIf="isSubmitting">Submitting...</span>
+        </button>
+
+      </form>
+    </div>
+  </div>
+</section>

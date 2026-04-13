@@ -32,28 +32,25 @@ public class UpdateDeliveryStatusHandler
     public async Task<UpdateStatusResult> Handle(
         UpdateDeliveryStatusCommand request, CancellationToken ct)
     {
-        // Find the assignment
+        // ── Load assignment with all nav props ────────────────────────────────
         var assignment = await _db.Assignments
+            .Include(a => a.Agent)
+            .Include(a => a.Vehicle)
             .FirstOrDefaultAsync(a => a.OrderId == request.OrderId, ct);
 
         if (assignment == null)
-            return new UpdateStatusResult
-            {
-                Success = false,
-                Message = "Assignment not found"
-            };
+            return new UpdateStatusResult { Success = false, Message = "Assignment not found" };
 
-        // Update the status
+        var oldStatus = assignment.Status;
         assignment.Status = request.NewStatus;
 
-        // If GPS coordinates provided — update them
+        // ── GPS update ────────────────────────────────────────────────────────
         if (request.Latitude.HasValue && request.Longitude.HasValue)
         {
             assignment.LastLatitude = request.Latitude;
             assignment.LastLongitude = request.Longitude;
             assignment.LastGPSUpdate = DateTime.UtcNow;
 
-            // Update Redis GPS cache — dealer tracking page reads this
             await _cache.SetGPSAsync(
                 request.OrderId,
                 request.Latitude.Value,
@@ -62,34 +59,44 @@ public class UpdateDeliveryStatusHandler
 
         await _db.SaveChangesAsync(ct);
 
-        // If delivered — publish DeliveryCompletedEvent
-        // Order Service will close the order
-        // Notification Service will email the dealer
+        // ── If Delivered — release agent & vehicle ────────────────────────────
         if (request.NewStatus == DeliveryStatus.Delivered)
         {
+            assignment.Agent.Release();
+            assignment.Vehicle.IsAvailable = true;
+            await _db.SaveChangesAsync(ct);
+
+            // Also publish the original DeliveryCompletedEvent so existing
+            // NotificationService.DeliveryCompletedConsumer still fires correctly
             await _publisher.Publish(new DeliveryCompletedEvent
             {
                 OrderId = request.OrderId,
+                CustomerId = Guid.Empty,  // not stored on assignment; Order Service has it
+                CustomerName = assignment.CustomerName,
+                CustomerEmail = assignment.CustomerEmail,
                 DeliveredAt = DateTime.UtcNow
-            });
-
-            // Release agent and vehicle
-            var agentAssignment = await _db.Assignments
-                .Include(a => a.Agent)
-                .Include(a => a.Vehicle)
-                .FirstOrDefaultAsync(a => a.OrderId == request.OrderId, ct);
-
-            if (agentAssignment != null)
-            {
-                agentAssignment.Agent.Release();
-                agentAssignment.Vehicle.IsAvailable = true;
-                await _db.SaveChangesAsync(ct);
-            }
+            }, ct);
         }
 
+        // ── Publish OrderStatusChangedEvent:                                ──
+        //   → OrderService.DeliveryStatusSyncConsumer syncs Order DB
+        //   → NotificationService.OrderStatusChangedConsumer emails everyone
+        await _publisher.Publish(new OrderStatusChangedEvent
+        {
+            OrderId = request.OrderId,
+            UpdaterRole = "Agent",
+            NewStatus = request.NewStatus.ToString(),
+            OldStatus = oldStatus.ToString(),
+            CustomerName = assignment.CustomerName,
+            CustomerEmail = assignment.CustomerEmail,
+            AgentName = assignment.Agent?.Name ?? "",
+            AgentEmail = assignment.Agent?.Email ?? "",
+            ChangedAt = DateTime.UtcNow
+        }, ct);
+
         _logger.LogInformation(
-            "Order {OrderId} status updated to {Status}",
-            request.OrderId, request.NewStatus);
+            "Agent updated Order {OrderId} delivery: {Old} → {New}",
+            request.OrderId, oldStatus, request.NewStatus);
 
         return new UpdateStatusResult
         {

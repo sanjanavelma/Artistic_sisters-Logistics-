@@ -16,4 +16,5 @@ public record RegisterResult
     public string Message { get; init; } = string.Empty;
     public Guid? CustomerId { get; init; }
     public string? Token { get; init; }
+    public string? Email { get; init; }
 }

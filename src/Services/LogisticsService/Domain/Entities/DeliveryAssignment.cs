@@ -30,6 +30,11 @@ public class DeliveryAssignment
     // Used by Hangfire SLA monitor
     public DateTime SLADeadline { get; set; }
 
+    // Customer info — carried here for notification purposes
+    public string CustomerName { get; set; } = string.Empty;
+    public string CustomerEmail { get; set; } = string.Empty;
+    public string CustomerAddress { get; set; } = string.Empty;
+
     // Was this assignment rolled back by Saga compensation?
     // true = compensation ran, agent and vehicle were released
     public bool IsCompensated { get; set; } = false;
@@ -48,7 +53,8 @@ public class DeliveryAssignment
     // Factory method — creates a new assignment
     // SLAHours = how many hours delivery must complete in
     public static DeliveryAssignment Create(
-        Guid orderId, Guid agentId, Guid vehicleId, int slaHours = 24)
+        Guid orderId, Guid agentId, Guid vehicleId, int slaHours = 24,
+        string customerName = "", string customerEmail = "", string customerAddress = "")
     {
         return new DeliveryAssignment
         {
@@ -60,7 +66,10 @@ public class DeliveryAssignment
             AssignedAt = DateTime.UtcNow,
             // SLA deadline = now + slaHours
             SLADeadline = DateTime.UtcNow.AddHours(slaHours),
-            IsCompensated = false
+            IsCompensated = false,
+            CustomerName = customerName,
+            CustomerEmail = customerEmail,
+            CustomerAddress = customerAddress
         };
     }
 

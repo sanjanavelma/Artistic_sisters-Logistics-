@@ -1,0 +1,15 @@
+﻿using MediatR;
+using ArtworkService.Domain.Entities;
+
+namespace ArtworkService.Application.Queries.GetAllArtworks;
+
+public record GetAllArtworksQuery : IRequest<IEnumerable<Artwork>>;
+public class GetAllArtworksHandler : IRequestHandler<GetAllArtworksQuery, IEnumerable<Artwork>>
+{
+    private readonly ArtworkDbContext _db;
+    public GetAllArtworksHandler(ArtworkDbContext db) { _db = db; }
+    public async Task<IEnumerable<Artwork>> Handle(GetAllArtworksQuery request, CancellationToken ct)
+    {
+        return await _db.Artworks.ToListAsync(ct);
+    }
+}

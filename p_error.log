@@ -1,0 +1,10 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Artistic_Sisters.Shared -> C:\Users\Sanjana velma\source\repos\Artistic_Sisters\src\Shared\Artistic_Sisters.Shared\bin\Debug\net10.0\Artistic_Sisters.Shared.dll
+  PaymentService -> C:\Users\Sanjana velma\source\repos\Artistic_Sisters\src\Services\PaymentService\bin\Debug\net10.0\PaymentService.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.62

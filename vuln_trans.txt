@@ -1,0 +1,28 @@
+﻿  Determining projects to restore...
+C:\Users\Sanjana velma\source\repos\Artistic_Sisters\src\Services\NotificationService\NotificationService.csproj : warning NU1902: Package 'BouncyCastle.Cryptography' 2.3.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-8xfc-gm6g-vgpv [C:\Users\Sanjana velma\source\repos\Artistic_Sisters\Artistic_Sisters.slnx]
+C:\Users\Sanjana velma\source\repos\Artistic_Sisters\src\Services\NotificationService\NotificationService.csproj : warning NU1902: Package 'BouncyCastle.Cryptography' 2.3.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-m44j-cfrm-g8qc [C:\Users\Sanjana velma\source\repos\Artistic_Sisters\Artistic_Sisters.slnx]
+C:\Users\Sanjana velma\source\repos\Artistic_Sisters\src\Services\NotificationService\NotificationService.csproj : warning NU1902: Package 'BouncyCastle.Cryptography' 2.3.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-v435-xc8x-wvr9 [C:\Users\Sanjana velma\source\repos\Artistic_Sisters\Artistic_Sisters.slnx]
+C:\Users\Sanjana velma\source\repos\Artistic_Sisters\src\Services\NotificationService\NotificationService.csproj : warning NU1902: Package 'MimeKit' 4.4.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g7hc-96xr-gvvx [C:\Users\Sanjana velma\source\repos\Artistic_Sisters\Artistic_Sisters.slnx]
+C:\Users\Sanjana velma\source\repos\Artistic_Sisters\src\Services\NotificationService\NotificationService.csproj : warning NU1903: Package 'MimeKit' 4.4.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-gmc6-fwg3-75m5 [C:\Users\Sanjana velma\source\repos\Artistic_Sisters\Artistic_Sisters.slnx]
+  All projects are up-to-date for restore.
+
+The following sources were used:
+   https://api.nuget.org/v3/index.json
+   C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\
+
+The given project `ApiGateway` has no vulnerable packages given the current sources.
+The given project `ArtworkService` has no vulnerable packages given the current sources.
+The given project `IdentityService` has no vulnerable packages given the current sources.
+The given project `LogisticsService` has no vulnerable packages given the current sources.
+Project `NotificationService` has the following vulnerable packages
+   [net10.0]: 
+   Transitive Package               Resolved   Severity   Advisory URL                                     
+   > BouncyCastle.Cryptography      2.3.0      Moderate   https://github.com/advisories/GHSA-8xfc-gm6g-vgpv
+                                               Moderate   https://github.com/advisories/GHSA-v435-xc8x-wvr9
+                                               Moderate   https://github.com/advisories/GHSA-m44j-cfrm-g8qc
+   > MimeKit                        4.4.0      High       https://github.com/advisories/GHSA-gmc6-fwg3-75m5
+                                               Moderate   https://github.com/advisories/GHSA-g7hc-96xr-gvvx
+
+The given project `OrderService` has no vulnerable packages given the current sources.
+The given project `PaymentService` has no vulnerable packages given the current sources.
+The given project `Artistic_Sisters.Shared` has no vulnerable packages given the current sources.

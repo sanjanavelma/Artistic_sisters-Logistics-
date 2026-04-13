@@ -1,0 +1,18 @@
+﻿using MediatR;
+using OrderService.Domain.Entities;
+
+namespace OrderService.Application.Commands.PlaceCommission;
+
+public record PlaceCommissionCommand : IRequest<PlaceOrderResult>
+{
+    public Guid CustomerId { get; init; }
+    public string CustomerName { get; init; } = string.Empty;
+    public string CustomerEmail { get; init; } = string.Empty;
+    public string ArtworkType { get; init; } = string.Empty;
+    public string Medium { get; init; } = string.Empty;
+    public string Size { get; init; } = string.Empty;
+    public string ReferencePhotoUrl { get; init; } = string.Empty;
+    public string SpecialInstructions { get; init; } = string.Empty;
+    public decimal BudgetMin { get; init; }
+    public decimal BudgetMax { get; init; }
+}

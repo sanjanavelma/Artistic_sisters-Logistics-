@@ -1,0 +1,1243 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A1106C9-373E-FFAD-6460-144317825819}|src\\Services\\NotificationService\\NotificationService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\notificationservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A1106C9-373E-FFAD-6460-144317825819}|src\\Services\\NotificationService\\NotificationService.csproj|solutionrelative:src\\services\\notificationservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{918B406B-EB45-3F01-DA4E-6423DB2176AA}|src\\Services\\PaymentService\\PaymentService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\paymentservice\\domain\\entities\\dispatchsaga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{918B406B-EB45-3F01-DA4E-6423DB2176AA}|src\\Services\\PaymentService\\PaymentService.csproj|solutionrelative:src\\services\\paymentservice\\domain\\entities\\dispatchsaga.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{918B406B-EB45-3F01-DA4E-6423DB2176AA}|src\\Services\\PaymentService\\PaymentService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\paymentservice\\domain\\entities\\paymentrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{918B406B-EB45-3F01-DA4E-6423DB2176AA}|src\\Services\\PaymentService\\PaymentService.csproj|solutionrelative:src\\services\\paymentservice\\domain\\entities\\paymentrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A1106C9-373E-FFAD-6460-144317825819}|src\\Services\\NotificationService\\NotificationService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\notificationservice\\application\\consumers\\orderstatuschangedconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A1106C9-373E-FFAD-6460-144317825819}|src\\Services\\NotificationService\\NotificationService.csproj|solutionrelative:src\\services\\notificationservice\\application\\consumers\\orderstatuschangedconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A1106C9-373E-FFAD-6460-144317825819}|src\\Services\\NotificationService\\NotificationService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\notificationservice\\application\\emailtemplates\\emailtemplatebuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A1106C9-373E-FFAD-6460-144317825819}|src\\Services\\NotificationService\\NotificationService.csproj|solutionrelative:src\\services\\notificationservice\\application\\emailtemplates\\emailtemplatebuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A1106C9-373E-FFAD-6460-144317825819}|src\\Services\\NotificationService\\NotificationService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\notificationservice\\api\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A1106C9-373E-FFAD-6460-144317825819}|src\\Services\\NotificationService\\NotificationService.csproj|solutionrelative:src\\services\\notificationservice\\api\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{918B406B-EB45-3F01-DA4E-6423DB2176AA}|src\\Services\\PaymentService\\PaymentService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\paymentservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{918B406B-EB45-3F01-DA4E-6423DB2176AA}|src\\Services\\PaymentService\\PaymentService.csproj|solutionrelative:src\\services\\paymentservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{918B406B-EB45-3F01-DA4E-6423DB2176AA}|src\\Services\\PaymentService\\PaymentService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\paymentservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{918B406B-EB45-3F01-DA4E-6423DB2176AA}|src\\Services\\PaymentService\\PaymentService.csproj|solutionrelative:src\\services\\paymentservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8518E414-104C-EAEF-A141-98DB483A0C12}|src\\Gateway\\ApiGateway\\ApiGateway.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\gateway\\apigateway\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8518E414-104C-EAEF-A141-98DB483A0C12}|src\\Gateway\\ApiGateway\\ApiGateway.csproj|solutionrelative:src\\gateway\\apigateway\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8518E414-104C-EAEF-A141-98DB483A0C12}|src\\Gateway\\ApiGateway\\ApiGateway.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\gateway\\apigateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8518E414-104C-EAEF-A141-98DB483A0C12}|src\\Gateway\\ApiGateway\\ApiGateway.csproj|solutionrelative:src\\gateway\\apigateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8518E414-104C-EAEF-A141-98DB483A0C12}|src\\Gateway\\ApiGateway\\ApiGateway.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\gateway\\apigateway\\apigateway.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8518E414-104C-EAEF-A141-98DB483A0C12}|src\\Gateway\\ApiGateway\\ApiGateway.csproj|solutionrelative:src\\gateway\\apigateway\\apigateway.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\logisticsservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|solutionrelative:src\\services\\logisticsservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\artworkservice\\api\\controllers\\artworkscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|solutionrelative:src\\services\\artworkservice\\api\\controllers\\artworkscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\logisticsservice\\application\\commands\\assignagent\\assignagentcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|solutionrelative:src\\services\\logisticsservice\\application\\commands\\assignagent\\assignagentcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\artworkservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|solutionrelative:src\\services\\artworkservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\domain\\enums\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\domain\\enums\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\domain\\enums\\ordertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\domain\\enums\\ordertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\domain\\entities\\outboxmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\domain\\entities\\outboxmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\domain\\entities\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\domain\\entities\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\identityservice\\application\\commands\\register\\registercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|solutionrelative:src\\services\\identityservice\\application\\commands\\register\\registercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\identityservice\\infrastructure\\persistence\\identitydbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|solutionrelative:src\\services\\identityservice\\infrastructure\\persistence\\identitydbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF4C7EB-E9EA-B5BF-98D6-75C6906A3A9D}|src\\Shared\\Artistic_Sisters.Shared\\Artistic_Sisters.Shared.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\shared\\artistic_sisters.shared\\events\\artwork\\stockrestoredevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DF4C7EB-E9EA-B5BF-98D6-75C6906A3A9D}|src\\Shared\\Artistic_Sisters.Shared\\Artistic_Sisters.Shared.csproj|solutionrelative:src\\shared\\artistic_sisters.shared\\events\\artwork\\stockrestoredevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF4C7EB-E9EA-B5BF-98D6-75C6906A3A9D}|src\\Shared\\Artistic_Sisters.Shared\\Artistic_Sisters.Shared.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\shared\\artistic_sisters.shared\\events\\payment\\assignagentcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DF4C7EB-E9EA-B5BF-98D6-75C6906A3A9D}|src\\Shared\\Artistic_Sisters.Shared\\Artistic_Sisters.Shared.csproj|solutionrelative:src\\shared\\artistic_sisters.shared\\events\\payment\\assignagentcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF4C7EB-E9EA-B5BF-98D6-75C6906A3A9D}|src\\Shared\\Artistic_Sisters.Shared\\Artistic_Sisters.Shared.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\shared\\artistic_sisters.shared\\events\\identity\\customerregisteredevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DF4C7EB-E9EA-B5BF-98D6-75C6906A3A9D}|src\\Shared\\Artistic_Sisters.Shared\\Artistic_Sisters.Shared.csproj|solutionrelative:src\\shared\\artistic_sisters.shared\\events\\identity\\customerregisteredevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF4C7EB-E9EA-B5BF-98D6-75C6906A3A9D}|src\\Shared\\Artistic_Sisters.Shared\\Artistic_Sisters.Shared.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\shared\\artistic_sisters.shared\\events\\identity\\customerapprovedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DF4C7EB-E9EA-B5BF-98D6-75C6906A3A9D}|src\\Shared\\Artistic_Sisters.Shared\\Artistic_Sisters.Shared.csproj|solutionrelative:src\\shared\\artistic_sisters.shared\\events\\identity\\customerapprovedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF4C7EB-E9EA-B5BF-98D6-75C6906A3A9D}|src\\Shared\\Artistic_Sisters.Shared\\Artistic_Sisters.Shared.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\shared\\artistic_sisters.shared\\events\\order\\customcommissionplacedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DF4C7EB-E9EA-B5BF-98D6-75C6906A3A9D}|src\\Shared\\Artistic_Sisters.Shared\\Artistic_Sisters.Shared.csproj|solutionrelative:src\\shared\\artistic_sisters.shared\\events\\order\\customcommissionplacedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF4C7EB-E9EA-B5BF-98D6-75C6906A3A9D}|src\\Shared\\Artistic_Sisters.Shared\\Artistic_Sisters.Shared.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\shared\\artistic_sisters.shared\\events\\logistics\\agentassignedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DF4C7EB-E9EA-B5BF-98D6-75C6906A3A9D}|src\\Shared\\Artistic_Sisters.Shared\\Artistic_Sisters.Shared.csproj|solutionrelative:src\\shared\\artistic_sisters.shared\\events\\logistics\\agentassignedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\identityservice\\identityservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|solutionrelative:src\\services\\identityservice\\identityservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\identityservice\\domain\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|solutionrelative:src\\services\\identityservice\\domain\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\identityservice\\infrastructure\\persistence\\identitydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|solutionrelative:src\\services\\identityservice\\infrastructure\\persistence\\identitydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\identityservice\\application\\commands\\register\\registerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|solutionrelative:src\\services\\identityservice\\application\\commands\\register\\registerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\identityservice\\application\\commands\\login\\logincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|solutionrelative:src\\services\\identityservice\\application\\commands\\login\\logincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\identityservice\\application\\commands\\login\\loginhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|solutionrelative:src\\services\\identityservice\\application\\commands\\login\\loginhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\identityservice\\api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F48B76F5-5916-FFA9-5C2D-65C32A319D45}|src\\Services\\IdentityService\\IdentityService.csproj|solutionrelative:src\\services\\identityservice\\api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\artworkservice\\domain\\entities\\artwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|solutionrelative:src\\services\\artworkservice\\domain\\entities\\artwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\artworkservice\\domain\\entities\\notifymesubscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|solutionrelative:src\\services\\artworkservice\\domain\\entities\\notifymesubscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\artworkservice\\infrastructure\\persistence\\artworkdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|solutionrelative:src\\services\\artworkservice\\infrastructure\\persistence\\artworkdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\artworkservice\\application\\commands\\addartwork\\addartworkcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|solutionrelative:src\\services\\artworkservice\\application\\commands\\addartwork\\addartworkcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\artworkservice\\application\\commands\\addartwork\\addartworkhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|solutionrelative:src\\services\\artworkservice\\application\\commands\\addartwork\\addartworkhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\artworkservice\\application\\commands\\updatestock\\updatestockcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|solutionrelative:src\\services\\artworkservice\\application\\commands\\updatestock\\updatestockcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\artworkservice\\application\\commands\\updatestock\\updatestockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|solutionrelative:src\\services\\artworkservice\\application\\commands\\updatestock\\updatestockhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\artworkservice\\application\\queries\\getallartworks\\getallartworksquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|solutionrelative:src\\services\\artworkservice\\application\\queries\\getallartworks\\getallartworksquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\artworkservice\\application\\queries\\getartworkbyid\\getartworkbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|solutionrelative:src\\services\\artworkservice\\application\\queries\\getartworkbyid\\getartworkbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\artworkservice\\infrastructure\\cache\\artworkcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|solutionrelative:src\\services\\artworkservice\\infrastructure\\cache\\artworkcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\artworkservice\\artworkservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|solutionrelative:src\\services\\artworkservice\\artworkservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\artworkservice\\infrastructure\\persistence\\artworkdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A337479-1611-3932-C7F0-BA92033DCB02}|src\\Services\\ArtworkService\\ArtworkService.csproj|solutionrelative:src\\services\\artworkservice\\infrastructure\\persistence\\artworkdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\orderservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\orderservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\domain\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\domain\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\domain\\entities\\customcommissionorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\domain\\entities\\customcommissionorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\domain\\enums\\paymentmode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\domain\\enums\\paymentmode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\infrastructure\\persistence\\orderdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\infrastructure\\persistence\\orderdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\infrastructure\\cache\\ordercache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\infrastructure\\cache\\ordercache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\infrastructure\\outbox\\outboxprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\infrastructure\\outbox\\outboxprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\application\\commands\\placeorder\\placeordercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\application\\commands\\placeorder\\placeordercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\application\\commands\\placeorder\\placeordervalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\application\\commands\\placeorder\\placeordervalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\application\\commands\\placeorder\\placeorderhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\application\\commands\\placeorder\\placeorderhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\application\\commands\\placecommission\\placecommissioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\application\\commands\\placecommission\\placecommissioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\application\\commands\\placecommission\\placecommissionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\application\\commands\\placecommission\\placecommissionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\api\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\api\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\orderservice\\infrastructure\\persistence\\orderdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0844719D-FB1E-1893-4CEF-433B318EFA3A}|src\\Services\\OrderService\\OrderService.csproj|solutionrelative:src\\services\\orderservice\\infrastructure\\persistence\\orderdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\logisticsservice\\domain\\entities\\deliveryagent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|solutionrelative:src\\services\\logisticsservice\\domain\\entities\\deliveryagent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\logisticsservice\\domain\\entities\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|solutionrelative:src\\services\\logisticsservice\\domain\\entities\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\logisticsservice\\domain\\entities\\deliveryassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|solutionrelative:src\\services\\logisticsservice\\domain\\entities\\deliveryassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\logisticsservice\\infrastructure\\persistence\\logisticsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|solutionrelative:src\\services\\logisticsservice\\infrastructure\\persistence\\logisticsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\logisticsservice\\application\\commands\\compensateassignment\\compensateassignmentcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|solutionrelative:src\\services\\logisticsservice\\application\\commands\\compensateassignment\\compensateassignmentcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\logisticsservice\\application\\commands\\compensateassignment\\compensateassignmenthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|solutionrelative:src\\services\\logisticsservice\\application\\commands\\compensateassignment\\compensateassignmenthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\logisticsservice\\application\\commands\\updatedeliverystatus\\updatedeliverystatuscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|solutionrelative:src\\services\\logisticsservice\\application\\commands\\updatedeliverystatus\\updatedeliverystatuscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\logisticsservice\\application\\commands\\updatedeliverystatus\\updatedeliverystatushandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|solutionrelative:src\\services\\logisticsservice\\application\\commands\\updatedeliverystatus\\updatedeliverystatushandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\logisticsservice\\application\\jobs\\slamonitorjob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|solutionrelative:src\\services\\logisticsservice\\application\\jobs\\slamonitorjob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\logisticsservice\\application\\consumers\\assignagentconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|solutionrelative:src\\services\\logisticsservice\\application\\consumers\\assignagentconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\logisticsservice\\application\\consumers\\compensateassignmentconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|solutionrelative:src\\services\\logisticsservice\\application\\consumers\\compensateassignmentconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\logisticsservice\\api\\controllers\\logisticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|solutionrelative:src\\services\\logisticsservice\\api\\controllers\\logisticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\logisticsservice\\infrastructure\\persistence\\logisticsdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|solutionrelative:src\\services\\logisticsservice\\infrastructure\\persistence\\logisticsdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|c:\\users\\sanjana velma\\source\\repos\\artistic_sisters\\src\\services\\logisticsservice\\domain\\enums\\deliverystatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4864CB8D-CEDD-25F2-1392-C112FA06548E}|src\\Services\\LogisticsService\\LogisticsService.csproj|solutionrelative:src\\services\\logisticsservice\\domain\\enums\\deliverystatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\NotificationService\\Program.cs",
+              "RelativeDocumentMoniker": "src\\Services\\NotificationService\\Program.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\NotificationService\\Program.cs",
+              "RelativeToolTip": "src\\Services\\NotificationService\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T10:40:19.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DispatchSaga.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\PaymentService\\Domain\\Entities\\DispatchSaga.cs",
+              "RelativeDocumentMoniker": "src\\Services\\PaymentService\\Domain\\Entities\\DispatchSaga.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\PaymentService\\Domain\\Entities\\DispatchSaga.cs",
+              "RelativeToolTip": "src\\Services\\PaymentService\\Domain\\Entities\\DispatchSaga.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T10:21:24.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PaymentRecord.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\PaymentService\\Domain\\Entities\\PaymentRecord.cs",
+              "RelativeDocumentMoniker": "src\\Services\\PaymentService\\Domain\\Entities\\PaymentRecord.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\PaymentService\\Domain\\Entities\\PaymentRecord.cs",
+              "RelativeToolTip": "src\\Services\\PaymentService\\Domain\\Entities\\PaymentRecord.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T10:21:22.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrderStatusChangedConsumer.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\NotificationService\\Application\\Consumers\\OrderStatusChangedConsumer.cs",
+              "RelativeDocumentMoniker": "src\\Services\\NotificationService\\Application\\Consumers\\OrderStatusChangedConsumer.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\NotificationService\\Application\\Consumers\\OrderStatusChangedConsumer.cs",
+              "RelativeToolTip": "src\\Services\\NotificationService\\Application\\Consumers\\OrderStatusChangedConsumer.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T10:19:50.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Program.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\Program.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Program.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAkwBIAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:17:58.677Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EmailTemplateBuilder.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\NotificationService\\Application\\EmailTemplates\\EmailTemplateBuilder.cs",
+              "RelativeDocumentMoniker": "src\\Services\\NotificationService\\Application\\EmailTemplates\\EmailTemplateBuilder.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\NotificationService\\Application\\EmailTemplates\\EmailTemplateBuilder.cs",
+              "RelativeToolTip": "src\\Services\\NotificationService\\Application\\EmailTemplates\\EmailTemplateBuilder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T10:19:24.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NotificationController.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\NotificationService\\API\\Controllers\\NotificationController.cs",
+              "RelativeDocumentMoniker": "src\\Services\\NotificationService\\API\\Controllers\\NotificationController.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\NotificationService\\API\\Controllers\\NotificationController.cs",
+              "RelativeToolTip": "src\\Services\\NotificationService\\API\\Controllers\\NotificationController.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T10:18:47.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\PaymentService\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\Services\\PaymentService\\appsettings.json",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\PaymentService\\appsettings.json",
+              "RelativeToolTip": "src\\Services\\PaymentService\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-09T04:57:05.388Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Gateway\\ApiGateway\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\Gateway\\ApiGateway\\appsettings.json",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Gateway\\ApiGateway\\appsettings.json",
+              "RelativeToolTip": "src\\Gateway\\ApiGateway\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-08T07:22:56.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Gateway\\ApiGateway\\Program.cs",
+              "RelativeDocumentMoniker": "src\\Gateway\\ApiGateway\\Program.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Gateway\\ApiGateway\\Program.cs",
+              "RelativeToolTip": "src\\Gateway\\ApiGateway\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T07:22:47.331Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ApiGateway.csproj",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Gateway\\ApiGateway\\ApiGateway.csproj",
+              "RelativeDocumentMoniker": "src\\Gateway\\ApiGateway\\ApiGateway.csproj",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Gateway\\ApiGateway\\ApiGateway.csproj",
+              "RelativeToolTip": "src\\Gateway\\ApiGateway\\ApiGateway.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-08T07:22:39.278Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ArtworksController.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\API\\Controllers\\ArtworksController.cs",
+              "RelativeDocumentMoniker": "src\\Services\\ArtworkService\\API\\Controllers\\ArtworksController.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\API\\Controllers\\ArtworksController.cs",
+              "RelativeToolTip": "src\\Services\\ArtworkService\\API\\Controllers\\ArtworksController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:54:40.24Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\PaymentService\\Program.cs",
+              "RelativeDocumentMoniker": "src\\Services\\PaymentService\\Program.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\PaymentService\\Program.cs",
+              "RelativeToolTip": "src\\Services\\PaymentService\\Program.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAADkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-09T04:57:18.336Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Program.cs",
+              "RelativeDocumentMoniker": "src\\Services\\ArtworkService\\Program.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Program.cs",
+              "RelativeToolTip": "src\\Services\\ArtworkService\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:55:02.165Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AssignAgentCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Application\\Commands\\AssignAgent\\AssignAgentCommand.cs",
+              "RelativeDocumentMoniker": "src\\Services\\LogisticsService\\Application\\Commands\\AssignAgent\\AssignAgentCommand.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Application\\Commands\\AssignAgent\\AssignAgentCommand.cs",
+              "RelativeToolTip": "src\\Services\\LogisticsService\\Application\\Commands\\AssignAgent\\AssignAgentCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T16:44:49.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "DeliveryStatus.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Domain\\Enums\\DeliveryStatus.cs",
+              "RelativeDocumentMoniker": "src\\Services\\LogisticsService\\Domain\\Enums\\DeliveryStatus.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Domain\\Enums\\DeliveryStatus.cs",
+              "RelativeToolTip": "src\\Services\\LogisticsService\\Domain\\Enums\\DeliveryStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T16:57:14.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "LogisticsDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Infrastructure\\Persistence\\LogisticsDbContext.cs",
+              "RelativeDocumentMoniker": "src\\Services\\LogisticsService\\Infrastructure\\Persistence\\LogisticsDbContext.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Infrastructure\\Persistence\\LogisticsDbContext.cs",
+              "RelativeToolTip": "src\\Services\\LogisticsService\\Infrastructure\\Persistence\\LogisticsDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T16:44:27.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Program.cs",
+              "RelativeDocumentMoniker": "src\\Services\\LogisticsService\\Program.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Program.cs",
+              "RelativeToolTip": "src\\Services\\LogisticsService\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T16:48:20.23Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "DeliveryAssignment.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Domain\\Entities\\DeliveryAssignment.cs",
+              "RelativeDocumentMoniker": "src\\Services\\LogisticsService\\Domain\\Entities\\DeliveryAssignment.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Domain\\Entities\\DeliveryAssignment.cs",
+              "RelativeToolTip": "src\\Services\\LogisticsService\\Domain\\Entities\\DeliveryAssignment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T16:44:13.4Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "OrderStatus.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Domain\\Enums\\OrderStatus.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\Domain\\Enums\\OrderStatus.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Domain\\Enums\\OrderStatus.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\Domain\\Enums\\OrderStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:16:09.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "LogisticsDbContextFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Infrastructure\\Persistence\\LogisticsDbContextFactory.cs",
+              "RelativeDocumentMoniker": "src\\Services\\LogisticsService\\Infrastructure\\Persistence\\LogisticsDbContextFactory.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Infrastructure\\Persistence\\LogisticsDbContextFactory.cs",
+              "RelativeToolTip": "src\\Services\\LogisticsService\\Infrastructure\\Persistence\\LogisticsDbContextFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T16:47:19.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "LogisticsController.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\API\\Controllers\\LogisticsController.cs",
+              "RelativeDocumentMoniker": "src\\Services\\LogisticsService\\API\\Controllers\\LogisticsController.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\API\\Controllers\\LogisticsController.cs",
+              "RelativeToolTip": "src\\Services\\LogisticsService\\API\\Controllers\\LogisticsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T16:46:58.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "CompensateAssignmentConsumer.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Application\\Consumers\\CompensateAssignmentConsumer.cs",
+              "RelativeDocumentMoniker": "src\\Services\\LogisticsService\\Application\\Consumers\\CompensateAssignmentConsumer.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Application\\Consumers\\CompensateAssignmentConsumer.cs",
+              "RelativeToolTip": "src\\Services\\LogisticsService\\Application\\Consumers\\CompensateAssignmentConsumer.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAuwCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T16:46:35.708Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "AssignAgentConsumer.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Application\\Consumers\\AssignAgentConsumer.cs",
+              "RelativeDocumentMoniker": "src\\Services\\LogisticsService\\Application\\Consumers\\AssignAgentConsumer.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Application\\Consumers\\AssignAgentConsumer.cs",
+              "RelativeToolTip": "src\\Services\\LogisticsService\\Application\\Consumers\\AssignAgentConsumer.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAuwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T16:46:26.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "SLAMonitorJob.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Application\\Jobs\\SLAMonitorJob.cs",
+              "RelativeDocumentMoniker": "src\\Services\\LogisticsService\\Application\\Jobs\\SLAMonitorJob.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Application\\Jobs\\SLAMonitorJob.cs",
+              "RelativeToolTip": "src\\Services\\LogisticsService\\Application\\Jobs\\SLAMonitorJob.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T16:46:17.331Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "UpdateDeliveryStatusHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Application\\Commands\\UpdateDeliveryStatus\\UpdateDeliveryStatusHandler.cs",
+              "RelativeDocumentMoniker": "src\\Services\\LogisticsService\\Application\\Commands\\UpdateDeliveryStatus\\UpdateDeliveryStatusHandler.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Application\\Commands\\UpdateDeliveryStatus\\UpdateDeliveryStatusHandler.cs",
+              "RelativeToolTip": "src\\Services\\LogisticsService\\Application\\Commands\\UpdateDeliveryStatus\\UpdateDeliveryStatusHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T16:46:00.236Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "UpdateDeliveryStatusCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Application\\Commands\\UpdateDeliveryStatus\\UpdateDeliveryStatusCommand.cs",
+              "RelativeDocumentMoniker": "src\\Services\\LogisticsService\\Application\\Commands\\UpdateDeliveryStatus\\UpdateDeliveryStatusCommand.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Application\\Commands\\UpdateDeliveryStatus\\UpdateDeliveryStatusCommand.cs",
+              "RelativeToolTip": "src\\Services\\LogisticsService\\Application\\Commands\\UpdateDeliveryStatus\\UpdateDeliveryStatusCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T16:45:45.06Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "CompensateAssignmentHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Application\\Commands\\CompensateAssignment\\CompensateAssignmentHandler.cs",
+              "RelativeDocumentMoniker": "src\\Services\\LogisticsService\\Application\\Commands\\CompensateAssignment\\CompensateAssignmentHandler.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Application\\Commands\\CompensateAssignment\\CompensateAssignmentHandler.cs",
+              "RelativeToolTip": "src\\Services\\LogisticsService\\Application\\Commands\\CompensateAssignment\\CompensateAssignmentHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T16:45:37.749Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "CompensateAssignmentCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Application\\Commands\\CompensateAssignment\\CompensateAssignmentCommand.cs",
+              "RelativeDocumentMoniker": "src\\Services\\LogisticsService\\Application\\Commands\\CompensateAssignment\\CompensateAssignmentCommand.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Application\\Commands\\CompensateAssignment\\CompensateAssignmentCommand.cs",
+              "RelativeToolTip": "src\\Services\\LogisticsService\\Application\\Commands\\CompensateAssignment\\CompensateAssignmentCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T16:45:20.505Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "OrderType.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Domain\\Enums\\OrderType.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\Domain\\Enums\\OrderType.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Domain\\Enums\\OrderType.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\Domain\\Enums\\OrderType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:16:12.737Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "DeliveryAgent.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Domain\\Entities\\DeliveryAgent.cs",
+              "RelativeDocumentMoniker": "src\\Services\\LogisticsService\\Domain\\Entities\\DeliveryAgent.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Domain\\Entities\\DeliveryAgent.cs",
+              "RelativeToolTip": "src\\Services\\LogisticsService\\Domain\\Entities\\DeliveryAgent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T16:43:44.007Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "Vehicle.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Domain\\Entities\\Vehicle.cs",
+              "RelativeDocumentMoniker": "src\\Services\\LogisticsService\\Domain\\Entities\\Vehicle.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\LogisticsService\\Domain\\Entities\\Vehicle.cs",
+              "RelativeToolTip": "src\\Services\\LogisticsService\\Domain\\Entities\\Vehicle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T16:43:52.449Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "OutboxMessage.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Domain\\Entities\\OutboxMessage.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\Domain\\Entities\\OutboxMessage.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Domain\\Entities\\OutboxMessage.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\Domain\\Entities\\OutboxMessage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:16:04.978Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "CustomCommissionOrder.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Domain\\Entities\\CustomCommissionOrder.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\Domain\\Entities\\CustomCommissionOrder.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Domain\\Entities\\CustomCommissionOrder.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\Domain\\Entities\\CustomCommissionOrder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:16:00.233Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Domain\\Entities\\OrderItem.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\Domain\\Entities\\OrderItem.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Domain\\Entities\\OrderItem.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\Domain\\Entities\\OrderItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:15:54.835Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "RegisterCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\Application\\Commands\\Register\\RegisterCommand.cs",
+              "RelativeDocumentMoniker": "src\\Services\\IdentityService\\Application\\Commands\\Register\\RegisterCommand.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\Application\\Commands\\Register\\RegisterCommand.cs",
+              "RelativeToolTip": "src\\Services\\IdentityService\\Application\\Commands\\Register\\RegisterCommand.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAzwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:29:21.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "PaymentMode.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Domain\\Enums\\PaymentMode.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\Domain\\Enums\\PaymentMode.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Domain\\Enums\\PaymentMode.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\Domain\\Enums\\PaymentMode.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:16:16.345Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "OrderDbContextFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Infrastructure\\Persistence\\OrderDbContextFactory.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\Infrastructure\\Persistence\\OrderDbContextFactory.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Infrastructure\\Persistence\\OrderDbContextFactory.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\Infrastructure\\Persistence\\OrderDbContextFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:17:46.191Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\appsettings.json",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\appsettings.json",
+              "RelativeToolTip": "src\\Services\\OrderService\\appsettings.json",
+              "ViewState": "AgIAAAcAAAAAAAAAAMBdwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-27T10:17:27.654Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\API\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\API\\Controllers\\OrdersController.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\API\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\API\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:17:21.702Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "PlaceCommissionHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Application\\Commands\\PlaceCommission\\PlaceCommissionHandler.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\Application\\Commands\\PlaceCommission\\PlaceCommissionHandler.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Application\\Commands\\PlaceCommission\\PlaceCommissionHandler.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\Application\\Commands\\PlaceCommission\\PlaceCommissionHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAMBdwCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:17:14.569Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "PlaceCommissionCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Application\\Commands\\PlaceCommission\\PlaceCommissionCommand.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\Application\\Commands\\PlaceCommission\\PlaceCommissionCommand.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Application\\Commands\\PlaceCommission\\PlaceCommissionCommand.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\Application\\Commands\\PlaceCommission\\PlaceCommissionCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBZwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:17:05.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "PlaceOrderHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Application\\Commands\\PlaceOrder\\PlaceOrderHandler.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\Application\\Commands\\PlaceOrder\\PlaceOrderHandler.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Application\\Commands\\PlaceOrder\\PlaceOrderHandler.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\Application\\Commands\\PlaceOrder\\PlaceOrderHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:17:00.085Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "PlaceOrderValidator.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Application\\Commands\\PlaceOrder\\PlaceOrderValidator.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\Application\\Commands\\PlaceOrder\\PlaceOrderValidator.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Application\\Commands\\PlaceOrder\\PlaceOrderValidator.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\Application\\Commands\\PlaceOrder\\PlaceOrderValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:16:48.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "PlaceOrderCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Application\\Commands\\PlaceOrder\\PlaceOrderCommand.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\Application\\Commands\\PlaceOrder\\PlaceOrderCommand.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Application\\Commands\\PlaceOrder\\PlaceOrderCommand.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\Application\\Commands\\PlaceOrder\\PlaceOrderCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:16:43.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "OutboxProcessor.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Infrastructure\\Outbox\\OutboxProcessor.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\Infrastructure\\Outbox\\OutboxProcessor.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Infrastructure\\Outbox\\OutboxProcessor.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\Infrastructure\\Outbox\\OutboxProcessor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:16:37.633Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "OrderCache.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Infrastructure\\Cache\\OrderCache.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\Infrastructure\\Cache\\OrderCache.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Infrastructure\\Cache\\OrderCache.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\Infrastructure\\Cache\\OrderCache.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:16:30.458Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "OrderDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Infrastructure\\Persistence\\OrderDbContext.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\Infrastructure\\Persistence\\OrderDbContext.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Infrastructure\\Persistence\\OrderDbContext.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\Infrastructure\\Persistence\\OrderDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:16:24.085Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "OrderService.csproj",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\OrderService.csproj",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\OrderService.csproj",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\OrderService.csproj",
+              "RelativeToolTip": "src\\Services\\OrderService\\OrderService.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAABBwB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-27T10:15:42.442Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Domain\\Entities\\Order.cs",
+              "RelativeDocumentMoniker": "src\\Services\\OrderService\\Domain\\Entities\\Order.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\OrderService\\Domain\\Entities\\Order.cs",
+              "RelativeToolTip": "src\\Services\\OrderService\\Domain\\Entities\\Order.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA+wBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:15:49.241Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "ArtworkDbContextFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Infrastructure\\Persistence\\ArtworkDbContextFactory.cs",
+              "RelativeDocumentMoniker": "src\\Services\\ArtworkService\\Infrastructure\\Persistence\\ArtworkDbContextFactory.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Infrastructure\\Persistence\\ArtworkDbContextFactory.cs",
+              "RelativeToolTip": "src\\Services\\ArtworkService\\Infrastructure\\Persistence\\ArtworkDbContextFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T10:09:56.307Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "ArtworkService.csproj",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\ArtworkService.csproj",
+              "RelativeDocumentMoniker": "src\\Services\\ArtworkService\\ArtworkService.csproj",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\ArtworkService.csproj",
+              "RelativeToolTip": "src\\Services\\ArtworkService\\ArtworkService.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAABBwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-27T09:56:05.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Artwork.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Domain\\Entities\\Artwork.cs",
+              "RelativeDocumentMoniker": "src\\Services\\ArtworkService\\Domain\\Entities\\Artwork.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Domain\\Entities\\Artwork.cs",
+              "RelativeToolTip": "src\\Services\\ArtworkService\\Domain\\Entities\\Artwork.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAQwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:53:27.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "NotifyMeSubscription.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Domain\\Entities\\NotifyMeSubscription.cs",
+              "RelativeDocumentMoniker": "src\\Services\\ArtworkService\\Domain\\Entities\\NotifyMeSubscription.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Domain\\Entities\\NotifyMeSubscription.cs",
+              "RelativeToolTip": "src\\Services\\ArtworkService\\Domain\\Entities\\NotifyMeSubscription.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:53:33.424Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "ArtworkDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Infrastructure\\Persistence\\ArtworkDbContext.cs",
+              "RelativeDocumentMoniker": "src\\Services\\ArtworkService\\Infrastructure\\Persistence\\ArtworkDbContext.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Infrastructure\\Persistence\\ArtworkDbContext.cs",
+              "RelativeToolTip": "src\\Services\\ArtworkService\\Infrastructure\\Persistence\\ArtworkDbContext.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAIBZwB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:53:40.495Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "AddArtworkCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Application\\Commands\\AddArtwork\\AddArtworkCommand.cs",
+              "RelativeDocumentMoniker": "src\\Services\\ArtworkService\\Application\\Commands\\AddArtwork\\AddArtworkCommand.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Application\\Commands\\AddArtwork\\AddArtworkCommand.cs",
+              "RelativeToolTip": "src\\Services\\ArtworkService\\Application\\Commands\\AddArtwork\\AddArtworkCommand.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:53:45.786Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "AddArtworkHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Application\\Commands\\AddArtwork\\AddArtworkHandler.cs",
+              "RelativeDocumentMoniker": "src\\Services\\ArtworkService\\Application\\Commands\\AddArtwork\\AddArtworkHandler.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Application\\Commands\\AddArtwork\\AddArtworkHandler.cs",
+              "RelativeToolTip": "src\\Services\\ArtworkService\\Application\\Commands\\AddArtwork\\AddArtworkHandler.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAIBZwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:53:52.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "ArtworkCache.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Infrastructure\\Cache\\ArtworkCache.cs",
+              "RelativeDocumentMoniker": "src\\Services\\ArtworkService\\Infrastructure\\Cache\\ArtworkCache.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Infrastructure\\Cache\\ArtworkCache.cs",
+              "RelativeToolTip": "src\\Services\\ArtworkService\\Infrastructure\\Cache\\ArtworkCache.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAIBZwCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:54:29.026Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "GetArtworkByIdQuery.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Application\\Queries\\GetArtworkById\\GetArtworkByIdQuery.cs",
+              "RelativeDocumentMoniker": "src\\Services\\ArtworkService\\Application\\Queries\\GetArtworkById\\GetArtworkByIdQuery.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Application\\Queries\\GetArtworkById\\GetArtworkByIdQuery.cs",
+              "RelativeToolTip": "src\\Services\\ArtworkService\\Application\\Queries\\GetArtworkById\\GetArtworkByIdQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAEBVwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:54:20.122Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "GetAllArtworksQuery.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Application\\Queries\\GetAllArtworks\\GetAllArtworksQuery.cs",
+              "RelativeDocumentMoniker": "src\\Services\\ArtworkService\\Application\\Queries\\GetAllArtworks\\GetAllArtworksQuery.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Application\\Queries\\GetAllArtworks\\GetAllArtworksQuery.cs",
+              "RelativeToolTip": "src\\Services\\ArtworkService\\Application\\Queries\\GetAllArtworks\\GetAllArtworksQuery.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAIBZwEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:54:13.234Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "UpdateStockHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Application\\Commands\\UpdateStock\\UpdateStockHandler.cs",
+              "RelativeDocumentMoniker": "src\\Services\\ArtworkService\\Application\\Commands\\UpdateStock\\UpdateStockHandler.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Application\\Commands\\UpdateStock\\UpdateStockHandler.cs",
+              "RelativeToolTip": "src\\Services\\ArtworkService\\Application\\Commands\\UpdateStock\\UpdateStockHandler.cs",
+              "ViewState": "AgIAABEAAAAAAAAAACBjwB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:54:07.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "UpdateStockCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Application\\Commands\\UpdateStock\\UpdateStockCommand.cs",
+              "RelativeDocumentMoniker": "src\\Services\\ArtworkService\\Application\\Commands\\UpdateStock\\UpdateStockCommand.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\ArtworkService\\Application\\Commands\\UpdateStock\\UpdateStockCommand.cs",
+              "RelativeToolTip": "src\\Services\\ArtworkService\\Application\\Commands\\UpdateStock\\UpdateStockCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:53:59.079Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IdentityDbContextFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\Infrastructure\\Persistence\\IdentityDbContextFactory.cs",
+              "RelativeDocumentMoniker": "src\\Services\\IdentityService\\Infrastructure\\Persistence\\IdentityDbContextFactory.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\Infrastructure\\Persistence\\IdentityDbContextFactory.cs",
+              "RelativeToolTip": "src\\Services\\IdentityService\\Infrastructure\\Persistence\\IdentityDbContextFactory.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAwBYAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:44:10.84Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "IdentityDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\Infrastructure\\Persistence\\IdentityDbContext.cs",
+              "RelativeDocumentMoniker": "src\\Services\\IdentityService\\Infrastructure\\Persistence\\IdentityDbContext.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\Infrastructure\\Persistence\\IdentityDbContext.cs",
+              "RelativeToolTip": "src\\Services\\IdentityService\\Infrastructure\\Persistence\\IdentityDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:29:17.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\Domain\\Entities\\Customer.cs",
+              "RelativeDocumentMoniker": "src\\Services\\IdentityService\\Domain\\Entities\\Customer.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\Domain\\Entities\\Customer.cs",
+              "RelativeToolTip": "src\\Services\\IdentityService\\Domain\\Entities\\Customer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:29:13.881Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "IdentityService.csproj",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\IdentityService.csproj",
+              "RelativeDocumentMoniker": "src\\Services\\IdentityService\\IdentityService.csproj",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\IdentityService.csproj",
+              "RelativeToolTip": "src\\Services\\IdentityService\\IdentityService.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAABBwB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-27T09:29:09.94Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "StockRestoredEvent.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Shared\\Artistic_Sisters.Shared\\Events\\Artwork\\StockRestoredEvent.cs",
+              "RelativeDocumentMoniker": "src\\Shared\\Artistic_Sisters.Shared\\Events\\Artwork\\StockRestoredEvent.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Shared\\Artistic_Sisters.Shared\\Events\\Artwork\\StockRestoredEvent.cs",
+              "RelativeToolTip": "src\\Shared\\Artistic_Sisters.Shared\\Events\\Artwork\\StockRestoredEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:23:07.295Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "RegisterHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\Application\\Commands\\Register\\RegisterHandler.cs",
+              "RelativeDocumentMoniker": "src\\Services\\IdentityService\\Application\\Commands\\Register\\RegisterHandler.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\Application\\Commands\\Register\\RegisterHandler.cs",
+              "RelativeToolTip": "src\\Services\\IdentityService\\Application\\Commands\\Register\\RegisterHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:29:28.312Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "src\\Services\\IdentityService\\API\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "src\\Services\\IdentityService\\API\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:29:40.328Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "LoginHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\Application\\Commands\\Login\\LoginHandler.cs",
+              "RelativeDocumentMoniker": "src\\Services\\IdentityService\\Application\\Commands\\Login\\LoginHandler.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\Application\\Commands\\Login\\LoginHandler.cs",
+              "RelativeToolTip": "src\\Services\\IdentityService\\Application\\Commands\\Login\\LoginHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:29:36.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "LoginCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\Application\\Commands\\Login\\LoginCommand.cs",
+              "RelativeDocumentMoniker": "src\\Services\\IdentityService\\Application\\Commands\\Login\\LoginCommand.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Services\\IdentityService\\Application\\Commands\\Login\\LoginCommand.cs",
+              "RelativeToolTip": "src\\Services\\IdentityService\\Application\\Commands\\Login\\LoginCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:29:31.443Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "CustomerRegisteredEvent.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Shared\\Artistic_Sisters.Shared\\Events\\Identity\\CustomerRegisteredEvent.cs",
+              "RelativeDocumentMoniker": "src\\Shared\\Artistic_Sisters.Shared\\Events\\Identity\\CustomerRegisteredEvent.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Shared\\Artistic_Sisters.Shared\\Events\\Identity\\CustomerRegisteredEvent.cs",
+              "RelativeToolTip": "src\\Shared\\Artistic_Sisters.Shared\\Events\\Identity\\CustomerRegisteredEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:26:26.431Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "CustomerApprovedEvent.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Shared\\Artistic_Sisters.Shared\\Events\\Identity\\CustomerApprovedEvent.cs",
+              "RelativeDocumentMoniker": "src\\Shared\\Artistic_Sisters.Shared\\Events\\Identity\\CustomerApprovedEvent.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Shared\\Artistic_Sisters.Shared\\Events\\Identity\\CustomerApprovedEvent.cs",
+              "RelativeToolTip": "src\\Shared\\Artistic_Sisters.Shared\\Events\\Identity\\CustomerApprovedEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:26:26.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "CustomCommissionPlacedEvent.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Shared\\Artistic_Sisters.Shared\\Events\\Order\\CustomCommissionPlacedEvent.cs",
+              "RelativeDocumentMoniker": "src\\Shared\\Artistic_Sisters.Shared\\Events\\Order\\CustomCommissionPlacedEvent.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Shared\\Artistic_Sisters.Shared\\Events\\Order\\CustomCommissionPlacedEvent.cs",
+              "RelativeToolTip": "src\\Shared\\Artistic_Sisters.Shared\\Events\\Order\\CustomCommissionPlacedEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:26:26.553Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "AgentAssignedEvent.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Shared\\Artistic_Sisters.Shared\\Events\\Logistics\\AgentAssignedEvent.cs",
+              "RelativeDocumentMoniker": "src\\Shared\\Artistic_Sisters.Shared\\Events\\Logistics\\AgentAssignedEvent.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Shared\\Artistic_Sisters.Shared\\Events\\Logistics\\AgentAssignedEvent.cs",
+              "RelativeToolTip": "src\\Shared\\Artistic_Sisters.Shared\\Events\\Logistics\\AgentAssignedEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:26:26.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AssignAgentCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Shared\\Artistic_Sisters.Shared\\Events\\Payment\\AssignAgentCommand.cs",
+              "RelativeDocumentMoniker": "src\\Shared\\Artistic_Sisters.Shared\\Events\\Payment\\AssignAgentCommand.cs",
+              "ToolTip": "C:\\Users\\Sanjana velma\\source\\repos\\Artistic_Sisters\\src\\Shared\\Artistic_Sisters.Shared\\Events\\Payment\\AssignAgentCommand.cs",
+              "RelativeToolTip": "src\\Shared\\Artistic_Sisters.Shared\\Events\\Payment\\AssignAgentCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T09:23:19.831Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

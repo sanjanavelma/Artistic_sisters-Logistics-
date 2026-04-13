@@ -20,6 +20,8 @@ public class Artwork
     // Can this be ordered as custom commission
     public bool IsCustomizable { get; set; } = false;
     public bool IsActive { get; set; } = true;
+    // Temporarily unavailable — will be restocked / available again soon
+    public bool IsComingSoon { get; set; } = false;
     // Days to complete after order (for commissions)
     public int EstimatedCompletionDays { get; set; } = 7;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;

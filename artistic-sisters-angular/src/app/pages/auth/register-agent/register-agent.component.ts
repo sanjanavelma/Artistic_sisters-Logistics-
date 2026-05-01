@@ -142,18 +142,19 @@ export class RegisterAgentComponent {
     this.error = '';
 
     this.auth.registerAgent(this.form).subscribe({
-      next: res => {
+      next: (res: any) => {
         this.loading = false;
-        if (res.success) {
+        const isSuccess = res.success !== undefined ? res.success : res.Success;
+        if (isSuccess) {
           this.success = true;
           setTimeout(() => this.router.navigate(['/delivery/dashboard']), 1500);
         } else {
-          this.error = res.message;
+          this.error = res.message || res.Message || 'Registration failed.';
         }
       },
-      error: () => {
+      error: (err) => {
         this.loading = false;
-        this.error = 'Server error. Is the backend running?';
+        this.error = err.error?.message || err.error?.Message || err.message || 'Server error. Is the backend running?';
       }
     });
   }

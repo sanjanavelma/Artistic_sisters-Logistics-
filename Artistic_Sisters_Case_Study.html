@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Artistic Sisters – Case Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  /* ── BASE ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #1e293b;
+    background: #fff;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    width: 100%;
+    min-height: 100vh;
+    background: #0f172a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 60px;
+    page-break-after: always;
+  }
+
+  .cover-category {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 24px;
+  }
+
+  .cover h1 {
+    font-size: 62px;
+    font-weight: 700;
+    color: #f1f5f9;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+
+  .cover h1 em {
+    font-style: normal;
+    color: #818cf8;
+  }
+
+  .cover-desc {
+    font-size: 16px;
+    color: #94a3b8;
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 60px;
+  }
+
+  .cover-line {
+    width: 48px;
+    height: 2px;
+    background: #4f46e5;
+    margin: 0 auto 40px;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+  }
+
+  .cover-meta-item .meta-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #475569;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .cover-meta-item .meta-val {
+    font-size: 14px;
+    font-weight: 600;
+    color: #cbd5e1;
+  }
+
+  /* ── BODY LAYOUT ── */
+  .body-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 48px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 48px;
+    break-inside: avoid-page;
+  }
+
+  /* Prevent heading from being orphaned at bottom of page */
+  .section-head {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .section-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6366f1;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 16px;
+    letter-spacing: -0.3px;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 28px 0 10px;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  h3::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 14px;
+    background: #6366f1;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-right: 9px;
+  }
+
+  p { margin-bottom: 12px; }
+
+  ul, ol {
+    margin: 10px 0 14px 0;
+    padding-left: 20px;
+  }
+
+  li { margin-bottom: 7px; }
+
+  .divider {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 40px 0;
+  }
+
+  /* ── INLINE STAT ROW ── */
+  .stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .stat-item {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px 20px;
+    text-align: center;
+    min-width: 110px;
+    flex: 1;
+  }
+
+  .stat-item .snum {
+    font-size: 28px;
+    font-weight: 700;
+    color: #4f46e5;
+    display: block;
+  }
+
+  .stat-item .slbl {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 500;
+  }
+
+  /* ── TABLE ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 20px;
+    font-size: 13px;
+    break-inside: auto;
+  }
+
+  thead th {
+    background: #f8fafc;
+    font-weight: 700;
+    color: #374151;
+    padding: 10px 14px;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  tbody td {
+    padding: 9px 14px;
+    border: 1px solid #e2e8f0;
+    vertical-align: top;
+    color: #334155;
+  }
+
+  tbody tr:nth-child(even) td { background: #fafafa; }
+
+  code {
+    font-family: 'Courier New', monospace;
+    background: #f1f5f9;
+    color: #4338ca;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+  }
+
+  /* ── CODE BLOCK ── */
+  .code-block {
+    background: #1e293b;
+    border-radius: 8px;
+    margin: 16px 0;
+    overflow: hidden;
+    break-inside: avoid;
+  }
+
+  .code-block .cb-label {
+    background: #334155;
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 7px 16px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.3px;
+  }
+
+  .code-block pre {
+    padding: 14px 18px;
+    color: #e2e8f0;
+    font-size: 12px;
+    line-height: 1.8;
+    font-family: 'Courier New', monospace;
+    white-space: pre-wrap;
+    margin: 0;
+  }
+
+  .ckw  { color: #c4b5fd; }
+  .cstr { color: #86efac; }
+  .ccls { color: #7dd3fc; }
+  .ccmt { color: #64748b; font-style: italic; }
+
+  /* ── NOTE BOX ── */
+  .note {
+    border-left: 3px solid #6366f1;
+    background: #f5f3ff;
+    padding: 12px 16px;
+    border-radius: 0 6px 6px 0;
+    margin: 14px 0;
+    font-size: 13px;
+    color: #374151;
+    break-inside: avoid;
+  }
+
+  .note.green {
+    border-color: #059669;
+    background: #f0fdf4;
+  }
+
+  /* ── SERVICE LIST ── */
+  .service-list {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 16px 0;
+    break-inside: avoid;
+  }
+
+  .service-row {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid #e2e8f0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .service-row:last-child { border-bottom: none; }
+
+  .service-row .sr-port {
+    background: #f8fafc;
+    font-family: 'Courier New', monospace;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #4338ca;
+    padding: 12px 14px;
+    min-width: 90px;
+    border-right: 1px solid #e2e8f0;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 14px;
+  }
+
+  .service-row .sr-content {
+    padding: 12px 16px;
+    flex: 1;
+  }
+
+  .service-row .sr-content strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 3px;
+  }
+
+  .service-row .sr-content p {
+    font-size: 12.5px;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* ── STATE CHIPS ── */
+  .state-flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin: 16px 0;
+    padding: 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    break-inside: avoid;
+  }
+
+  .state-chip {
+    padding: 5px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .sc-grey      { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+  .sc-blue      { background: #dbeafe; color: #1d4ed8; border: 1px solid #bfdbfe; }
+  .sc-indigo    { background: #e0e7ff; color: #4338ca; border: 1px solid #c7d2fe; }
+  .sc-violet    { background: #ede9fe; color: #6d28d9; border: 1px solid #ddd6fe; }
+  .sc-amber     { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+  .sc-green     { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+  .sc-red       { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+  .sc-arrow     { color: #94a3b8; font-size: 14px; }
+
+  /* ── TEST LIST ── */
+  .test-list {
+    margin: 14px 0;
+  }
+
+  .test-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f5f9;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .test-row:last-child { border-bottom: none; }
+
+  .test-pass-dot {
+    width: 8px; height: 8px;
+    background: #059669;
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  .test-name {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 2px;
+  }
+
+  .test-desc {
+    font-size: 12.5px;
+    color: #64748b;
+    line-height: 1.5;
+  }
+
+  /* ── PRINT ── */
+  @page {
+    size: A4;
+    margin: 16mm 18mm;
+  }
+
+  @media print {
+    body { font-size: 12.5px; }
+    .cover { page-break-after: always; min-height: 0; padding: 100px 60px; }
+    h2 { page-break-after: avoid; break-after: avoid; }
+    h3 { page-break-after: avoid; break-after: avoid; }
+    .section { break-inside: avoid-page; }
+    table { break-inside: auto; }
+    tr { break-inside: avoid; page-break-inside: avoid; }
+    .code-block { break-inside: avoid; page-break-inside: avoid; }
+    .note { break-inside: avoid; page-break-inside: avoid; }
+    .state-flow { break-inside: avoid; page-break-inside: avoid; }
+    .stats-row { break-inside: avoid; page-break-inside: avoid; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ──────────────────── COVER ──────────────────── -->
+<div class="cover">
+  <p class="cover-category">Project Case Study · April 2026</p>
+  <h1>Artistic <em>Sisters</em></h1>
+  <p class="cover-desc">A full-stack art marketplace and commission platform built on .NET 10 microservices and Angular 21, with event-driven logistics and real payment processing.</p>
+  <div class="cover-line"></div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <span class="meta-label">Architecture</span>
+      <span class="meta-val">Microservices + CQRS</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="meta-label">Backend</span>
+      <span class="meta-val">.NET 10</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="meta-label">Frontend</span>
+      <span class="meta-val">Angular 21</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="meta-label">Status</span>
+      <span class="meta-val">Final Submission</span>
+    </div>
+  </div>
+</div>
+
+<!-- ──────────────────── BODY ──────────────────── -->
+<div class="body-wrap">
+
+  <!-- 1. Overview -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-label">01 — Overview</span>
+      <h2>What Is Artistic Sisters?</h2>
+    </div>
+    <p>
+      Artistic Sisters is an online marketplace built around the handmade art business. It lets customers browse a gallery of artworks, place orders, and also request custom commissions directly from artists. On the other side, artists manage their portfolio and review commission requests. Delivery agents handle logistics — they see their assigned shipments and update the delivery status in real time.
+    </p>
+    <p>
+      The platform was built to go beyond a basic CRUD app. It uses a proper microservices architecture where each part of the system — orders, payments, logistics, notifications — runs as a completely independent service. This makes the system more resilient: if the notification service goes down, order placement still works.
+    </p>
+
+    <div class="stats-row">
+      <div class="stat-item"><span class="snum">6</span><span class="slbl">Microservices</span></div>
+      <div class="stat-item"><span class="snum">12</span><span class="slbl">Integration Events</span></div>
+      <div class="stat-item"><span class="snum">7</span><span class="slbl">Order States</span></div>
+      <div class="stat-item"><span class="snum">3</span><span class="slbl">User Roles</span></div>
+      <div class="stat-item"><span class="snum">14</span><span class="slbl">Unit Tests</span></div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 2. Problem -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-label">02 — Problem</span>
+      <h2>What Problem Does It Solve?</h2>
+    </div>
+    <p>
+      The fine arts market is a difficult space to digitise. Unlike regular e-commerce where you pick a product and buy it, art can be one-of-a-kind, hand-crafted to order, or negotiated between buyer and artist. Most existing platforms are built for mass-market goods and don't handle any of this well.
+    </p>
+
+    <h3>Specific Gaps Addressed</h3>
+    <ul>
+      <li><strong>Two different order types in one flow:</strong> Ready-made artwork that ships immediately needs a completely different workflow than a custom commission that requires artist approval and a production window. Both had to coexist cleanly in the same system.</li>
+      <li><strong>Keeping data consistent across services:</strong> When an order is placed, the payment service needs to know, the logistics service needs to prepare, and the customer needs a confirmation email — all without these services calling each other directly.</li>
+      <li><strong>Role separation:</strong> Artists should only see their own portfolio. Delivery agents should only see their assigned shipments. Customers should only see their own orders. This needs to be enforced server-side, not just in the UI.</li>
+      <li><strong>Reliable notifications:</strong> An email that never arrives for a confirmed order is a bad user experience. The system needed to guarantee that events like "order confirmed" or "agent assigned" always trigger their notifications, even if the broker hiccups temporarily.</li>
+    </ul>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 3. Architecture -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-label">03 — Architecture</span>
+      <h2>System Architecture</h2>
+    </div>
+    <p>
+      All client traffic goes through a single entry point — the Ocelot API Gateway on port 5000 — which routes requests to the right microservice. Every service has its own SQL Server database; no two services share a database. Cross-service communication happens exclusively through RabbitMQ events.
+    </p>
+
+    <h3>Port Map</h3>
+    <table>
+      <thead>
+        <tr><th>Component</th><th>Port</th><th>Role</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Angular SPA</td><td>:4200</td><td>Frontend client</td></tr>
+        <tr><td>Ocelot Gateway</td><td>:5000</td><td>Single API entry point</td></tr>
+        <tr><td>Identity Service</td><td>:5001</td><td>Auth, JWT, users</td></tr>
+        <tr><td>Artwork Service</td><td>:5002</td><td>Gallery catalog</td></tr>
+        <tr><td>Order Service</td><td>:5003</td><td>Orders, commissions</td></tr>
+        <tr><td>Logistics Service</td><td>:5004</td><td>Shipments, agents</td></tr>
+        <tr><td>Payment Service</td><td>:5005</td><td>Razorpay integration</td></tr>
+        <tr><td>Notification Service</td><td>:5006</td><td>Email dispatch</td></tr>
+        <tr><td>RabbitMQ</td><td>:5672 / :15672</td><td>Message broker + admin UI</td></tr>
+        <tr><td>Redis</td><td>:6379</td><td>Order reservation cache</td></tr>
+        <tr><td>SQL Server</td><td>:1433</td><td>6 isolated databases</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Microservice Responsibilities</h3>
+    <div class="service-list">
+      <div class="service-row">
+        <div class="sr-port">:5001</div>
+        <div class="sr-content">
+          <strong>Identity Service</strong>
+          <p>Handles all registration and login flows for customers and delivery agents. Issues 24-hour JWT tokens signed with HMAC-SHA256. Passwords are always stored as BCrypt hashes — never in plain text.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <div class="sr-port">:5002</div>
+        <div class="sr-content">
+          <strong>Artwork Service</strong>
+          <p>Manages the artwork catalog. Artists upload pieces with details like medium, price, dimensions, and available quantity. Customers can subscribe to "Notify Me" alerts for coming-soon items.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <div class="sr-port">:5003</div>
+        <div class="sr-content">
+          <strong>Order Service</strong>
+          <p>The most complex service. Manages the full order lifecycle through 7 states. Handles both standard ready-made orders and custom commission requests. Uses Redis for reservation state and an Outbox pattern for reliable event delivery.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <div class="sr-port">:5004</div>
+        <div class="sr-content">
+          <strong>Logistics Service</strong>
+          <p>Assigns delivery agents and vehicles to shipments when an order is ready for dispatch. Tracks delivery milestones and runs a Dispatch Saga for agent assignment with SLA monitoring.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <div class="sr-port">:5005</div>
+        <div class="sr-content">
+          <strong>Payment Service</strong>
+          <p>Integrates with the Razorpay SDK to create payment orders and verify payment signatures. Also supports Cash on Delivery. Listens to order events to initiate and confirm payment flows.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <div class="sr-port">:5006</div>
+        <div class="sr-content">
+          <strong>Notification Service</strong>
+          <p>A standalone email dispatcher. It doesn't expose any business endpoints — it just listens to RabbitMQ events and sends the right email to the right person. Customers, artists, and agents are all notified at relevant milestones.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 4. Backend Design -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-label">04 — Backend Design</span>
+      <h2>Clean Architecture &amp; CQRS</h2>
+    </div>
+    <p>
+      Every backend service follows Clean Architecture. The domain layer — entities, enums, business rules — has zero dependencies on any framework. Infrastructure concerns like EF Core and MassTransit live in their own layer and depend inward on domain abstractions.
+    </p>
+    <p>
+      All operations go through MediatR. A controller never directly calls a repository. It dispatches a command or query, and MediatR routes it to the right handler. This keeps controllers thin and testable, and makes business logic easy to find.
+    </p>
+
+    <h3>How a Request Flows Through the System</h3>
+    <ol>
+      <li><strong>Gateway</strong> — Ocelot matches the route and forwards to the correct service.</li>
+      <li><strong>JWT Middleware</strong> — Token is validated, role claims are extracted into the request context.</li>
+      <li><strong>Controller</strong> — Binds the request body, checks <code>[Authorize(Roles="...")]</code>, dispatches via <code>IMediator.Send()</code>.</li>
+      <li><strong>FluentValidation</strong> — Validates the command before the handler runs. Bad input fails here with a structured 400 response.</li>
+      <li><strong>MediatR Handler</strong> — Runs business logic, mutates domain entities, prepares events.</li>
+      <li><strong>EF Core + Outbox</strong> — Domain changes and the outbox message are written in one SQL transaction.</li>
+      <li><strong>MassTransit Relay</strong> — Picks up the outbox message and publishes it to RabbitMQ for consumers.</li>
+    </ol>
+
+    <h3>Example: Registration Handler</h3>
+    <div class="code-block">
+      <div class="cb-label">IdentityService / Application / Commands / Register / RegisterHandler.cs</div>
+      <pre><span class="ckw">public async</span> <span class="ccls">Task</span>&lt;<span class="ccls">RegisterResult</span>&gt; <span class="ccls">Handle</span>(<span class="ccls">RegisterCommand</span> request, <span class="ccls">CancellationToken</span> ct)
+{
+    <span class="ccmt">// Reject duplicate emails before doing anything</span>
+    <span class="ckw">var</span> exists = <span class="ckw">await</span> _db.Customers.<span class="ccls">AnyAsync</span>(c => c.Email == request.Email, ct);
+    <span class="ckw">if</span> (exists)
+        <span class="ckw">return new</span> <span class="ccls">RegisterResult</span> { Success = <span class="ckw">false</span>, Message = <span class="cstr">"Email already registered"</span> };
+
+    <span class="ccmt">// Password is always hashed — plain text never touches the database</span>
+    <span class="ckw">var</span> customer = <span class="ckw">new</span> <span class="ccls">Customer</span> {
+        Id           = <span class="ccls">Guid</span>.NewGuid(),
+        PasswordHash = <span class="ccls">BCrypt.Net.BCrypt</span>.HashPassword(request.Password),
+        IsActive     = <span class="ckw">true</span>,
+        RegisteredAt = <span class="ccls">DateTime</span>.UtcNow
+        <span class="ccmt">// ... other fields</span>
+    };
+    _db.Customers.Add(customer);
+    <span class="ckw">await</span> _db.SaveChangesAsync(ct);
+
+    <span class="ccmt">// Publish event so NotificationService sends the welcome email</span>
+    <span class="ckw">await</span> _publisher.Publish(<span class="ckw">new</span> <span class="ccls">CustomerRegisteredEvent</span> {
+        CustomerId = customer.Id, Name = customer.Name, Email = customer.Email
+    });
+
+    <span class="ckw">return new</span> <span class="ccls">RegisterResult</span> { Success = <span class="ckw">true</span>, Token = GenerateToken(customer) };
+}</pre>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 5. Events -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-label">05 — Event-Driven Design</span>
+      <h2>Integration Events &amp; Messaging</h2>
+    </div>
+    <p>
+      Services never call each other over HTTP. Everything is asynchronous through RabbitMQ via MassTransit. When something meaningful happens — an order is placed, an agent is assigned, a delivery is completed — the responsible service publishes an event. Any service that cares about that event subscribes to it independently.
+    </p>
+
+    <h3>Event Inventory</h3>
+    <table>
+      <thead>
+        <tr><th>Event</th><th>Published By</th><th>Consumed By</th><th>What Happens</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>CustomerRegisteredEvent</code></td><td>Identity</td><td>Notification</td><td>Welcome email to customer</td></tr>
+        <tr><td><code>DeliveryAgentRegisteredEvent</code></td><td>Identity</td><td>Notification</td><td>Onboarding email to agent</td></tr>
+        <tr><td><code>CustomCommissionEvent</code></td><td>Order</td><td>Notification</td><td>Commission request email to artist</td></tr>
+        <tr><td><code>OrderPlacedEvent</code></td><td>Order</td><td>Payment, Notification</td><td>Razorpay flow initiated + confirmation email</td></tr>
+        <tr><td><code>ReadyForDispatchEvent</code></td><td>Order</td><td>Logistics, Payment</td><td>Shipment created, agent assignment starts</td></tr>
+        <tr><td><code>AgentAssignedEvent</code></td><td>Logistics</td><td>Notification</td><td>Agent name &amp; ETA emailed to customer</td></tr>
+        <tr><td><code>SLAAtRiskEvent</code></td><td>Logistics</td><td>Notification</td><td>SLA breach warning emailed to admin</td></tr>
+        <tr><td><code>OrderStatusChangedEvent</code></td><td>Order</td><td>Notification</td><td>Status update email to customer, agent &amp; admin</td></tr>
+        <tr><td><code>DeliveryCompletedEvent</code></td><td>Logistics</td><td>Notification</td><td>Delivery confirmation, agent released</td></tr>
+        <tr><td><code>DispatchConfirmedEvent</code></td><td>Logistics</td><td>Notification, Payment</td><td>Dispatch confirmation email</td></tr>
+        <tr><td><code>AssignAgentFailedEvent</code></td><td>Logistics</td><td>Payment</td><td>Compensation / retry logic triggered</td></tr>
+        <tr><td><code>CustomerApprovedEvent</code></td><td>Identity</td><td>Notification</td><td>Account activation email</td></tr>
+      </tbody>
+    </table>
+
+    <h3>The Outbox Pattern — Why It Matters</h3>
+    <p>
+      There's a well-known problem in distributed systems: what if you successfully save to the database but then fail to send the RabbitMQ message? The order exists but no one gets notified. The Outbox pattern solves this.
+    </p>
+    <p>
+      In the Order Service, when a handler runs, it writes the domain change <em>and</em> the serialised event into an <code>OutboxMessages</code> table — all in the same SQL transaction. A background relay process polls this table and publishes the messages to RabbitMQ, marking them as processed once done. If the relay crashes mid-flight, it simply retries — the message is still in the outbox.
+    </p>
+    <div class="note green">
+      <strong>Result:</strong> At-least-once delivery is guaranteed. No order confirmation, payment, or logistics event can go missing due to a transient broker failure.
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 6. Order FSM -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-label">06 — Order Lifecycle</span>
+      <h2>Order State Machine</h2>
+    </div>
+    <p>
+      Every order follows a strict sequence of states defined in the <code>OrderStatus</code> enum. The <code>UpdateOrderStatusHandler</code> enforces valid transitions — you can't jump from Pending straight to Delivered. Each transition publishes one or more events.
+    </p>
+
+    <div class="state-flow">
+      <div class="state-chip sc-grey">Pending</div>
+      <span class="sc-arrow">→</span>
+      <div class="state-chip sc-blue">Confirmed</div>
+      <span class="sc-arrow">→</span>
+      <div class="state-chip sc-indigo">In Production</div>
+      <span class="sc-arrow">→</span>
+      <div class="state-chip sc-violet">Ready for Delivery</div>
+      <span class="sc-arrow">→</span>
+      <div class="state-chip sc-amber">Out for Delivery</div>
+      <span class="sc-arrow">→</span>
+      <div class="state-chip sc-green">Delivered</div>
+      <span class="sc-arrow">&nbsp; / &nbsp;</span>
+      <div class="state-chip sc-red">Cancelled</div>
+    </div>
+
+    <h3>Key Transition Logic</h3>
+    <table>
+      <thead>
+        <tr><th>Transition</th><th>Events Published</th><th>Effect</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>→ Confirmed</td><td><code>OrderStatusChangedEvent</code></td><td>Customer gets "Order confirmed" email</td></tr>
+        <tr><td>→ In Production</td><td><code>OrderStatusChangedEvent</code></td><td>Customer gets "Work has started" email</td></tr>
+        <tr><td>→ Ready for Delivery</td><td><code>ReadyForDispatchEvent</code> + <code>OrderStatusChangedEvent</code></td><td>Logistics creates shipment and assigns an agent</td></tr>
+        <tr><td>→ Out for Delivery</td><td><code>OrderStatusChangedEvent</code></td><td>Customer gets "Your package is on the way" email</td></tr>
+        <tr><td>→ Delivered</td><td><code>OrderStatusChangedEvent</code></td><td>Customer gets delivery confirmation, agent is freed</td></tr>
+        <tr><td>→ Cancelled</td><td><code>OrderStatusChangedEvent</code></td><td>Customer gets cancellation email</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Idempotency guard:</strong> The handler checks whether the order is <em>already</em> in <code>ReadyForDelivery</code> before publishing <code>ReadyForDispatchEvent</code>. If someone re-submits the same status update, no second dispatch event fires — preventing duplicate agent assignments.
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 7. Commission Flow -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-label">07 — Custom Commissions</span>
+      <h2>Commission Workflow</h2>
+    </div>
+    <p>
+      Custom commissions are the differentiator of this platform. Unlike a standard purchase, a commission requires a back-and-forth between the customer and artist before any payment happens.
+    </p>
+    <ol>
+      <li><strong>Customer submits request</strong> via <code>POST /api/orders/commission</code> — providing medium, size, instructions, and optionally a reference photo URL. The order is created with status <code>Pending</code>.</li>
+      <li><strong>Artist is notified</strong> via the <code>CustomCommissionEvent</code> that triggers an email from the Notification Service with all the commission details.</li>
+      <li><strong>Artist reviews on their dashboard</strong> and either accepts (sets a quoted price, moves to <code>Confirmed</code>) or declines (<code>Cancelled</code>). In both cases, an <code>OrderStatusChangedEvent</code> emails the customer.</li>
+      <li><strong>Customer accepts and pays</strong> — once confirmed with a price, the customer proceeds through the normal checkout: Razorpay online payment or Cash on Delivery.</li>
+      <li><strong>Standard fulfilment</strong> — the order then follows the same In Production → Ready → Dispatch → Delivered pipeline as any other order.</li>
+    </ol>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 8. Frontend -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-label">08 — Frontend</span>
+      <h2>Angular 21 Frontend</h2>
+    </div>
+    <p>
+      The frontend is a standalone Angular 21 SPA. It uses reactive forms, RxJS streams, and a JWT interceptor that automatically attaches <code>Authorization: Bearer &lt;token&gt;</code> to every API request. The token, role, and userId are stored in localStorage under the keys <code>as_token</code>, <code>as_role</code>, and <code>as_userId</code>.
+    </p>
+
+    <h3>Route Guard Matrix</h3>
+    <table>
+      <thead>
+        <tr><th>Route</th><th>Guard</th><th>Allowed</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>/about</code>, <code>/portfolio</code></td><td>None</td><td>Public</td></tr>
+        <tr><td><code>/auth/login</code>, <code>/auth/register</code></td><td>None</td><td>Public</td></tr>
+        <tr><td><code>/order</code>, <code>/commission</code>, <code>/track/:id</code></td><td><code>authGuard</code></td><td>Any logged-in user</td></tr>
+        <tr><td><code>/customer/dashboard</code></td><td><code>authGuard</code></td><td>Customer</td></tr>
+        <tr><td><code>/artist</code></td><td><code>artistGuard</code></td><td>Artist</td></tr>
+        <tr><td><code>/delivery/dashboard</code></td><td><code>deliveryGuard</code></td><td>Delivery Agent</td></tr>
+        <tr><td><code>/admin/dashboard</code></td><td><code>adminGuard</code></td><td>Artist (admin)</td></tr>
+      </tbody>
+    </table>
+    <p>
+      Guards check the role stored in localStorage. If the role doesn't match, the user is redirected to <code>/auth/login</code>. Server-side, the <code>[Authorize(Roles="...")]</code> attribute provides a second enforcement layer — so even if someone bypasses the frontend guard, they can't access protected API endpoints.
+    </p>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 9. Security -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-label">09 — Security</span>
+      <h2>Security Model</h2>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Layer</th><th>Mechanism</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Password storage</td><td>BCrypt (cost factor 10)</td><td>Protects against rainbow table attacks</td></tr>
+        <tr><td>Authentication</td><td>HMAC-SHA256 JWT — 24h TTL</td><td>Stateless, verifiable identity on every request</td></tr>
+        <tr><td>API authorisation</td><td><code>[Authorize(Roles="...")]</code> — server-side</td><td>Prevents cross-role API access</td></tr>
+        <tr><td>Frontend navigation</td><td>4 Angular route guards</td><td>Prevents unauthorised page access</td></tr>
+        <tr><td>HTTP layer</td><td>JWT interceptor on all requests</td><td>Auto-attaches bearer token from localStorage</td></tr>
+        <tr><td>Payment</td><td>Razorpay signature verification</td><td>Prevents payment tampering</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 10. Testing -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-label">10 — Testing</span>
+      <h2>Unit Tests</h2>
+    </div>
+    <p>
+      The project includes 14 unit tests across two test projects — <code>IdentityService.Tests</code> and <code>OrderService.Tests</code>. All tests use EF Core InMemory databases so they need no real SQL Server, Moq for mocking MassTransit's publish endpoint, and xUnit as the runner. Every test is fully isolated and deterministic.
+    </p>
+
+    <h3>IdentityService Tests (5 tests)</h3>
+    <div class="test-list">
+      <div class="test-row">
+        <div class="test-pass-dot"></div>
+        <div>
+          <div class="test-name">Handle_NewEmail_ReturnsSuccess</div>
+          <div class="test-desc">Registering with a new email returns <code>Success = true</code>, a non-null JWT, and a valid CustomerId.</div>
+        </div>
+      </div>
+      <div class="test-row">
+        <div class="test-pass-dot"></div>
+        <div>
+          <div class="test-name">Handle_DuplicateEmail_ReturnsFailure</div>
+          <div class="test-desc">Re-registering with an existing email returns <code>Success = false</code> and the exact message "Email already registered".</div>
+        </div>
+      </div>
+      <div class="test-row">
+        <div class="test-pass-dot"></div>
+        <div>
+          <div class="test-name">Handle_NewEmail_PersistsCustomerInDatabase</div>
+          <div class="test-desc">After registration, the customer record exists in the DB with the correct name and <code>IsActive = true</code>.</div>
+        </div>
+      </div>
+      <div class="test-row">
+        <div class="test-pass-dot"></div>
+        <div>
+          <div class="test-name">Handle_NewEmail_PublishesCustomerRegisteredEvent</div>
+          <div class="test-desc">MassTransit's <code>Publish&lt;CustomerRegisteredEvent&gt;</code> is called exactly once after successful registration.</div>
+        </div>
+      </div>
+      <div class="test-row">
+        <div class="test-pass-dot"></div>
+        <div>
+          <div class="test-name">Handle_NewEmail_StoresPasswordAsHash</div>
+          <div class="test-desc">The stored <code>PasswordHash</code> is never equal to the plain-text password, and <code>BCrypt.Verify()</code> confirms the hash is valid.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>OrderService Tests — PlaceOrder Handler (7 tests)</h3>
+    <div class="test-list">
+      <div class="test-row">
+        <div class="test-pass-dot"></div>
+        <div>
+          <div class="test-name">Handle_ValidOrder_ReturnsSuccess</div>
+          <div class="test-desc">A valid command returns success with a non-null OrderId.</div>
+        </div>
+      </div>
+      <div class="test-row">
+        <div class="test-pass-dot"></div>
+        <div>
+          <div class="test-name">Handle_ValidOrder_PersistsOrderAndItems</div>
+          <div class="test-desc">The Order and its OrderItems are written to the DB with correct data, including artwork title matching.</div>
+        </div>
+      </div>
+      <div class="test-row">
+        <div class="test-pass-dot"></div>
+        <div>
+          <div class="test-name">Handle_ValidOrder_CalculatesTotalAmountCorrectly</div>
+          <div class="test-desc">Two-item order (3×₹200 + 1×₹100) produces <code>TotalAmount = 700</code>. Server-side price calculation is never trusted from the client.</div>
+        </div>
+      </div>
+      <div class="test-row">
+        <div class="test-pass-dot"></div>
+        <div>
+          <div class="test-name">Handle_EmptyItems_ThrowsDomainException</div>
+          <div class="test-desc">An order with no items throws a <code>DomainException</code> before any DB write happens — domain invariant enforced correctly.</div>
+        </div>
+      </div>
+      <div class="test-row">
+        <div class="test-pass-dot"></div>
+        <div>
+          <div class="test-name">Handle_ValidOrder_PublishesOrderPlacedEvent</div>
+          <div class="test-desc"><code>OrderPlacedEvent</code> is published exactly once to trigger the payment and notification pipeline.</div>
+        </div>
+      </div>
+      <div class="test-row">
+        <div class="test-pass-dot"></div>
+        <div>
+          <div class="test-name">Handle_ValidOrder_SetsStatusToConfirmed</div>
+          <div class="test-desc">New card/COD orders start with <code>Confirmed</code> status, not <code>Pending</code> — as per business rules.</div>
+        </div>
+      </div>
+      <div class="test-row">
+        <div class="test-pass-dot"></div>
+        <div>
+          <div class="test-name">Handle_ValidOrder_WritesOutboxMessage</div>
+          <div class="test-desc">A single <code>OutboxMessage</code> of type <code>OrderPlacedEvent</code> is written in the same transaction as the Order record.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>OrderService Tests — UpdateOrderStatus Handler (extra 2 tests)</h3>
+    <div class="test-list">
+      <div class="test-row">
+        <div class="test-pass-dot"></div>
+        <div>
+          <div class="test-name">Handle_StatusToReadyForDelivery_PublishesDispatchEvent</div>
+          <div class="test-desc">Transition from InProduction → ReadyForDelivery fires both <code>ReadyForDispatchEvent</code> and <code>OrderStatusChangedEvent</code> exactly once each.</div>
+        </div>
+      </div>
+      <div class="test-row">
+        <div class="test-pass-dot"></div>
+        <div>
+          <div class="test-name">Handle_AlreadyReadyForDelivery_DoesNotPublishDispatchEvent</div>
+          <div class="test-desc">Idempotency: re-submitting the same ReadyForDelivery status does NOT fire a second dispatch event. Prevents duplicate agent assignment.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 11. Tech Stack -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-label">11 — Technology Stack</span>
+      <h2>Libraries &amp; Packages</h2>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Package</th><th>Version</th><th>Used For</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>.NET Runtime</td><td>10.0</td><td>All backend microservices</td></tr>
+        <tr><td>MediatR</td><td>12–14.x</td><td>CQRS command/query dispatching</td></tr>
+        <tr><td>MassTransit + RabbitMQ</td><td>8.0.11</td><td>Event publishing and consuming</td></tr>
+        <tr><td>Entity Framework Core</td><td>8.0–10.0</td><td>Code-first ORM, migrations</td></tr>
+        <tr><td>Ocelot</td><td>24.1.0</td><td>API Gateway routing</td></tr>
+        <tr><td>FluentValidation</td><td>11.7.0</td><td>Request validation (OrderService)</td></tr>
+        <tr><td>BCrypt.Net-Next</td><td>4.0.2</td><td>Password hashing (IdentityService)</td></tr>
+        <tr><td>JwtBearer</td><td>8.0.16</td><td>JWT authentication middleware</td></tr>
+        <tr><td>StackExchange.Redis</td><td>2.12.8</td><td>Reservation cache (OrderService)</td></tr>
+        <tr><td>Razorpay SDK</td><td>3.3.2</td><td>Payment processing (PaymentService)</td></tr>
+        <tr><td>Angular</td><td>^21.2.0</td><td>Frontend SPA framework</td></tr>
+        <tr><td>xUnit + Moq</td><td>Latest</td><td>Unit testing</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 12. Conclusion -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-label">12 — Summary</span>
+      <h2>Key Takeaways</h2>
+    </div>
+    <p>
+      Artistic Sisters is not a prototype or a CRUD demo. It is a working, end-to-end platform with real payment processing, a proper microservices architecture, a tested business layer, and a functioning frontend across three distinct user roles.
+    </p>
+    <p>
+      The main engineering decisions — CQRS with MediatR, event-driven communication over RabbitMQ, the Outbox pattern for reliability, database-per-service isolation, and BCrypt + JWT for security — were all made deliberately to build something that would hold up in a production environment, not just in development.
+    </p>
+    <ul>
+      <li>Services are independently deployable — one failing doesn't take down the rest.</li>
+      <li>Events are never silently lost — the Outbox pattern guarantees delivery.</li>
+      <li>Business rules are enforced server-side — the frontend guards are a UX layer, not the security layer.</li>
+      <li>Every critical handler is covered by a focused, isolated unit test.</li>
+      <li>Custom commissions and standard orders share the same core pipeline, keeping the codebase unified.</li>
+    </ul>
+  </div>
+
+</div><!-- /body-wrap -->
+</body>
+</html>

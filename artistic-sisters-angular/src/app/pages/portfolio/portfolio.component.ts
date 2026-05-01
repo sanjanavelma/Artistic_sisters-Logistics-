@@ -194,7 +194,7 @@ export class PortfolioComponent implements OnInit {
     this.loading = true; this.error = '';
     this.artworkSvc.getAll(this.activeType || undefined, this.activeMedium || undefined).subscribe({
       next:  arts => { this.artworks = arts; this.loading = false; },
-      error: ()   => { this.error = 'Could not connect to the server. Please make sure the backend is running.'; this.loading = false; }
+      error: (err) => { this.error = err.error?.message || err.error?.Message || err.message || 'Could not connect to the server. Please make sure the backend is running.'; this.loading = false; }
     });
   }
 

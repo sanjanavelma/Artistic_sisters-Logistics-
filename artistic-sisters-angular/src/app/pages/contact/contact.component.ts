@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -94,7 +95,7 @@ import { FormsModule } from '@angular/forms';
                 <div class="form-row">
                   <div class="form-group">
                     <label>Your Name</label>
-                    <input class="form-control" type="text" [(ngModel)]="form.name" placeholder="Sanjana Velma" required name="name" />
+                    <input class="form-control" type="text" [(ngModel)]="form.name" placeholder="Your name" required name="name" />
                   </div>
                   <div class="form-group">
                     <label>Email Address</label>
@@ -109,9 +110,15 @@ import { FormsModule } from '@angular/forms';
                   <label>Message</label>
                   <textarea class="form-control" [(ngModel)]="form.message" rows="5" placeholder="Tell us about your idea..." required name="message"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">
-                  Send Message
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                @if (sendError) {
+                  <div class="alert alert-error" style="margin-bottom:12px;">{{ sendError }}</div>
+                }
+                <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center" [disabled]="sending">
+                  @if (sending) { <span class="btn-spinner"></span> Sending… }
+                  @else {
+                    Send Message
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  }
                 </button>
               </form>
             </div>
@@ -167,11 +174,17 @@ import { FormsModule } from '@angular/forms';
 
     @media(max-width:900px){ .contact-grid{grid-template-columns:1fr;} }
     @media(max-width:480px){ .form-row{grid-template-columns:1fr;} }
+    .btn-spinner { width:14px; height:14px; border:2px solid rgba(255,255,255,0.4); border-top-color:#fff; border-radius:50%; animation:spin .7s linear infinite; display:inline-block; margin-right:6px; vertical-align:middle; }
+    @keyframes spin { to { transform:rotate(360deg); } }
   `]
 })
 export class ContactComponent {
-  sent = false;
+  sent      = false;
+  sending   = false;
+  sendError = '';
   form = { name:'', email:'', subject:'', message:'' };
+
+  private readonly NOTIFY_URL = 'http://localhost:5000/api/notifications/contact';
 
   artists = [
     {
@@ -188,14 +201,29 @@ export class ContactComponent {
     }
   ];
 
+  constructor(private http: HttpClient) {}
+
   send(e: Event) {
     e.preventDefault();
-    // Opens mailto as fallback (real backend would use notification service)
-    const subject = encodeURIComponent(this.form.subject || 'Website Enquiry');
-    const body    = encodeURIComponent(`Name: ${this.form.name}\nEmail: ${this.form.email}\n\n${this.form.message}`);
-    window.open(`mailto:artistic.sisters07@gmail.com?subject=${subject}&body=${body}`, '_blank');
-    this.sent = true;
-    this.form = { name:'', email:'', subject:'', message:'' };
-    setTimeout(() => this.sent = false, 5000);
+    if (!this.form.name || !this.form.email || !this.form.message) {
+      this.sendError = 'Please fill in your name, email and message.';
+      return;
+    }
+    this.sending   = true;
+    this.sendError = '';
+
+    this.http.post<{ success: boolean; message: string }>(this.NOTIFY_URL, this.form)
+      .subscribe({
+        next: () => {
+          this.sending = false;
+          this.sent    = true;
+          this.form    = { name:'', email:'', subject:'', message:'' };
+          setTimeout(() => this.sent = false, 6000);
+        },
+        error: () => {
+          this.sending   = false;
+          this.sendError = 'Could not send the message. Please try again or email us directly.';
+        }
+      });
   }
 }

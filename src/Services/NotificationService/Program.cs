@@ -50,10 +50,34 @@ builder.Services.AddMassTransit(x =>
     });
 });
 
-// ── 4. CONTROLLERS & OPENAPI ──────────────────────────────────────────────────
+// ── 4. CONTROLLERS & SWAGGER ──────────────────────────────────────────────────
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddOpenApi();
+
+// ── SWAGGER / OPENAPI ──────────────────────────────────────────────────────────
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.OpenApiInfo
+    {
+        Title = "Notification Service API",
+        Version = "v1",
+        Description = "Provides visibility into the notification system: browse the last 50 notification logs and view active email templates."
+    });
+
+    c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = Microsoft.OpenApi.SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = Microsoft.OpenApi.ParameterLocation.Header,
+        Description = "Enter: Bearer {your JWT token}"
+    });
+    c.AddSecurityRequirement(doc => new Microsoft.OpenApi.OpenApiSecurityRequirement
+    {
+        [new Microsoft.OpenApi.OpenApiSecuritySchemeReference("Bearer", doc)] = []
+    });
+});
 
 var app = builder.Build();
 
@@ -65,10 +89,13 @@ using (var scope = app.Services.CreateScope())
     db.Database.Migrate();
 }
 
-if (app.Environment.IsDevelopment())
+// ── SWAGGER UI ────────────────────────────────────────────────────────────────
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.MapOpenApi();
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Notification Service v1");
+    c.RoutePrefix = "swagger";
+});
 
 app.UseAuthorization();
 app.MapControllers();

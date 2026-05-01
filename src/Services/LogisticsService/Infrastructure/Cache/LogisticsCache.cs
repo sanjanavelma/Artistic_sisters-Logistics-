@@ -1,6 +1,4 @@
-// Redis cache for GPS coordinates
-// Every time agent updates location, it goes to Redis
-// Dealer's tracking page reads from Redis — instant response
+// Redis cache for logistics data
 using StackExchange.Redis;
 using System.Text.Json;
 
@@ -16,12 +14,6 @@ public interface ILogisticsCache
 
     // Delete a key
     Task RemoveAsync(string key);
-
-    // Save GPS coordinates for an order
-    Task SetGPSAsync(Guid orderId, double lat, double lng);
-
-    // Get latest GPS coordinates for an order
-    Task<(double Lat, double Lng)?> GetGPSAsync(Guid orderId);
 }
 
 public class LogisticsCache : ILogisticsCache
@@ -51,29 +43,5 @@ public class LogisticsCache : ILogisticsCache
     public async Task RemoveAsync(string key)
     {
         await GetDb().KeyDeleteAsync(key);
-    }
-
-    // GPS stored as "lat,lng" string in Redis
-    // Key format: "gps:order:{orderId}"
-    // TTL = 2 hours — GPS data becomes stale after that
-    public async Task SetGPSAsync(Guid orderId, double lat, double lng)
-    {
-        var key = $"gps:order:{orderId}";
-        var value = $"{lat},{lng}";
-        // 2 hour TTL — auto expires
-        await GetDb().StringSetAsync(key, value, TimeSpan.FromHours(2));
-    }
-
-    public async Task<(double Lat, double Lng)?> GetGPSAsync(Guid orderId)
-    {
-        var key = $"gps:order:{orderId}";
-        var value = await GetDb().StringGetAsync(key);
-
-        // If no GPS data found return null
-        if (!value.HasValue) return null;
-
-        // Parse "lat,lng" string back to doubles
-        var parts = value.ToString().Split(',');
-        return (double.Parse(parts[0]), double.Parse(parts[1]));
     }
 }

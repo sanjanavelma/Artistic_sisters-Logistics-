@@ -115,12 +115,13 @@ export class CommissionComponent implements OnInit {
     };
 
     this.orderService.placeCommission(req).subscribe({
-      next: (res) => {
+      next: (res: any) => {
         this.isSubmitting = false;
-        if (res.success) {
+        const isSuccess = res.success !== undefined ? res.success : res.Success;
+        if (isSuccess) {
           this.isSuccess = true;
         } else {
-          this.errorMessage = res.message || 'Failed to submit request.';
+          this.errorMessage = res.message || res.Message || 'Failed to submit request.';
         }
       },
       error: (err) => {

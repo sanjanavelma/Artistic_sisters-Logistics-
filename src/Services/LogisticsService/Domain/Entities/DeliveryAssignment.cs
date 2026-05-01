@@ -39,12 +39,7 @@ public class DeliveryAssignment
     // true = compensation ran, agent and vehicle were released
     public bool IsCompensated { get; set; } = false;
 
-    // Last known GPS coordinates — updated by agent
-    public double? LastLatitude { get; set; }
-    public double? LastLongitude { get; set; }
 
-    // When GPS was last updated
-    public DateTime? LastGPSUpdate { get; set; }
 
     // Navigation properties — EF Core loads these with .Include()
     public DeliveryAgent Agent { get; set; } = null!;

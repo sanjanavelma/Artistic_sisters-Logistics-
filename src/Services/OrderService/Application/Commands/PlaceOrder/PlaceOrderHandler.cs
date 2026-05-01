@@ -16,12 +16,17 @@ public class PlaceOrderHandler : IRequestHandler<PlaceOrderCommand, PlaceOrderRe
     { _db = db; _publisher = publisher; }
     public async Task<PlaceOrderResult> Handle(PlaceOrderCommand request, CancellationToken ct)
     {
+        if (request.Items == null || !request.Items.Any())
+        {
+            throw new Artistic_Sisters.Shared.Exceptions.DomainException("An order must contain at least one item.");
+        }
+
         var order = new Order
         {
             Id = Guid.NewGuid(),
             CustomerId = request.CustomerId,
             Type = request.Type,
-            Status = OrderService.Domain.Enums.OrderStatus.Pending,
+            Status = OrderService.Domain.Enums.OrderStatus.Confirmed,
             PaymentMode = request.PaymentMode,
             PlacedAt = DateTime.UtcNow,
             TotalAmount = request.Items.Sum(i => i.Quantity * i.UnitPrice)

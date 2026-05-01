@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { OrderService } from '../../core/services/order.service';
 import { LogisticsService } from '../../core/services/logistics.service';
-import { CustomerOrderDto, OrderStatus, TrackingInfo } from '../../core/models/models';
+import { CustomerOrderDto, OrderStatus } from '../../core/models/models';
 
 @Component({
   selector: 'app-track-order',
@@ -59,15 +59,6 @@ import { CustomerOrderDto, OrderStatus, TrackingInfo } from '../../core/models/m
               </div>
             </div>
 
-            <!-- Optional LIVE Tracking Map / GPS Coordinates if Available -->
-            <div *ngIf="trackingInfo" class="live-tracking mt-5">
-              <h6>📍 Live Logistics Update</h6>
-              <div class="gps-card">
-                <p><strong>Agent Status:</strong> En route to destination</p>
-                <p class="text-muted mb-0">Location: {{ trackingInfo.latitude }}, {{ trackingInfo.longitude }}</p>
-                <p class="text-muted mb-0"><small>Updated: {{ trackingInfo.updatedAt | date:'mediumTime' }}</small></p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -126,10 +117,7 @@ import { CustomerOrderDto, OrderStatus, TrackingInfo } from '../../core/models/m
     .step-title { margin: 0; font-size: 1.05rem; font-weight: 600; color: var(--text-heading); }
     .step-desc { margin: 4px 0 0; font-size: 0.85rem; color: var(--text-muted); }
     
-    .live-tracking {
-      background: #fdfaf8; border: 1px solid #f2e6e1; border-radius: 12px; padding: 20px;
-    }
-    .gps-card { margin-top: 12px; font-size: 0.95rem; }
+
     
     .error-state { text-align: center; padding: 60px 20px; background: white; border-radius: 16px; border: 1px solid #ffdde1; }
     .btn-outline-primary {
@@ -152,8 +140,7 @@ export class TrackOrderComponent implements OnInit, OnDestroy {
   loading = true;
   error = '';
   
-  trackingInfo: TrackingInfo | null = null;
-  trackingInterval: any;
+
 
   phases = [
     { label: 'Order Confirmed', active: false, detail: 'We received your order.' },
@@ -186,11 +173,6 @@ export class TrackOrderComponent implements OnInit, OnDestroy {
         this.calculatePhases(orderData.status);
         this.loading = false;
 
-        // If the order is out for delivery, stream GPS
-        if (orderData.status === OrderStatus.OutForDelivery) {
-          this.fetchLiveTracking();
-          this.trackingInterval = setInterval(() => this.fetchLiveTracking(), 10000);
-        }
       },
       error: (err) => {
         console.error(err);
@@ -200,9 +182,7 @@ export class TrackOrderComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
-    if (this.trackingInterval) clearInterval(this.trackingInterval);
-  }
+  ngOnDestroy() {}
 
   calculatePhases(status: OrderStatus) {
     // Determine the furthest "index" to light up
@@ -235,12 +215,7 @@ export class TrackOrderComponent implements OnInit, OnDestroy {
     return !this.phases[index + 1].active; // It's active, but the next one isn't
   }
 
-  fetchLiveTracking() {
-    this.logisticsService.track(this.orderId).subscribe({
-      next: (info) => this.trackingInfo = info,
-      error: () => { /* silently ignore if tracker isn't online */ }
-    });
-  }
+
 
   getDeliveryEstimate(): string {
     if (!this.order) return '';

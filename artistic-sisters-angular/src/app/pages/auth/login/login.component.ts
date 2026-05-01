@@ -105,19 +105,22 @@ export class LoginComponent {
     if (!this.email || !this.password) { this.error = 'Please fill all fields'; return; }
     this.loading = true; this.error = '';
     this.auth.login({ email: this.email, password: this.password }).subscribe({
-      next: res => {
+      next: (res: any) => {
         this.loading = false;
-        if (res.success) {
-          if (res.role === 'Artist') this.router.navigate(['/artist']);
-          else if (res.role === 'DeliveryAgent') this.router.navigate(['/delivery/dashboard']);
-          else if (res.role === 'Admin') this.router.navigate(['/admin/dashboard']);
+        const isSuccess = res.success !== undefined ? res.success : res.Success;
+        if (isSuccess) {
+          const role = res.role || res.Role;
+          if (role === 'Artist') this.router.navigate(['/artist']);
+          else if (role === 'DeliveryAgent') this.router.navigate(['/delivery/dashboard']);
+          else if (role === 'Admin') this.router.navigate(['/admin/dashboard']);
           else this.router.navigate(['/portfolio']);
         }
-        else this.error = res.message;
+        else this.error = res.message || res.Message || 'Login failed.';
       },
       error: (err) => { 
         this.loading = false; 
-        this.error = err.error?.message || 'Server error. Is the backend running?'; 
+        const errorBody = err.error as any;
+        this.error = errorBody?.message || errorBody?.Message || err.message || 'Server error. Is the backend running?'; 
       }
     });
   }

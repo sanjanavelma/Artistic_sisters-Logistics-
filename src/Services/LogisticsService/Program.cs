@@ -68,10 +68,34 @@ builder.Services.AddHangfireServer();
 // Register SLA Monitor Job for dependency injection
 builder.Services.AddScoped<SLAMonitorJob>();
 
-// ── 6. CONTROLLERS & OPENAPI ──────────────────────────────────────────────────
+// ── 6. CONTROLLERS & SWAGGER ──────────────────────────────────────────────────
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddOpenApi();
+
+// ── SWAGGER / OPENAPI ──────────────────────────────────────────────────────────
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.OpenApiInfo
+    {
+        Title = "Logistics Service API",
+        Version = "v1",
+        Description = "Manages delivery agents, vehicles, order assignments, and SLA monitoring. Admin endpoints for assigning and compensating logistics. Includes Hangfire job dashboard at /hangfire."
+    });
+
+    c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = Microsoft.OpenApi.SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = Microsoft.OpenApi.ParameterLocation.Header,
+        Description = "Enter: Bearer {your JWT token}"
+    });
+    c.AddSecurityRequirement(doc => new Microsoft.OpenApi.OpenApiSecurityRequirement
+    {
+        [new Microsoft.OpenApi.OpenApiSecuritySchemeReference("Bearer", doc)] = []
+    });
+});
 
 // ── BUILD APP ─────────────────────────────────────────────────────────────────
 var app = builder.Build();
@@ -86,10 +110,13 @@ using (var scope = app.Services.CreateScope())
 }
 
 // ── MIDDLEWARE ───────────────────────────────────────────────────────────────
-if (app.Environment.IsDevelopment())
+// ── SWAGGER UI ────────────────────────────────────────────────────────────────
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.MapOpenApi();
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Logistics Service v1");
+    c.RoutePrefix = "swagger";
+});
 
 // Hangfire Dashboard — view all jobs at /hangfire
 // Shows running jobs, completed jobs, failed jobs

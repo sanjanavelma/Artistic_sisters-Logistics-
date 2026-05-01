@@ -212,9 +212,20 @@ export class OrderComponent implements OnInit {
     this.placingOrder = true;
     this.error = '';
 
-    const pMode = this.paymentMethod === 'Razorpay' ? PaymentMode.Card : PaymentMode.CashOnDelivery;
+    if (this.paymentMethod === 'COD') {
+      // COD: place order immediately
+      this.createSystemOrder(PaymentMode.CashOnDelivery, () => {
+        this.placingOrder = false;
+        this.orderSuccess = true;
+      });
+    } else {
+      // Razorpay: open payment gateway FIRST, create order only after success
+      this.startRazorpayFirst();
+    }
+  }
 
-    // 1. Send Order to backend. 
+  /** For COD and post-payment: creates the actual system order */
+  private createSystemOrder(pMode: PaymentMode, onSuccess: () => void) {
     this.orderSvc.placeOrder({
       customerId: this.auth.currentUser?.customerId || '',
       customerName: this.checkoutForm.value.name,
@@ -223,102 +234,142 @@ export class OrderComponent implements OnInit {
       type: OrderType.ReadyMade,
       paymentMode: pMode,
       items: [{
-        artworkId: this.artwork.id,
-        artworkTitle: this.artwork.title,
+        artworkId: this.artwork!.id,
+        artworkTitle: this.artwork!.title,
         quantity: 1,
-        unitPrice: this.artwork.price + this.deliveryFee // Adding delivery to simplify total
+        unitPrice: this.artwork!.price + this.deliveryFee
       }]
     }).subscribe({
-      next: (res) => {
-        if (!res.success) {
-          this.error = res.message;
+      next: (res: any) => {
+        const isSuccess = res.success !== undefined ? res.success : res.Success;
+        if (!isSuccess) {
+          this.error = res.message || res.Message || 'Failed to place order.';
           this.placingOrder = false;
           return;
         }
-        
-        // Order is placed (Pending inside DB). 
-        if (this.paymentMethod === 'COD') {
-            // COD is completely done!
-            this.placingOrder = false;
-            this.orderSuccess = true;
-        } else {
-            // Online Payment via Razorpay
-            this.startRazorpay(res.orderId!);
-        }
+        this.pendingSystemOrderId = res.orderId || res.OrderId;
+        onSuccess();
       },
       error: (err) => {
-        this.error = 'System fault placing order.';
+        const body = err.error as any;
+        this.error = body?.message || body?.Message || 'Failed to place order. Please try again.';
+        this.placingOrder = false;
+      }
+    });
+  }
+
+  /** Step 1 for Razorpay: create a Razorpay session (no system order yet) */
+  startRazorpayFirst() {
+    const totalAmount = this.artwork!.price + this.deliveryFee;
+    
+    // generates a valid GUID safely without relying on crypto.randomUUID
+    const tempId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        let r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+
+    this.paymentSvc.createRazorpayOrder(totalAmount, tempId).subscribe({
+      next: (rzpInfo: any) => {
+        this.razorpayOrderId = rzpInfo.razorpayOrderId || rzpInfo.RazorpayOrderId;
+
+        const options = {
+          key: 'rzp_test_Sb4Wzq4ppxTZPM',
+          amount: totalAmount * 100,
+          currency: rzpInfo.currency || 'INR',
+          name: 'Artistic Sisters',
+          description: `Payment for ${this.artwork!.title}`,
+          image: '/assets/logo.png',
+          order_id: this.razorpayOrderId,
+          handler: (response: any) => {
+            // Payment succeeded — NOW create the system order then verify
+            this.createSystemOrder(PaymentMode.Card, () => {
+              this.verifyRazorpaySuccess(
+                response.razorpay_payment_id,
+                response.razorpay_order_id,
+                response.razorpay_signature
+              );
+            });
+          },
+          prefill: {
+            name: this.checkoutForm.value.name,
+            contact: (this.auth.currentUser as any)?.phone || '9999999999',
+            email: this.checkoutForm.value.email
+          },
+          theme: { color: '#e47a8c' },
+          modal: {
+            ondismiss: () => {
+              // User cancelled — NO order is created
+              this.placingOrder = false;
+              this.error = 'Payment cancelled. No order was placed.';
+            }
+          }
+        };
+
+        this.waitForRazorpay().then(() => {
+          const rzp = new (window as any).Razorpay(options);
+          rzp.on('payment.failed', (response: any) => {
+            // Payment failed — NO order is created
+            this.error = 'Payment failed: ' + (response.error?.description || 'Unknown error');
+            this.placingOrder = false;
+          });
+          rzp.open();
+        }).catch(() => {
+          this.error = 'Could not load Razorpay. Please check your internet connection and try again.';
+          this.placingOrder = false;
+        });
+      },
+      error: (err) => {
+        const body = err.error as any;
+        this.error = body?.message || body?.error || 'Failed to connect to Payment Gateway. Is the backend running?';
         this.placingOrder = false;
       }
     });
   }
   
-  startRazorpay(orderId: string) {
-      this.pendingSystemOrderId = orderId;
-      const totalAmount = this.artwork!.price + this.deliveryFee;
-      
-      this.paymentSvc.createRazorpayOrder(totalAmount, orderId).subscribe({
-          next: (rzpInfo) => {
-              this.razorpayOrderId = rzpInfo.razorpayOrderId;
-              
-              const options = {
-                  key: 'rzp_test_Sb4Wzq4ppxTZPM', // Uses the Test Key ID directly
-                  amount: totalAmount * 100, // Amount is in currency subunits (paise)
-                  currency: rzpInfo.currency || 'INR',
-                  name: 'Artistic Sisters',
-                  description: 'Payment for Order ' + orderId,
-                  image: '/assets/logo.png', // Optional logo
-                  order_id: this.razorpayOrderId,
-                  handler: (response: any) => {
-                      this.verifyRazorpaySuccess(response.razorpay_payment_id, response.razorpay_order_id, response.razorpay_signature);
-                  },
-                  prefill: {
-                      name: this.checkoutForm.value.name,
-                      contact: (this.auth.currentUser as any)?.phone || '9999999999',
-                      email: this.checkoutForm.value.email
-                  },
-                  theme: { color: '#e47a8c' },
-                  modal: {
-                      ondismiss: () => {
-                          this.placingOrder = false;
-                          this.error = 'Payment Cancelled by user. Order is stored as Pending.';
-                      }
-                  }
-              };
-              
-              const rzp = new (window as any).Razorpay(options);
-              rzp.on('payment.failed', (response: any) => {
-                  this.error = 'Payment Failed: ' + response.error.description;
-                  this.placingOrder = false;
-              });
-              rzp.open();
-          },
-          error: () => {
-              this.error = 'Failed to connect to Gateway.';
-              this.placingOrder = false;
-          }
-      });
+  verifyRazorpaySuccess(paymentId: string, razorpayOrderId: string, signature: string, retries = 0) {
+    this.verifying = true;
+    this.placingOrder = true;
+    
+    this.paymentSvc.verifyRazorpayPayment(this.pendingSystemOrderId, razorpayOrderId, paymentId, signature).subscribe({
+      next: () => {
+        this.verifying = false;
+        this.orderSuccess = true;
+        this.placingOrder = false;
+      },
+      error: (err) => {
+        if (err.status === 404 && retries < 10) {
+          // The async OrderPlacedEvent hasn't been consumed by PaymentService yet. Retry in 1s.
+          setTimeout(() => this.verifyRazorpaySuccess(paymentId, razorpayOrderId, signature, retries + 1), 1000);
+          return;
+        }
+        this.verifying = false;
+        this.error = 'Payment signature verification failed. Please contact support.';
+        this.placingOrder = false;
+      }
+    });
   }
   
-  verifyRazorpaySuccess(paymentId: string, razorpayOrderId: string, signature: string) {
-      this.verifying = true;
-      this.placingOrder = true; // explicitly keep loading overlay during verification
-      
-      this.paymentSvc.verifyRazorpayPayment(this.pendingSystemOrderId, razorpayOrderId, paymentId, signature).subscribe({
-          next: () => {
-              this.verifying = false;
-              this.orderSuccess = true;
-              this.placingOrder = false;
-          },
-          error: () => {
-              this.verifying = false;
-              this.error = 'Cryptographic Signature Verification Failed! This payment is fraudulent or corrupt.';
-              this.placingOrder = false;
+  waitForRazorpay(maxRetries = 20): Promise<void> {
+    return new Promise((resolve, reject) => {
+      let retries = 0;
+      const checkInterval = setInterval(() => {
+        if ((window as any).Razorpay) {
+          clearInterval(checkInterval);
+          resolve();
+        } else {
+          retries++;
+          if (retries >= maxRetries) {
+            clearInterval(checkInterval);
+            reject(new Error('Razorpay SDK timed out.'));
           }
-      });
+        }
+      }, 500); // Check every 500ms
+    });
   }
-  
+
   goToDashboard() {
-      this.router.navigate(['/customer/dashboard']);
+    this.router.navigate(['/customer/dashboard']);
   }
 }
+
+

@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artistic Sisters - Enterprise Architecture Documentation</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: false, theme: 'neutral', securityLevel: 'loose', fontFamily: 'Inter' });
+        window.mermaid = mermaid;
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --border: #e2e8f0;
+            --accent: #8b5cf6;
+            --green: #10b981;
+            --red: #ef4444;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card);
+            padding: 80px;
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.07);
+            border: 1px solid var(--border);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: #0f172a;
+            margin-top: 2.5em;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 15px;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            border-left: 5px solid var(--accent);
+            padding-left: 15px;
+            background: #f1f5f9;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        h3 {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 5px;
+        }
+
+        pre {
+            background: #0f172a;
+            color: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.88em;
+            line-height: 1.5;
+        }
+
+        code {
+            font-family: 'Consolas', monospace;
+            color: #7c3aed;
+            font-weight: 600;
+            font-size: 0.92em;
+        }
+
+        pre code {
+            color: inherit;
+            font-weight: normal;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.95em;
+        }
+
+        th,
+        td {
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #f8fafc;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        tr:nth-child(even) td {
+            background: #fafbfc;
+        }
+
+        ul,
+        ol {
+            line-height: 2;
+        }
+
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            background: #fefefe;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px dashed #cbd5e1;
+            min-height: 80px;
+        }
+
+        .meta-box {
+            background: linear-gradient(135deg, #f0f4ff, #f8f0ff);
+            padding: 24px;
+            border-radius: 10px;
+            border: 1px solid #d0d7f0;
+            margin-bottom: 50px;
+            text-align: center;
+            font-size: 1.05em;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            border-radius: 20px;
+            padding: 2px 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .section-break {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border), transparent);
+            margin: 60px 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--primary);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f5f3ff;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+                border: none;
+                max-width: none;
+                padding: 25px;
+            }
+
+            h2 {
+                background: #eeeeee !important;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="content">Loading...</div>
+
+    <script id="md-source" type="text/markdown">
+# Artistic Sisters
+## Enterprise Platform — Project Architecture & Implementation Documentation
+
+<div class="meta-box">
+<strong>Version:</strong> 1.0 &nbsp;|&nbsp; <strong>Date:</strong> 14-Apr-2026 &nbsp;|&nbsp; <strong>Status:</strong> Final Submission
+</div>
+
+---
+
+## 1. Executive Summary
+
+**Artistic Sisters** is a premium multi-role B2C marketplace and commissioned artworks portal. Customers can browse a curated gallery, place standard orders, and submit custom commission requests directly to artists. Artists manage their portfolio and approve commission inquiries. Delivery Agents are assigned automatically via an event-driven logistics pipeline and update tracking in real time.
+
+The system is built on a modern **microservices architecture** with a .NET 10 backend, Angular 21 frontend, and RabbitMQ-powered event bus.
+
+### Core Technology Pillars
+- **Frontend**: Angular 21 (standalone components, reactive forms, role-based routing)
+- **Backend**: .NET 10 microservices using Clean Architecture and CQRS (MediatR)
+- **Persistence**: SQL Server — one isolated database per service
+- **Messaging**: RabbitMQ via MassTransit for all cross-service integration events
+- **Cache/State**: StackExchange.Redis (used in OrderService for reservation state)
+- **Payments**: Razorpay SDK integrated in PaymentService
+- **Security**: JWT Bearer tokens + BCrypt password hashing
+
+### Primary Actor Groups
+| Role | Description |
+| :--- | :--- |
+| **Customer** | Browses gallery, places orders, tracks shipments, requests commissions |
+| **Artist** | Manages gallery uploads, reviews commission inquiries, updates order status |
+| **DeliveryAgent** | Receives assigned shipments, updates delivery milestones |
+
+---
+
+## 2. HLD and LLD Traceability Index
+This index provides a quick reference to the enterprise-grade design artifacts implemented in this documentation.
+
+| Dimension | Reference |
+| :--- | :--- |
+| HLD — System context diagram | Section 6.1 |
+| HLD — Runtime port map | Section 6.2 |
+| LLD — Clean Architecture layers (Backend) | Section 7.1 |
+| LLD — Request pipeline | Section 7.2 |
+| LLD — Angular module diagram (Frontend) | Section 8.1 |
+| LLD — Route/guard mapping | Section 8.2 |
+| Event-driven architecture | Section 9.1 |
+| Outbox pattern | Section 9.2 |
+| Use case diagram (UML-style) | Section 10.1 |
+| Use case narratives | Section 10.2 |
+| Activity diagram | Section 10.3 |
+| Order State Machine diagram | Section 11.1 |
+| Class diagram | Section 11.2 |
+| Cross-service ER diagram | Section 11.3 |
+| API endpoint registry | Section 12.2 |
+| JSON contract examples | Section 12.3 |
+| Sequence diagrams (Auth, Order, Commission) | Section 13 |
+| Deployment diagram | Section 14.1 |
+| Security model | Section 15 |
+
+---
+
+## 3. Scope and Objectives
+
+This document is the **master technical specification** and serves as the final submission artifact for architecture, implementation, and API-level review:
+- High-Level Design (HLD): System context, container map, runtime topology
+- Low-Level Design (LLD): Backend layers, request pipeline, frontend module structure
+- Verified entity models and cross-service ER diagram
+- Event-driven architecture with full consumer inventory
+- Use case diagram and actor-to-capability mapping
+- API endpoint registry and JSON contract examples
+- Order lifecycle state machine diagram
+- Activity and deployment diagrams
+
+---
+
+## 4. Technology Stack
+
+### 4.1 Frontend Stack
+| Package | Version | Purpose |
+| :--- | :--- | :--- |
+| `@angular/core` | ^21.2.0 | Core SPA framework |
+| `@angular/router` | ^21.2.0 | Lazy-loaded route modules |
+| `@angular/forms` | ^21.2.0 | Reactive and template-driven forms |
+| `rxjs` | ~7.8.0 | Async streams and reactive state |
+| `typescript` | ~5.9.2 | Type-safe development |
+
+### 4.2 Backend Stack
+| Package | Version | Purpose |
+| :--- | :--- | :--- |
+| `.NET 10` | 10.0 | API runtime |
+| `MediatR` | 12–14.x | CQRS command/query dispatching |
+| `MassTransit` | 8.0.11 | RabbitMQ abstractions |
+| `MassTransit.RabbitMQ` | 8.0.11 | Broker transport |
+| `EF Core + SqlServer` | 8.0–10.0 | Code-first ORM |
+| `Ocelot` | 24.1.0 | API Gateway / Route proxy |
+| `FluentValidation` | 11.7.0 | Request validation (OrderService) |
+| `BCrypt.Net-Next` | 4.0.2 | Password hashing (IdentityService) |
+| `JwtBearer` | 8.0.16 | JWT auth middleware (IdentityService) |
+| `StackExchange.Redis` | 2.12.8 | Cache client (OrderService) |
+| `Razorpay` | 3.3.2 | Payment gateway SDK (PaymentService) |
+
+---
+
+## 5. Repository and Solution Structure
+
+```text
+Artistic_Sisters/
+├── src/
+│   ├── Gateway/
+│   │   └── ApiGateway/          ← Ocelot, ocelot.json, routing config
+│   ├── Services/
+│   │   ├── IdentityService/     ← Auth, JWT, BCrypt, User profiles
+│   │   ├── ArtworkService/      ← Gallery catalog, categories
+│   │   ├── OrderService/        ← Orders, commissions, Redis, Outbox
+│   │   ├── LogisticsService/    ← Shipments, agents, tracking
+│   │   ├── PaymentService/      ← Razorpay, transaction records
+│   │   └── NotificationService/ ← Email consumers, templates, inbox
+│   └── Shared/
+│       └── Artistic_Sisters.Shared/  ← Integration Events, DTOs
+└── artistic-sisters-angular/
+    └── src/app/
+        ├── core/
+        │   ├── guards/          ← authGuard, artistGuard, deliveryGuard, adminGuard
+        │   ├── interceptors/    ← jwtInterceptor
+        │   ├── services/        ← artwork, auth, logistics, order, payment
+        │   └── models/
+        ├── shared/              ← Reusable UI components
+        └── pages/               ← Feature pages per role
+```
+
+---
+
+## 6. High-Level Architecture (HLD)
+
+### 6.1 System Context and Container Diagram
+
+```mermaid
+graph TD
+    User[Customer / Artist / DeliveryAgent] -->|HTTPS + JWT| Gateway[Ocelot Gateway :5000]
+
+    subgraph "Microservices Cluster"
+        Gateway --> Identity[Identity Service :5001]
+        Gateway --> Artwork[Artwork Service :5002]
+        Gateway --> Orders[Order Service :5003]
+        Gateway --> Logistics[Logistics Service :5004]
+        Gateway --> Payment[Payment Service :5005]
+        Gateway --> Notif[Notification Service :5006]
+    end
+
+    subgraph "Persistence Layer"
+        Identity --- IDB[(Identity DB)]
+        Artwork --- ADB[(Artwork DB)]
+        Orders --- ODB[(Order DB)]
+        Logistics --- LDB[(Logistics DB)]
+        Payment --- PDB[(Payment DB)]
+        Notif --- NDB[(Notification DB)]
+    end
+
+    subgraph "Integration Layer"
+        Orders -.->|Publishes Events| RMQ[RabbitMQ]
+        Identity -.->|Publishes Events| RMQ
+        Logistics -.->|Publishes Events| RMQ
+        RMQ -.->|Consumes| Notif
+        RMQ -.->|Consumes| Logistics
+        RMQ -.->|Consumes| Payment
+        Orders --- Redis[(Redis Cache)]
+    end
+```
+
+### 6.2 Runtime Port Map
+| Service | Port |
+| :--- | :--- |
+| Ocelot API Gateway | :5000 |
+| Identity Service | :5001 |
+| Artwork Service | :5002 |
+| Order Service | :5003 |
+| Logistics Service | :5004 |
+| Payment Service | :5005 |
+| Notification Service | :5006 |
+| RabbitMQ AMQP | :5672 |
+| RabbitMQ Management UI | :15672 |
+| Redis | :6379 |
+
+### 6.3 Service Responsibility Matrix
+| Service | Responsibility |
+| :--- | :--- |
+| **Gateway** | Route proxy, single external entry point (Ocelot 24.1). Reads `ocelot.json` for downstream forwarding. |
+| **Identity** | User registration/login, JWT issuance, BCrypt password hashing, role management. |
+| **Artwork** | Artwork catalog, categories, availability status. Artists upload and manage pieces. |
+| **Order** | Order aggregate lifecycle, custom commission intake, Redis-based reservation, Outbox publisher. |
+| **Logistics** | Agent/vehicle assignment, shipment creation, delivery status tracking. |
+| **Payment** | Razorpay payment order creation, verification, and transaction record management. |
+| **Notification** | Event-driven email dispatch. Consumes all major integration events and sends emails via SMTP. |
+
+---
+
+## 7. Backend Low-Level Design (LLD)
+
+### 7.1 Clean Architecture — Internal Layering Pattern
+
+Every microservice strictly adheres to Clean Architecture to ensure separation of concerns:
+
+```mermaid
+graph LR
+    API[API Layer\nControllers] -->|Request DTOs| App[Application Layer\nMediatR Handlers]
+    App -->|Commands / Queries| Dom[Domain Layer\nEntities & Enums]
+    App -->|IRepository calls| Infra[Infrastructure Layer\nEF Core & Messaging]
+    Infra -->|Implements| Dom
+
+    subgraph "Per-Service Internal Stack"
+        API
+        App
+        Dom
+        Infra
+    end
+```
+
+| Layer | Responsibilities |
+| :--- | :--- |
+| **API** | HTTP Controllers, request binding, JWT role gates |
+| **Application** | MediatR Commands/Queries, FluentValidation, business orchestration |
+| **Domain** | Core Entities, Enums (e.g. `OrderStatus`), domain invariants |
+| **Infrastructure** | DbContext, EF migrations, MassTransit publish, Redis client |
+
+### 7.2 Request Processing Pipeline
+
+When an API call arrives, it passes through this ordered chain:
+
+1. **Ocelot Gateway** — incoming request matched to a downstream route via `ocelot.json`
+2. **JWT Middleware** — token validated, role claims extracted
+3. **Controller** — request bound and dispatched via `IMediator.Send()`
+4. **MediatR Handler** — business logic executed, domain entities updated
+5. **EF Core SaveChanges** — persisted to SQL Server
+6. **Event Publishing** — MassTransit publishes integration event to RabbitMQ (if needed)
+7. **HTTP Response** — result returned to client
+
+### 7.3 Shared Library (`Artistic_Sisters.Shared`)
+The shared project provides:
+- **Integration Event DTOs**: All event message contracts shared across producers and consumers
+- **Shared DTOs**: `OrderDto` and other cross-service data transfer objects
+
+---
+
+## 8. Frontend Architecture and LLD
+
+### 8.1 Angular App-Level Architecture (Frontend LLD)
+
+```mermaid
+graph TD
+    App[Angular App Module] --> Core[Core Module]
+    App --> Shared[Shared Module]
+    App --> Pages[Pages / Features]
+
+    Core --> Guards[Route Guards]
+    Core --> Interceptors[HTTP Interceptors]
+    Core --> Services[API Services]
+
+    Guards --> G1[authGuard]
+    Guards --> G2[artistGuard]
+    Guards --> G3[deliveryGuard]
+    Guards --> G4[adminGuard]
+
+    Interceptors --> I1[jwtInterceptor]
+
+    Services --> S1[auth.service.ts]
+    Services --> S2[artwork.service.ts]
+    Services --> S3[order.service.ts]
+    Services --> S4[logistics.service.ts]
+    Services --> S5[payment.service.ts]
+
+    Pages --> Home
+    Pages --> Auth
+    Pages --> Customer[Customer Dashboard]
+    Pages --> Artist[Artist Dashboard]
+    Pages --> Delivery[Delivery Dashboard]
+    Pages --> Admin[Admin Dashboard]
+```
+
+### 8.2 Route and Role Mapping
+| Route | Guard | Allowed Role |
+| :--- | :--- | :--- |
+| `/about` `/portfolio` `/services` | None | Public |
+| `/auth/login` `/auth/register` `/auth/register-agent` | None | Public |
+| `/order` `/commission` `/track/:orderId` | `authGuard` | Any logged-in user |
+| `/customer/dashboard` | `authGuard` | Customer |
+| `/artist` | `artistGuard` | Artist |
+| `/delivery/dashboard` | `deliveryGuard` | DeliveryAgent |
+| `/admin/dashboard` | `adminGuard` | Artist (acts as admin) |
+
+### 8.3 Interceptor Chain
+The Angular app uses a **single HTTP interceptor**:
+
+- **`jwtInterceptor`**: Reads the JWT from `localStorage` (key: `as_token`) and appends `Authorization: Bearer <token>` to every outgoing HTTP request.
+
+---
+
+## 9. Event-Driven Architecture
+
+### 9.1 Integration Event Inventory
+All events are published via MassTransit to RabbitMQ and consumed by the NotificationService (emails) and other services (logistics, payment).
+
+| Event | Published By | Consumed By | Side Effect |
+| :--- | :--- | :--- | :--- |
+| `CustomerRegisteredEvent` | IdentityService | NotificationService | Welcome email to customer |
+| `CustomerApprovedEvent` | IdentityService | NotificationService | Approval email |
+| `DeliveryAgentRegisteredEvent` | IdentityService | NotificationService | Agent welcome email |
+| `CustomCommissionEvent` | OrderService | NotificationService | Commission inquiry email to artist |
+| `OrderPlacedEvent` | OrderService | PaymentService, NotificationService | Triggers payment flow + confirmation email |
+| `ReadyForDispatchEvent` | OrderService | LogisticsService, PaymentService | Creates shipment, triggers agent assignment |
+| `DispatchConfirmedEvent` | LogisticsService | NotificationService, PaymentService | Dispatch confirmation email |
+| `AgentAssignedEvent` | LogisticsService | NotificationService, PaymentService | Agent assigned email to customer |
+| `AssignAgentFailedEvent` | LogisticsService | PaymentService | Handles failed assignment logic |
+| `SLAAtRiskEvent` | LogisticsService | NotificationService | SLA breach warning email |
+| `OrderStatusChangedEvent` | OrderService | NotificationService | Status update email to customer, agent, admin |
+| `DeliveryCompletedEvent` | LogisticsService | NotificationService | Delivery confirmation email |
+
+### 9.2 MassTransit Outbox Pattern (OrderService)
+OrderService uses a transactional **Outbox** pattern to guarantee at-least-once delivery:
+
+```mermaid
+sequenceDiagram
+    participant H as MediatR Handler
+    participant DB as SQL Server
+    participant OUT as OutboxMessages
+    participant POLL as OutboxProcessor
+    participant RMQ as RabbitMQ
+    participant CS as Consumer Services
+
+    H->>DB: Save Order + OutboxMessage (same transaction)
+    POLL->>OUT: Poll for unprocessed messages
+    POLL->>RMQ: Publish event
+    RMQ->>CS: Route to Consumer queues
+```
+
+---
+
+## 10. Use Case Model
+
+### 10.1 Unified Use Case Diagram
+
+```mermaid
+graph LR
+    subgraph "Artistic Sisters Platform"
+        UC1(Register and Login)
+        UC2(Browse Artwork Gallery)
+        UC3(Place Standard Order)
+        UC4(Request Custom Commission)
+        UC5(Track Shipment)
+        UC6(Manage Gallery Portfolio)
+        UC7(Review and Quote Commission)
+        UC8(Update Order Status)
+        UC9(Update Delivery Status)
+    end
+
+    Customer((Customer)) --> UC1
+    Customer --> UC2
+    Customer --> UC3
+    Customer --> UC4
+    Customer --> UC5
+
+    Artist((Artist)) --> UC6
+    Artist --> UC7
+    Artist --> UC8
+
+    Agent((Delivery Agent)) --> UC1
+    Agent --> UC9
+```
+
+### 10.2 Core Use Case Narratives
+
+#### UC 10.2.1 — Place Standard Order
+- **Actor**: Customer
+- **Preconditions**: User logged in with `Customer` role. Artwork is available.
+- **Flow**:
+  1. Customer selects artwork and proceeds to checkout.
+  2. Frontend calls `POST /api/orders` via OrderService.
+  3. OrderService creates the order and publishes `OrderPlacedEvent`.
+  4. PaymentService consumes the event to initiate Razorpay flow.
+  5. NotificationService sends order confirmation email.
+- **Postconditions**: Order record persisted, customer notified.
+
+#### UC 10.2.2 — Request Custom Commission
+- **Actor**: Customer
+- **Preconditions**: User logged in.
+- **Flow**:
+  1. Customer fills the commission form (medium, size, reference photo, description).
+  2. Frontend calls `POST /api/orders/commission`.
+  3. OrderService creates a commission record; publishes `CustomCommissionEvent`.
+  4. Artist receives an email notification to review.
+- **Postconditions**: Commission visible in Artist dashboard and Customer's order history.
+
+#### UC 10.2.3 — Delivery Fulfillment
+- **Actor**: Delivery Agent
+- **Flow**:
+  1. Agent logs in via `/auth/login`, token read as `DeliveryAgent` role.
+  2. Agent browses assigned shipments on the Delivery Dashboard.
+  3. Agent updates status through milestones (`OutForDelivery` → `Delivered`).
+  4. Each update triggers `OrderStatusChangedEvent` → NotificationService emails customer.
+- **Postconditions**: Order closed, customer receives delivery confirmation.
+
+### 10.3 Activity Diagram — Order Processing Flow
+
+```mermaid
+graph TD
+    Start([Customer Logs In]) --> Browse[Browse Gallery]
+    Browse --> Custom{Commission or Standard?}
+    Custom -->|Standard Order| Checkout[Add to Cart and Checkout]
+    Custom -->|Custom Commission| Form[Fill Commission Form]
+    Form --> Submit[Submit Commission]
+    Submit --> ArtistReview[Artist Reviews and Quotes]
+    ArtistReview --> CustomerAccept[Customer Accepts Quote]
+    CustomerAccept --> Checkout
+    Checkout --> Payment{Payment Method}
+    Payment -->|Razorpay| RazorFlow[Razorpay Flow]
+    Payment -->|COD| COD[Cash on Delivery]
+    RazorFlow --> OrderCreated[Order Created and Confirmed]
+    COD --> OrderCreated
+    OrderCreated --> InProd[Artwork in Production]
+    InProd --> ReadyDispatch[Ready for Delivery]
+    ReadyDispatch --> AgentAssign[Delivery Agent Assigned]
+    AgentAssign --> OutForDelivery[Out for Delivery]
+    OutForDelivery --> Delivered[Delivered]
+    Delivered --> End([Order Closed])
+```
+
+---
+
+## 11. Data Architecture and ER Diagrams
+
+### 11.1 Order Lifecycle — State Machine Diagram
+Based on the actual `OrderStatus` enum in `OrderService.Domain.Enums`:
+
+```mermaid
+stateDiagram-v2
+    [*] --> Pending : Order Created
+    Pending --> Confirmed : Payment Received
+    Confirmed --> InProduction : Artist Begins Work
+    InProduction --> ReadyForDelivery : Work Completed
+    ReadyForDelivery --> OutForDelivery : Agent Dispatched
+    OutForDelivery --> Delivered : Agent Marks Complete
+    Pending --> Cancelled : Admin or User Action
+    Confirmed --> Cancelled : System Rollback
+    Delivered --> [*]
+    Cancelled --> [*]
+```
+
+### 11.2 Domain Class Diagram — Order Service
+
+```mermaid
+classDiagram
+    class Order {
+        +Guid Id
+        +string OrderNumber
+        +Guid CustomerId
+        +string CustomerEmail
+        +OrderStatus Status
+        +decimal TotalAmount
+        +DateTime PlacedAt
+        +UpdateStatus(newStatus)
+    }
+    class OrderItem {
+        +Guid Id
+        +Guid ArtworkId
+        +string Title
+        +decimal UnitPrice
+        +int Quantity
+    }
+    class CustomCommissionOrder {
+        +Guid Id
+        +Guid CustomerId
+        +string Category
+        +string Instructions
+        +string ReferencePhotoUrl
+    }
+    class OrderStatus {
+        <<enumeration>>
+        Pending
+        Confirmed
+        InProduction
+        ReadyForDelivery
+        OutForDelivery
+        Delivered
+        Cancelled
+    }
+    Order "1" -- "*" OrderItem : contains
+    Order -- OrderStatus : state
+    Order <|-- CustomCommissionOrder : extends
+```
+
+### 11.3 Consolidated Cross-Service ER Diagram
+
+```mermaid
+erDiagram
+    Customers ||--o{ Orders : "places"
+    Artworks ||--o{ NotifyMeSubscriptions : "has"
+    Artworks ||--o{ OrderItems : "references"
+    Orders ||--|{ OrderItems : "contains"
+    Orders ||--o| Payments : "paid_by"
+    Orders ||--o| Assignments : "delivered_by"
+    Orders ||--o| DispatchSagas : "orchestrated_by"
+    Agents ||--o{ Assignments : "assigned_to"
+    Vehicles ||--o{ Assignments : "used_in"
+
+    Customers {
+        guid Id PK
+        string Name
+        string Email
+        string PasswordHash
+        string Phone
+        string Address
+        bool IsActive
+        datetime RegisteredAt
+        string Role
+    }
+
+    Artworks {
+        guid Id PK
+        string Title
+        string Description
+        decimal Price
+        string ArtworkType
+        string Medium
+        string Dimensions
+        string ArtworkCode
+        string ImageUrl
+        int AvailableQuantity
+        bool IsCustomizable
+        bool IsActive
+        int EstimatedCompletionDays
+        datetime CreatedAt
+        datetime UpdatedAt
+        bool IsComingSoon
+    }
+
+    NotifyMeSubscriptions {
+        guid Id PK
+        guid ArtworkId FK
+        guid CustomerId
+        string CustomerEmail
+        datetime SubscribedAt
+        bool NotificationSent
+    }
+
+    Orders {
+        guid Id PK
+        guid CustomerId
+        string Type
+        string Status
+        decimal TotalAmount
+        string PaymentMode
+        datetime PlacedAt
+        string Discriminator
+        string ArtworkType
+        string Medium
+        string Size
+        string ReferencePhotoUrl
+        string SpecialInstructions
+    }
+
+    OrderItems {
+        guid Id PK
+        guid OrderId FK
+        guid ArtworkId
+        string ArtworkTitle
+        int Quantity
+        decimal UnitPrice
+    }
+
+    OutboxMessages {
+        guid Id PK
+        string Type
+        string Payload
+        datetime OccurredAt
+        bool Processed
+    }
+
+    Agents {
+        guid Id PK
+        string Name
+        string Phone
+        string Email
+        string Status
+        guid CurrentOrderId
+        bool IsActive
+        datetime CreatedAt
+    }
+
+    Vehicles {
+        guid Id PK
+        string RegistrationNumber
+        string VehicleType
+        bool IsAvailable
+        bool IsActive
+    }
+
+    Assignments {
+        guid Id PK
+        guid OrderId
+        guid AgentId FK
+        guid VehicleId FK
+        string Status
+        datetime AssignedAt
+        datetime SLADeadline
+        bool IsCompensated
+        string CustomerAddress
+        string CustomerEmail
+        string CustomerName
+    }
+
+    DispatchSagas {
+        guid Id PK
+        guid OrderId
+        guid CustomerId
+        string State
+        datetime StartedAt
+        datetime CompletedAt
+        string FailureReason
+        bool PaymentLocked
+        bool AgentAssigned
+        string CustomerAddress
+        string CustomerEmail
+        string CustomerName
+    }
+
+    Payments {
+        guid Id PK
+        guid OrderId
+        guid CustomerId
+        decimal Amount
+        string Status
+        string PaymentMode
+        datetime CreatedAt
+        datetime ConfirmedAt
+        string ProviderOrderId
+        string ProviderPaymentId
+    }
+```
+
+### 11.4 Data Ownership Rules
+- **IdentityService** owns: `Customers` (Auth and Profile data)
+- **ArtworkService** owns: `Artworks`, `NotifyMeSubscriptions`
+- **OrderService** owns: `Orders`, `OrderItems`, `OutboxMessages`
+- **LogisticsService** owns: `Assignments`, `Agents`, `Vehicles`, `DispatchSagas`
+- **PaymentService** owns: `Payments` (Razorpay transactions)
+- **NotificationService** owns: Integration logs and inbox history
+
+
+---
+
+## 12. API Documentation
+
+### 12.1 Gateway Base URL and Standards
+- **Gateway**: `http://localhost:5000` (all client calls go here)
+- **Format**: JSON (camelCase)
+- **Auth**: `Authorization: Bearer <jwt>` on all protected routes
+- **OpenAPI**: Each service exposes `/openapi` in development mode
+
+### 12.2 Endpoint Inventory
+
+#### Identity Service (`:5001`)
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `POST` | `/api/auth/login` | Authenticate user, returns JWT |
+| `POST` | `/api/auth/register` | Register new Customer |
+| `POST` | `/api/auth/register-agent` | Register Delivery Agent |
+
+#### Artwork Service (`:5002`)
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/artworks` | Paginated gallery listing |
+| `GET` | `/api/artworks/{id}` | Full artwork details |
+| `POST` | `/api/artworks` | *(Artist)* Upload new artwork |
+
+#### Order Service (`:5003`)
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `POST` | `/api/orders` | Place a standard order |
+| `POST` | `/api/orders/commission` | Submit a custom commission |
+| `GET` | `/api/orders/customer/{id}` | Customer's order history |
+| `GET` | `/api/orders/all` | *(Artist/Admin)* All orders |
+| `GET` | `/api/orders/{id}` | Single order detail |
+| `PATCH` | `/api/orders/{id}/status` | Update order status |
+
+#### Logistics Service (`:5004`)
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/logistics/shipments` | *(Admin)* All shipments |
+| `GET` | `/api/logistics/shipments/mine` | *(Agent)* Assigned shipments |
+| `PATCH` | `/api/logistics/status/{orderId}` | Update delivery status |
+| `GET` | `/api/logistics/tracking/{orderId}` | Get tracking history |
+
+#### Payment Service (`:5005`)
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `POST` | `/api/payment/create-order` | Create Razorpay order |
+| `POST` | `/api/payment/verify` | Verify payment signature |
+
+#### Notification Service (`:5006`)
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/notifications/inbox` | User notification inbox |
+
+### 12.3 JSON Contract Examples
+
+**Place Commission Request:**
+```json
+{
+  "customerId": "guid",
+  "customerEmail": "user@example.com",
+  "category": "Hand-drawn Portrait",
+  "instructions": "A3 size, pencil sketch of 2 people",
+  "referencePhotoUrl": "https://..."
+}
+```
+
+**PATCH Order Status Request:**
+```json
+{
+  "status": 4
+}
+```
+> Status values: `0=Pending`, `1=Confirmed`, `2=InProduction`, `3=ReadyForDelivery`, `4=OutForDelivery`, `5=Delivered`, `6=Cancelled`
+
+---
+
+## 13. Core Business Flow Diagrams
+
+### 13.1 Authentication and JWT Guard Verification
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Angular
+    participant Gateway
+    participant Identity
+
+    User->>Angular: Submit login credentials
+    Angular->>Gateway: POST /api/auth/login
+    Gateway->>Identity: Forward request
+    Identity->>Identity: BCrypt.Verify password
+    Identity-->>Angular: { token, role, userId }
+    Angular->>Angular: Store in localStorage (as_token, as_role, as_userId)
+    User->>Angular: Navigate to /artist
+    Angular->>Angular: artistGuard checks role == "Artist"
+    Angular-->>User: Render Artist Dashboard
+```
+
+### 13.2 Order-to-Delivery Sequence Flow
+
+```mermaid
+sequenceDiagram
+    participant C as Customer
+    participant G as Gateway
+    participant O as OrderService
+    participant P as PaymentService
+    participant L as LogisticsService
+    participant R as RabbitMQ
+    participant N as NotificationService
+
+    C->>G: POST /api/orders
+    G->>O: Place Order
+    O->>O: Create Order (Pending)
+    O->>R: Publish OrderPlacedEvent
+    O-->>C: Order Created
+
+    R->>P: Consume OrderPlacedEvent
+    P->>P: Create Razorpay Order
+
+    Note over O: Admin updates status
+    O->>R: Publish ReadyForDispatchEvent
+    R->>L: Consume ReadyForDispatch
+    L->>L: Create Shipment, Assign Agent
+    L->>R: Publish AgentAssignedEvent
+    R->>N: Consume AgentAssigned
+    N-->>C: Email: Agent Assigned
+
+    L->>R: Publish OrderStatusChangedEvent
+    R->>N: Consume StatusChanged
+    N-->>C: Email: Out for Delivery
+```
+
+### 13.3 Custom Commission Handshake Flow
+
+```mermaid
+sequenceDiagram
+    participant C as Customer
+    participant O as OrderService
+    participant R as RabbitMQ
+    participant N as NotificationService
+    participant A as Artist
+
+    C->>O: POST /api/orders/commission
+    O->>O: Save Commission Record
+    O->>R: Publish CustomCommissionEvent
+    R->>N: Consume CustomCommission
+    N-->>A: Email: New Commission Request
+
+    A->>O: Review and Update Status (InProduction)
+    O->>R: Publish OrderStatusChangedEvent
+    R->>N: Consume StatusChanged
+    N-->>C: Email: Commission Status Updated
+```
+
+---
+
+## 14. Deployment and Runtime View
+
+### 14.1 Infrastructure Deployment Diagram
+
+```mermaid
+graph TB
+    subgraph "Client"
+        Browser[Angular App :4200]
+    end
+
+    subgraph "API Layer"
+        Gateway[Ocelot Gateway :5000]
+    end
+
+    subgraph "Microservices"
+        Identity[Identity :5001]
+        Artwork[Artwork :5002]
+        Order[Order :5003]
+        Logistics[Logistics :5004]
+        Payment[Payment :5005]
+        Notif[Notification :5006]
+    end
+
+    subgraph "Storage and Messaging"
+        SQL[(SQL Server :1433)]
+        Redis[(Redis :6379)]
+        RMQ[RabbitMQ :5672]
+    end
+
+    Browser -->|HTTP| Gateway
+    Gateway --> Identity & Artwork & Order & Logistics & Payment & Notif
+    Identity & Artwork & Order & Logistics & Payment & Notif --- SQL
+    Order --- Redis
+    Order & Identity & Logistics -.-> RMQ
+    RMQ -.-> Notif & Payment & Logistics
+```
+
+### 14.2 Services Started Individually
+Each microservice is launched individually via `dotnet run`. RabbitMQ and Redis are run as standalone local instances (no Docker Compose is used).
+
+---
+
+## 15. Security
+
+### 15.1 Authentication Model
+- **JWT Bearer Tokens**: Issued by IdentityService. Each token payload contains `userId`, `email`, and `role` claims.
+- **BCrypt Password Hashing**: All passwords are hashed and salted using `BCrypt.Net-Next` before storage.
+- **Token Storage**: The Angular frontend stores JWT in `localStorage` under key `as_token`.
+
+### 15.2 Role-Based Authorization
+- Four guards enforce role checks client-side: `authGuard`, `artistGuard`, `deliveryGuard`, `adminGuard`.
+- Server-side, services validate the JWT on incoming requests via middleware.
+
+---
+
+## 16. Conclusion
+
+The **Artistic Sisters** platform is a fully functional, enterprise-architecture implementation targeting the premium art and commission industry. It delivers:
+- A clean, role-segmented **Angular 21** frontend with protected routes and JWT injection.
+- Six independently deployable **.NET 10** microservices, each with its own SQL Server database, following Clean Architecture and CQRS.
+- A fully **event-driven** notification engine through **MassTransit + RabbitMQ**, handling 12 distinct integration events.
+- **Razorpay** payment gateway integration for real-time payment processing.
+- **Redis** cache for transient reservation state in the OrderService.
+
+This document represents the complete, verified technical specification of the platform and is ready for final submission.
+    </script>
+
+    <script>
+        marked.setOptions({ headerIds: true, gfm: true, breaks: true });
+
+        const content = document.getElementById('content');
+        const sourceData = document.getElementById('md-source').text.trim();
+        content.innerHTML = marked.parse(sourceData);
+
+        function renderMermaid() {
+            const codeBlocks = document.querySelectorAll('pre code.language-mermaid');
+            codeBlocks.forEach((codeBlock) => {
+                const pre = codeBlock.parentElement;
+                const mermaidCode = codeBlock.textContent.trim();
+                const div = document.createElement('div');
+                div.className = 'mermaid';
+                div.textContent = mermaidCode;
+                pre.parentElement.replaceChild(div, pre);
+            });
+
+            if (window.mermaid) {
+                window.mermaid.run({ nodes: document.querySelectorAll('.mermaid') });
+            }
+        }
+
+        setTimeout(renderMermaid, 500);
+    </script>
+</body>
+
+</html>

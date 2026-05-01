@@ -10,12 +10,11 @@ import { RouterLink } from '@angular/router';
       <div class="hero-bg"></div>
       <div class="hero-overlay"></div>
       <div class="hero-content fade-up">
-        <h1>Welcome to<br>Artistic<span style="color: #eea4cc">_</span>Sisters</h1>
+        <h1>Welcome to<br>Artistic Sisters</h1>
         <p class="hero-sub">Bringing your cherished moments and visions to life through traditional and realistic art.</p>
         <div class="hero-actions">
-          <a routerLink="/portfolio" class="btn btn-solid-pink hero-btn" style="display: inline-flex; align-items: center;">
-            View Our Art
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:6px"><path d="M9 18l6-6-6-6"/></svg>
+          <a href="http://localhost:5050" target="_blank" class="btn btn-solid-pink hero-btn" style="display: inline-flex; align-items: center;">
+            🪄 Try AI Art Lab
           </a>
           <a routerLink="/contact" class="btn btn-white-pink hero-btn">Get in Touch</a>
         </div>

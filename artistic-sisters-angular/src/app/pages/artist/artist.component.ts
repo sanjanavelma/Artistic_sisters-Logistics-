@@ -391,7 +391,7 @@ export class ArtistComponent implements OnInit {
       },
       error: (err) => {
         this.uploading = false;
-        this.errMsg = 'Failed to publish artwork. Server might be offline.';
+        this.errMsg = err?.error?.message || 'Failed to publish artwork. Server might be offline.';
         console.error(err);
       }
     });
@@ -401,7 +401,7 @@ export class ArtistComponent implements OnInit {
     this.loadingArt = true;
     this.artworkService.getAll().subscribe({
       next: (arts) => { this.myArtworks = arts; this.loadingArt = false; },
-      error: ()    => { this.loadingArt = false; }
+      error: (err) => { this.loadingArt = false; this.showToast(err?.error?.message || 'Failed to load artworks', true); }
     });
   }
 
@@ -415,11 +415,11 @@ export class ArtistComponent implements OnInit {
         art.isComingSoon = next;
         art.isAvailable  = art.availableQuantity > 0 && !next;
         this.loadingIds.delete(art.id);
-        this.showToast(res.message || (next ? 'Marked as Coming Soon' : 'Artwork is now live'));
+        this.showToast(res.message || res.Message || (next ? 'Marked as Coming Soon' : 'Artwork is now live'));
       },
-      error: () => {
+      error: (err) => {
         this.loadingIds.delete(art.id);
-        this.showToast('Could not update status — is the server running?', true);
+        this.showToast(err?.error?.message || err?.error?.Message || 'Could not update status — is the server running?', true);
       }
     });
   }
@@ -435,13 +435,13 @@ export class ArtistComponent implements OnInit {
 
     this.artworkService.deleteArtwork(this.confirmArt.id).subscribe({
       next: (res: any) => {
-        this.showToast(res.message || 'Artwork removed from the gallery');
+        this.showToast(res.message || res.Message || 'Artwork removed from the gallery');
         this.myArtworks = this.myArtworks.filter(a => a.id !== this.confirmArt!.id);
         this.confirmArt  = null;
         this.deleteLoading = false;
       },
-      error: () => {
-        this.showToast('Could not remove artwork — is the server running?', true);
+      error: (err) => {
+        this.showToast(err?.error?.message || err?.error?.Message || 'Could not remove artwork — is the server running?', true);
         this.confirmArt  = null;
         this.deleteLoading = false;
       }

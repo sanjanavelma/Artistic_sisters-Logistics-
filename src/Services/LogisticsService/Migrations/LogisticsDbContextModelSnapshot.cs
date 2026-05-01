@@ -89,15 +89,6 @@ namespace LogisticsService.Migrations
                     b.Property<bool>("IsCompensated")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime?>("LastGPSUpdate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal?>("LastLatitude")
-                        .HasColumnType("decimal(10,7)");
-
-                    b.Property<decimal?>("LastLongitude")
-                        .HasColumnType("decimal(10,7)");
-
                     b.Property<Guid>("OrderId")
                         .HasColumnType("uniqueidentifier");
 

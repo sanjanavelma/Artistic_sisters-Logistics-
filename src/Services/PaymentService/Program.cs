@@ -32,10 +32,34 @@ builder.Services.AddMassTransit(x =>
     });
 });
 
-// ── 3. CONTROLLERS & OPENAPI ──────────────────────────────────────────────────
+// ── 3. CONTROLLERS & SWAGGER ──────────────────────────────────────────────────
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddOpenApi();
+
+// ── SWAGGER / OPENAPI ──────────────────────────────────────────────────────────
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.OpenApiInfo
+    {
+        Title = "Payment Service API",
+        Version = "v1",
+        Description = "Handles Razorpay payment lifecycle: create Razorpay order, verify payment signature, query payment status by Order ID, and inspect Dispatch Saga state."
+    });
+
+    c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = Microsoft.OpenApi.SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = Microsoft.OpenApi.ParameterLocation.Header,
+        Description = "Enter: Bearer {your JWT token}"
+    });
+    c.AddSecurityRequirement(doc => new Microsoft.OpenApi.OpenApiSecurityRequirement
+    {
+        [new Microsoft.OpenApi.OpenApiSecuritySchemeReference("Bearer", doc)] = []
+    });
+});
 
 var app = builder.Build();
 
@@ -47,10 +71,13 @@ using (var scope = app.Services.CreateScope())
     db.Database.Migrate();
 }
 
-if (app.Environment.IsDevelopment())
+// ── SWAGGER UI ────────────────────────────────────────────────────────────────
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.MapOpenApi();
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Payment Service v1");
+    c.RoutePrefix = "swagger";
+});
 
 app.UseAuthorization();
 app.MapControllers();

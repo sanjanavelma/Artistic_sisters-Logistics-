@@ -167,14 +167,7 @@ import { AdminOrderDto, DeliveryAssignmentDto, OrderStatus, OrderType, PaymentMo
                   <span class="dc-label">📅 Assigned</span>
                   <span class="dc-val">{{ a.assignedAt | date:'mediumDate' }}</span>
                 </div>
-                <div class="dc-row" *ngIf="a.lastLatitude">
-                  <span class="dc-label">📍 Last GPS</span>
-                  <span class="dc-val gps">{{ a.lastLatitude?.toFixed(4) }}, {{ a.lastLongitude?.toFixed(4) }}</span>
-                </div>
-                <div class="dc-row" *ngIf="a.lastGPSUpdate">
-                  <span class="dc-label">🕓 GPS Updated</span>
-                  <span class="dc-val">{{ a.lastGPSUpdate | date:'mediumTime' }}</span>
-                </div>
+
                 <div class="sla-bar" [class.sla-warn]="isSlaUrgent(a.slaDeadline)">
                   <span>SLA: {{ a.slaDeadline | date:'medium' }}</span>
                   <span class="sla-flag" *ngIf="isSlaUrgent(a.slaDeadline)">⚠️ URGENT</span>
@@ -363,7 +356,7 @@ import { AdminOrderDto, DeliveryAssignmentDto, OrderStatus, OrderType, PaymentMo
     .dc-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; }
     .dc-label { color: #94a3b8; font-size: 0.8rem; }
     .dc-val { font-weight: 500; color: #1e293b; }
-    .gps { font-family: monospace; color: #3b82f6; font-size: 0.82rem; }
+
     .sla-bar {
       padding: 8px 12px; background: #f8fafc; border-radius: 8px;
       font-size: 0.8rem; color: #64748b; display: flex; justify-content: space-between;
@@ -459,7 +452,7 @@ export class AdminDashboardComponent implements OnInit {
     this.loadingOrders = true;
     this.orderService.getAllOrders().subscribe({
       next: (data) => { this.orders = data; this.loadingOrders = false; },
-      error: () => { this.loadingOrders = false; }
+      error: (err) => { this.loadingOrders = false; this.showToast(err?.error?.message || 'Failed to load orders', true); }
     });
   }
 
@@ -467,7 +460,7 @@ export class AdminDashboardComponent implements OnInit {
     this.loadingDeliveries = true;
     this.logisticsService.getAssignments().subscribe({
       next: (data) => { this.assignments = data; this.loadingDeliveries = false; },
-      error: () => { this.loadingDeliveries = false; }
+      error: (err) => { this.loadingDeliveries = false; this.showToast(err?.error?.message || 'Failed to load assignments', true); }
     });
   }
 
@@ -571,7 +564,7 @@ export class AdminDashboardComponent implements OnInit {
       },
       error: (err) => {
         this.updatingOrder = '';
-        this.showToast('❌ Failed to update order status. Please ensure backend is running.', true);
+        this.showToast(err?.error?.message || '❌ Failed to update order status. Please ensure backend is running.', true);
         this.loadOrders(); // Revert local state to actual state
       }
     });

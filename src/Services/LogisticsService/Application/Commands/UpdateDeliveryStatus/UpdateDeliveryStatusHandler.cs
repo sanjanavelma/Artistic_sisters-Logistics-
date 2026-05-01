@@ -1,6 +1,5 @@
 using Artistic_Sisters.Shared.Events.Order;
 using LogisticsService.Domain.Enums;
-using LogisticsService.Infrastructure.Cache;
 using LogisticsService.Infrastructure.Persistence;
 using MassTransit;
 using MediatR;
@@ -13,18 +12,15 @@ public class UpdateDeliveryStatusHandler
     : IRequestHandler<UpdateDeliveryStatusCommand, UpdateStatusResult>
 {
     private readonly LogisticsDbContext _db;
-    private readonly ILogisticsCache _cache;
     private readonly IPublishEndpoint _publisher;
     private readonly ILogger<UpdateDeliveryStatusHandler> _logger;
 
     public UpdateDeliveryStatusHandler(
         LogisticsDbContext db,
-        ILogisticsCache cache,
         IPublishEndpoint publisher,
         ILogger<UpdateDeliveryStatusHandler> logger)
     {
         _db = db;
-        _cache = cache;
         _publisher = publisher;
         _logger = logger;
     }
@@ -43,19 +39,6 @@ public class UpdateDeliveryStatusHandler
 
         var oldStatus = assignment.Status;
         assignment.Status = request.NewStatus;
-
-        // ── GPS update ────────────────────────────────────────────────────────
-        if (request.Latitude.HasValue && request.Longitude.HasValue)
-        {
-            assignment.LastLatitude = request.Latitude;
-            assignment.LastLongitude = request.Longitude;
-            assignment.LastGPSUpdate = DateTime.UtcNow;
-
-            await _cache.SetGPSAsync(
-                request.OrderId,
-                request.Latitude.Value,
-                request.Longitude.Value);
-        }
 
         await _db.SaveChangesAsync(ct);
 

@@ -12,10 +12,6 @@ public record UpdateDeliveryStatusCommand : IRequest<UpdateStatusResult>
     // New status — PickedUp, InTransit, OutForDelivery, Delivered
     public DeliveryStatus NewStatus { get; init; }
 
-    // Optional GPS coordinates at time of update
-    public double? Latitude { get; init; }
-    public double? Longitude { get; init; }
-
     // Optional note from agent — e.g. "Traffic delay"
     public string? Note { get; init; }
 }

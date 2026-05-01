@@ -3,6 +3,7 @@
 export interface AuthResult {
   success: boolean;
   message: string;
+  Message?: string;
   customerId?: string;
   token?: string;
   role?: string;
@@ -87,6 +88,7 @@ export interface CommissionRequest {
 export interface OrderResult {
   success: boolean;
   message: string;
+  Message?: string;
   orderId?: string;
 }
 
@@ -111,8 +113,6 @@ export interface SagaState {
 
 export interface TrackingInfo {
   orderId: string;
-  latitude: number;
-  longitude: number;
   updatedAt: Date;
 }
 
@@ -185,9 +185,6 @@ export interface DeliveryAssignmentDto {
   statusText: string;
   assignedAt: Date;
   slaDeadline: Date;
-  lastLatitude?: number;
-  lastLongitude?: number;
-  lastGPSUpdate?: Date;
   agent: { id: string; name: string; phone: string; email: string; };
   vehicle: { registrationNumber: string; vehicleType: string; };
 }

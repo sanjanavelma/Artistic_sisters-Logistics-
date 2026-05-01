@@ -39,7 +39,11 @@ export class AuthService {
 
   register(req: RegisterRequest): Observable<AuthResult> {
     return this.http.post<AuthResult>(`${this.BASE}/register`, req).pipe(
-      tap(res => { if (res.success && res.token) this.saveSession(res); })
+      tap((res: any) => { 
+        const isSuccess = res.success !== undefined ? res.success : res.Success;
+        const hasToken = res.token !== undefined ? res.token : res.Token;
+        if (isSuccess && hasToken) this.saveSession(res); 
+      })
     );
   }
 
@@ -47,23 +51,37 @@ export class AuthService {
 
   registerAgent(req: RegisterRequest): Observable<AuthResult> {
     return this.http.post<AuthResult>(`${this.BASE}/register-agent`, req).pipe(
-      tap(res => { if (res.success && res.token) this.saveSession(res); })
+      tap((res: any) => { 
+        const isSuccess = res.success !== undefined ? res.success : res.Success;
+        const hasToken = res.token !== undefined ? res.token : res.Token;
+        if (isSuccess && hasToken) this.saveSession(res); 
+      })
     );
   }
 
   login(req: LoginRequest): Observable<AuthResult> {
     return this.http.post<AuthResult>(`${this.BASE}/login`, req).pipe(
-      tap(res => { if (res.success && res.token) this.saveSession(res); })
+      tap((res: any) => { 
+        const isSuccess = res.success !== undefined ? res.success : res.Success;
+        const hasToken = res.token !== undefined ? res.token : res.Token;
+        if (isSuccess && hasToken) this.saveSession(res); 
+      })
     );
   }
 
-  private saveSession(res: AuthResult) {
-    localStorage.setItem('as_token', res.token!);
-    localStorage.setItem('as_name', res.name ?? '');
-    localStorage.setItem('as_role', res.role ?? 'Customer');
-    localStorage.setItem('as_id', res.customerId ?? '');
-    localStorage.setItem('as_email', res.email ?? '');
-    this._user$.next({ name: res.name!, role: res.role!, customerId: res.customerId!, email: res.email! });
+  private saveSession(res: any) {
+    const token = res.token || res.Token;
+    const name = res.name || res.Name;
+    const role = res.role || res.Role;
+    const id = res.customerId || res.CustomerId;
+    const email = res.email || res.Email;
+
+    localStorage.setItem('as_token', token!);
+    localStorage.setItem('as_name', name ?? '');
+    localStorage.setItem('as_role', role ?? 'Customer');
+    localStorage.setItem('as_id', id ?? '');
+    localStorage.setItem('as_email', email ?? '');
+    this._user$.next({ name: name!, role: role!, customerId: id!, email: email! });
   }
 
   logout() {

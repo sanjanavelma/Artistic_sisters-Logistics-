@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { interval, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { LogisticsService } from '../../core/services/logistics.service';
-import { DeliveryAssignmentDto } from '../../core/models/models';
+import { DeliveryAssignmentDto, DeliveryAgent } from '../../core/models/models';
 
 @Component({
   selector: 'app-delivery-dashboard',
@@ -15,9 +15,12 @@ import { DeliveryAssignmentDto } from '../../core/models/models';
         <div class="header-content">
           <div class="header-left">
             <div class="role-badge">🚚 Delivery Agent</div>
-            <h1>My Deliveries</h1>
-            <p>Update order status and location in real time</p>
-          </div>
+              <h1>My Deliveries</h1>
+              <p *ngIf="!agentInfo">Update order status in real time</p>
+              <p *ngIf="agentInfo" class="agent-welcome">
+                Welcome back, <strong>{{ agentInfo.name }}</strong> ({{ agentInfo.email }})
+              </p>
+            </div>
           <div class="live-indicator" [class.active]="isPolling">
             <span class="pulse-dot"></span>
             {{ isPolling ? 'Live Tracking Active' : 'Tracking Paused' }}
@@ -92,10 +95,7 @@ import { DeliveryAssignmentDto } from '../../core/models/models';
                       {{ item.slaDeadline | date:'medium' }}
                     </span>
                   </div>
-                  <div class="info-item" *ngIf="item.lastLatitude">
-                    <span class="info-label">📍 Last GPS</span>
-                    <span class="info-val gps-val">{{ item.lastLatitude?.toFixed(4) }}, {{ item.lastLongitude?.toFixed(4) }}</span>
-                  </div>
+
                 </div>
 
                 <!-- Update Panel -->
@@ -119,18 +119,6 @@ import { DeliveryAssignmentDto } from '../../core/models/models';
                     </button>
                   </div>
 
-                  <div class="gps-row">
-                    <div class="gps-inputs">
-                      <input class="form-input sm" type="number" step="0.0001" [(ngModel)]="gpsLat[item.orderId]" placeholder="Latitude" />
-                      <input class="form-input sm" type="number" step="0.0001" [(ngModel)]="gpsLng[item.orderId]" placeholder="Longitude" />
-                    </div>
-                    <button
-                      class="btn btn-outline push-gps-btn"
-                      (click)="pushGPS(item)"
-                      [disabled]="updatingGPS[item.orderId]">
-                      📍 {{ updatingGPS[item.orderId] ? 'Sending...' : 'Push Location' }}
-                    </button>
-                  </div>
 
                   <div class="feedback" *ngIf="feedback[item.orderId]" [class.success]="feedback[item.orderId].ok">
                     {{ feedback[item.orderId].msg }}
@@ -256,10 +244,7 @@ import { DeliveryAssignmentDto } from '../../core/models/models';
     .form-select:focus { outline: none; border-color: #3b82f6; }
     .update-btn { white-space: nowrap; }
 
-    .gps-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-    .gps-inputs { display: flex; gap: 8px; flex: 1; }
-    .gps-inputs .form-input { flex: 1; }
-    .push-gps-btn { white-space: nowrap; }
+
 
     .btn-outline {
       border: 1.5px solid #3b82f6; color: #3b82f6; background: transparent;
@@ -275,11 +260,12 @@ import { DeliveryAssignmentDto } from '../../core/models/models';
     }
     .feedback.success { background: #dcfce7; color: #14532d; }
 
+    .agent-welcome { color: #e2e8f0; margin: 0; font-size: 1.1rem; }
+    .agent-welcome strong { color: #f8fafc; }
+
     @media (max-width: 600px) {
       .info-grid { grid-template-columns: 1fr; }
       .update-row { flex-direction: column; align-items: stretch; }
-      .gps-row { flex-direction: column; align-items: stretch; }
-      .gps-inputs { flex-direction: column; }
     }
   `]
 })
@@ -287,12 +273,11 @@ export class DeliveryDashboardComponent implements OnInit, OnDestroy {
   agentId = '';
   agentIdInput = '';
   assignments: DeliveryAssignmentDto[] = [];
+  agentInfo: DeliveryAgent | null = null;
   loading = false;
   isPolling = false;
 
   selectedStatus: Record<string, number> = {};
-  gpsLat: Record<string, number> = {};
-  gpsLng: Record<string, number> = {};
   updating: Record<string, boolean> = {};
   updatingGPS: Record<string, boolean> = {};
   feedback: Record<string, { ok: boolean; msg: string }> = {};
@@ -311,6 +296,7 @@ export class DeliveryDashboardComponent implements OnInit, OnDestroy {
     const role = localStorage.getItem('as_role');
     if (storedId && role === 'DeliveryAgent') {
       this.agentId = storedId;
+      this.fetchAgentInfo();
       this.startPolling();
     }
   }
@@ -319,12 +305,21 @@ export class DeliveryDashboardComponent implements OnInit, OnDestroy {
     const id = this.agentIdInput.trim();
     if (!id) return;
     this.agentId = id;
+    this.fetchAgentInfo();
     this.startPolling();
+  }
+
+  fetchAgentInfo() {
+    this.logisticsService.getAgentById(this.agentId).subscribe({
+      next: (data) => this.agentInfo = data,
+      error: () => this.agentInfo = null
+    });
   }
 
   reset() {
     this.agentId = '';
     this.agentIdInput = '';
+    this.agentInfo = null;
     this.assignments = [];
     this.stopPolling();
   }
@@ -355,8 +350,6 @@ export class DeliveryDashboardComponent implements OnInit, OnDestroy {
   private initDefaults() {
     this.assignments.forEach(a => {
       if (!this.selectedStatus[a.orderId]) this.selectedStatus[a.orderId] = a.status;
-      if (!this.gpsLat[a.orderId]) this.gpsLat[a.orderId] = a.lastLatitude ?? 0;
-      if (!this.gpsLng[a.orderId]) this.gpsLng[a.orderId] = a.lastLongitude ?? 0;
     });
   }
 
@@ -386,23 +379,7 @@ export class DeliveryDashboardComponent implements OnInit, OnDestroy {
     });
   }
 
-  pushGPS(item: DeliveryAssignmentDto) {
-    const lat = this.gpsLat[item.orderId];
-    const lng = this.gpsLng[item.orderId];
-    if (!lat || !lng) return;
 
-    this.updatingGPS[item.orderId] = true;
-    this.logisticsService.pushGPS(item.orderId.toString(), lat, lng).subscribe({
-      next: () => {
-        this.updatingGPS[item.orderId] = false;
-        this.feedback[item.orderId] = { ok: true, msg: `📍 Location sent: ${lat.toFixed(4)}, ${lng.toFixed(4)}` };
-      },
-      error: () => {
-        this.updatingGPS[item.orderId] = false;
-        this.feedback[item.orderId] = { ok: false, msg: '❌ Failed to push location.' };
-      }
-    });
-  }
 
   getStatusClass(statusText: string): string {
     switch (statusText?.toLowerCase()) {

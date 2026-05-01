@@ -62,12 +62,7 @@ public class LogisticsDbContext : DbContext
             entity.Property(a => a.Status)
                 .HasConversion<int>();
 
-            // GPS coordinates — allow null (not always available)
-            entity.Property(a => a.LastLatitude)
-                .HasColumnType("decimal(10,7)");
 
-            entity.Property(a => a.LastLongitude)
-                .HasColumnType("decimal(10,7)");
 
             // Assignment belongs to one Agent
             entity.HasOne(a => a.Agent)

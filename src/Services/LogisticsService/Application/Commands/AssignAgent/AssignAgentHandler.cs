@@ -4,7 +4,6 @@
 // On failure → publishes AssignAgentFailedEvent → Saga starts compensation
 using Artistic_Sisters.Shared.Events.Logistics;
 using LogisticsService.Domain.Entities;
-using LogisticsService.Infrastructure.Cache;
 using LogisticsService.Infrastructure.Persistence;
 using MassTransit;
 using MediatR;
@@ -17,18 +16,15 @@ public class AssignAgentHandler
     : IRequestHandler<AssignAgentCommand, AssignAgentResult>
 {
     private readonly LogisticsDbContext _db;
-    private readonly ILogisticsCache _cache;
     private readonly IPublishEndpoint _publisher;
     private readonly ILogger<AssignAgentHandler> _logger;
 
     public AssignAgentHandler(
         LogisticsDbContext db,
-        ILogisticsCache cache,
         IPublishEndpoint publisher,
         ILogger<AssignAgentHandler> logger)
     {
         _db = db;
-        _cache = cache;
         _publisher = publisher;
         _logger = logger;
     }
@@ -145,11 +141,7 @@ public class AssignAgentHandler
         _db.Assignments.Add(assignment);
         await _db.SaveChangesAsync(ct);
 
-        // ── STEP 5: Initialize GPS in Redis ───────────────────────────────────
-        // Start with 0,0 — agent will update as they move
-        await _cache.SetGPSAsync(request.OrderId, 0, 0);
-
-        // ── STEP 6: Publish SUCCESS event ─────────────────────────────────────
+        // ── STEP 5: Publish SUCCESS event ─────────────────────────────────────
         // Saga Orchestrator receives this and confirms dispatch
         // Notification Service sends customer tracking info + agent assignment email
         await _publisher.Publish(new AgentAssignedEvent

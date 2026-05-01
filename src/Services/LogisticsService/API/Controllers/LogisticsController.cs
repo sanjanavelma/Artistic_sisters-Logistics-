@@ -1,7 +1,6 @@
 using LogisticsService.Application.Commands.AssignAgent;
 using LogisticsService.Application.Commands.CompensateAssignment;
 using LogisticsService.Application.Commands.UpdateDeliveryStatus;
-using LogisticsService.Infrastructure.Cache;
 using LogisticsService.Infrastructure.Persistence;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -15,16 +14,13 @@ public class LogisticsController : ControllerBase
 {
     private readonly IMediator _mediator;
     private readonly LogisticsDbContext _db;
-    private readonly ILogisticsCache _cache;
 
     public LogisticsController(
         IMediator mediator,
-        LogisticsDbContext db,
-        ILogisticsCache cache)
+        LogisticsDbContext db)
     {
         _mediator = mediator;
         _db = db;
-        _cache = cache;
     }
 
     // POST api/logistics/assign — assign agent to order
@@ -57,24 +53,6 @@ public class LogisticsController : ControllerBase
         return Ok(result);
     }
 
-    // GET api/logistics/track/{orderId} — get live GPS from Redis
-    [HttpGet("track/{orderId}")]
-    public async Task<IActionResult> TrackOrder(Guid orderId)
-    {
-        // Read GPS from Redis — instant response
-        var gps = await _cache.GetGPSAsync(orderId);
-        if (gps == null)
-            return NotFound(new { message = "No tracking data available" });
-
-        return Ok(new
-        {
-            OrderId = orderId,
-            Latitude = gps.Value.Lat,
-            Longitude = gps.Value.Lng,
-            UpdatedAt = DateTime.UtcNow
-        });
-    }
-
     // GET api/logistics/agents — get all agents and their status
     [HttpGet("agents")]
     public async Task<IActionResult> GetAgents()
@@ -92,6 +70,26 @@ public class LogisticsController : ControllerBase
             .ToListAsync();
 
         return Ok(agents);
+    }
+
+    // GET api/logistics/agents/{id} — get specific agent details
+    [HttpGet("agents/{id}")]
+    public async Task<IActionResult> GetAgentById(Guid id)
+    {
+        var agent = await _db.Agents
+            .Where(a => a.Id == id && a.IsActive)
+            .Select(a => new
+            {
+                a.Id,
+                a.Name,
+                a.Phone,
+                a.Email,
+                Status = a.Status.ToString()
+            })
+            .FirstOrDefaultAsync();
+
+        if (agent == null) return NotFound(new { message = "Agent not found" });
+        return Ok(agent);
     }
 
     // POST api/logistics/agents — add new agent (for testing/seeding)
@@ -132,9 +130,6 @@ public class LogisticsController : ControllerBase
                 a.AssignedAt,
                 a.SLADeadline,
                 a.IsCompensated,
-                a.LastLatitude,
-                a.LastLongitude,
-                a.LastGPSUpdate,
                 Agent = new { a.Agent.Id, a.Agent.Name, a.Agent.Phone, a.Agent.Email },
                 Vehicle = new { a.Vehicle.RegistrationNumber, a.Vehicle.VehicleType }
             })
@@ -160,9 +155,6 @@ public class LogisticsController : ControllerBase
                 StatusText = a.Status.ToString(),
                 a.AssignedAt,
                 a.SLADeadline,
-                a.LastLatitude,
-                a.LastLongitude,
-                a.LastGPSUpdate,
                 Agent = new { a.Agent.Id, a.Agent.Name, a.Agent.Phone, a.Agent.Email },
                 Vehicle = new { a.Vehicle.RegistrationNumber, a.Vehicle.VehicleType }
             })
@@ -170,14 +162,6 @@ public class LogisticsController : ControllerBase
             .ToListAsync();
 
         return Ok(assignments);
-    }
-
-    // POST api/logistics/gps — agent pushes GPS update to Redis only (fast, no DB write)
-    [HttpPost("gps")]
-    public async Task<IActionResult> UpdateGPS([FromBody] UpdateGPSRequest request)
-    {
-        await _cache.SetGPSAsync(request.OrderId, request.Latitude, request.Longitude);
-        return Ok(new { message = "GPS updated" });
     }
 
     // POST api/logistics/vehicles — add new vehicle (for testing/seeding)
@@ -218,11 +202,3 @@ public record AddVehicleRequest
     public string RegistrationNumber { get; init; } = string.Empty;
     public string VehicleType { get; init; } = string.Empty;
 }
-
-public record UpdateGPSRequest
-{
-    public Guid OrderId { get; init; }
-    public double Latitude { get; init; }
-    public double Longitude { get; init; }
-}
-

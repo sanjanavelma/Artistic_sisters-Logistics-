@@ -68,7 +68,7 @@ const authStyles = `
             <div class="form-row">
               <div class="form-group">
                 <label>Full Name</label>
-                <input class="form-control" type="text" [(ngModel)]="form.name" name="name" placeholder="Sanjana Velma" required />
+                <input class="form-control" type="text" [(ngModel)]="form.name" name="name" placeholder="Your full name" required />
               </div>
               <div class="form-group">
                 <label>Phone Number</label>
@@ -81,7 +81,7 @@ const authStyles = `
             </div>
             <div class="form-group">
               <label>Delivery Address</label>
-              <input class="form-control" type="text" [(ngModel)]="form.address" name="address" placeholder="123 Art Street, Hyderabad" required />
+              <input class="form-control" type="text" [(ngModel)]="form.address" name="address" placeholder="Your delivery address" required />
             </div>
             <div class="form-group">
               <label>Password</label>
@@ -115,13 +115,17 @@ export class RegisterComponent {
       { this.error = 'Please fill all fields'; return; }
     this.loading = true; this.error = '';
     this.auth.register(this.form).subscribe({
-      next: res => {
+      next: (res: any) => {
         this.loading = false;
-        if (res.success) { this.success = true; setTimeout(() => this.router.navigate(['/portfolio']), 1500); }
-        else this.error = res.message;
+        const isSuccess = res.success !== undefined ? res.success : res.Success;
+        if (isSuccess) { this.success = true; setTimeout(() => this.router.navigate(['/portfolio']), 1500); }
+        else this.error = res.message || res.Message || 'Registration failed.';
       },
-      error: () => { this.loading = false; this.error = 'Server error. Is the backend running?'; }
+      error: (err) => { 
+        this.loading = false; 
+        const errorBody = err.error as any;
+        this.error = errorBody?.message || errorBody?.Message || err.message || 'Server error. Is the backend running?'; 
+      }
     });
   }
 }
-

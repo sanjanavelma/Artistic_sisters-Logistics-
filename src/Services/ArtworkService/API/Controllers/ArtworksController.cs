@@ -25,9 +25,9 @@ public class ArtworksController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAll()
+    public async Task<IActionResult> GetAll([FromQuery] string? artworkType = null, [FromQuery] string? medium = null)
     {
-        var list = await _mediator.Send(new GetAllArtworksQuery());
+        var list = await _mediator.Send(new GetAllArtworksQuery { ArtworkType = artworkType, Medium = medium });
         return Ok(list);
     }
 
